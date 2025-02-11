@@ -3,7 +3,7 @@
 
 @theme {
     --color-dark: #151515;
-    --color-light: #f2f3f8;
+    --color-light: #ffffff;
     --color-primary: #465f9f;
     --color-secondary: #c8ceda;
     --color-pink: #be99c3;
@@ -19,4 +19,9 @@
         background-repeat: no-repeat;
         background-size: cover;
    }
+
+    .lin-transition {
+        transition-duration: 0.3s;
+        transition-timing-function: linear;
+    }
 }

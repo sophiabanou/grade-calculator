@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Geologica:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --color-dark: #151515;
+    --color-light: #f2f3f8;
+    --color-primary: #465f9f;
+    --color-secondary: #c8ceda;
+    --color-pink: #be99c3;
+    --color-pink-dark: #9b8bb7;
+
+    --font-geologica: "Geologica", serif;
+}
+
+@layer components {
+   .bg-prim {
+        background-image: url("assets/background.webp");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+   }
+}

@@ -52,7 +52,7 @@ const Header = ({classes, setClasses}) => {
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="fixed top-0 bg-light mt-10 flex justify-center rounded-lg border-3 border-dark w-auto max-sm:hidden">
                 <nav className="flex items-center w-full">
-                        <a href="/" className="group px-15 py-2 border-r-dark border-r-3 max-md:px-10">
+                        <a href="#/" className="group px-15 py-2 border-r-dark border-r-3 max-md:px-10">
                             <p className="text-sm font-semibold uppercase text-dark group-hover:text-pink-dark lin-transition">HOME</p>
                         </a>
 
@@ -68,7 +68,7 @@ const Header = ({classes, setClasses}) => {
                                 `}>IMPORT</p>
                         </button>
 
-                        <a href="/about" className="group px-15 py-2 max-md:px-10">
+                        <a href="#/about" className="group px-15 py-2 max-md:px-10">
                             <p className="text-sm font-semibold uppercase text-dark group-hover:text-pink-dark lin-transition">ABOUT</p>
                         </a>
                 </nav>

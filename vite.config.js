@@ -8,4 +8,8 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
+  base: '/grade-calculator/',  // Replace with your repository name
+  build: {
+    outDir: 'dist',
+  },
 })

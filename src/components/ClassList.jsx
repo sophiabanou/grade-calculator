@@ -2,6 +2,7 @@ import BoxLayout from "./BoxLayout.jsx";
 import { useAppContext } from "../context/AppContext.jsx";
 import { RiCloseFill } from "@remixicon/react";
 import { useEffect, useState } from "react";
+import {motion} from "framer-motion"
 
 const ClassList = ({ index }) => {
     const { classes, setClasses, categories } = useAppContext();
@@ -57,7 +58,7 @@ const ClassList = ({ index }) => {
                     if (groupedClasses[category].length === 0) return null;
                     return (
                         <div key={category} className="mb-4 rounded-md ">
-                            <h3 className="w-full text-[16px] border-b-2 border-gray-100 bg-pink-dark rounded text-center wrap font-medium text-light py-1 px-3">{category}</h3>
+                            <h3 className="w-full text-lg brounded text-primary wrap font-bold text-light py-1 px-2">{category}</h3>
                             <div className="space-y-3  ">
                                 {groupedClasses[category].map((c, index) => (
                                     <div
@@ -96,12 +97,13 @@ const ClassList = ({ index }) => {
                                         </div>
 
                                         {/* Delete Button */}
-                                        <button
+                                        <motion.button
+                                            whileTap={{scale:0.9}}
                                             onClick={() => deleteClass(index)}
                                             className="text-white bg-dark hover:bg-primary hover:cursor-pointer rounded-full w-7 h-7 flex justify-center items-center transition duration-200"
                                         >
                                             <RiCloseFill size={18} />
-                                        </button>
+                                        </motion.button>
                                     </div>
                                 ))}
                             </div>

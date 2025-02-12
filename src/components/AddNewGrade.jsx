@@ -4,7 +4,7 @@ import { useAppContext } from "../context/AppContext.jsx";
 import {motion, AnimatePresence} from "framer-motion";
 import ClassError from "./ClassError.jsx";
 
-const AddNewGrade = () => {
+const AddNewGrade = ({index}) => {
     const { classes, setClasses, categories } = useAppContext();
 
     const [name, setName] = useState("");
@@ -120,8 +120,8 @@ const AddNewGrade = () => {
 
 
     return (
-        <BoxLayout title="Add New Grade">
-            <div className="mb-4">
+        <BoxLayout title="Add New Grade" index={index}>
+            <div className="mb-4 w-100">
                 <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
 
                     <ClassError message={nameError} error={nameHasError} />

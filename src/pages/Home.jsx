@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { RiCloseFill } from "@remixicon/react";
 import {Header} from "../components/index.jsx";
+import {useAppContext} from "../context/AppContext.jsx";
 
 export default function Home() {
-  const [classes, setClasses] = useState(() => {
-    const savedClasses = localStorage.getItem("classes");
-    return savedClasses ? JSON.parse(savedClasses) : [];
-  });
+
+
+  const {classes, setClasses} = useAppContext();
+
   const [name, setName] = useState("");
   const [ects, setEcts] = useState("");
   const [grade, setGrade] = useState("");
@@ -59,10 +60,13 @@ export default function Home() {
     groupedClasses[category].sort((a, b) => a.name.localeCompare(b.name)); // Sort by class name within each category
   }
 
+  useEffect(() => {
+    console.log(groupedClasses)
+  }, [groupedClasses])
+
+
   return (
       <>
-        <Header classes={classes} setClasses={setClasses} />
-
         <div className="max-w-2lg mx-auto py-6 px-10 bg-light shadow-md rounded-lg mt-10 border-3 border-dark h-min">
           <h1 className="text-2xl font-bold text-primary mb-4">Grade Calculator</h1>
           <div className="mb-4">

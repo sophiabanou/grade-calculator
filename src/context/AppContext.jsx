@@ -27,11 +27,23 @@ export const AppProvider = props => {
         setImpDisabled(isAbout);
     },[classes, setClasses, location])
 
+    const categories = [
+        "Υποχρεωτικά Μαθήματα (ΥΜ)",
+        "Γενικής Παιδείας (ΓΠ)",
+        "Κατ' Επιλογήν Υποχρεωτικά Μαθήματα (ΕΥ)",
+        "Αυτοτελή Προαιρετικά Εργαστήρια (ΠΕΡ)",
+        "Προαιρετικά Μαθήματα (Π)",
+        "Ελεύθερα (ΕΛ)",
+        "Πτυχιακή / Πρακτική (ΠΕ/ΠΑ)",
+        "Project",
+    ];
+
     const value = {
         classes,
         setClasses,
         expDisabled,
         impDisabled,
+        categories,
     };
 
     return (

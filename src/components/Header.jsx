@@ -2,17 +2,12 @@ import {useEffect, useState} from 'react'
 import {exportGrades, importGrades} from "../utilities";
 import {RiMenuLine, RiCloseFill} from "@remixicon/react";
 import {motion, AnimatePresence} from "framer-motion";
+import {useAppContext} from "../context/AppContext.jsx";
 
-const Header = ({classes, setClasses}) => {
 
-    // export - import handling
-    const [expDisabled, setExpDisabled] = useState(false);
-    const [impDisabled, setImpDisabled] = useState(false);
+const Header = () => {
 
-    useEffect(() => {
-        setExpDisabled(classes?.length === 0);
-        setImpDisabled(setClasses === null);
-    },[classes, setClasses])
+    const {classes, setClasses, expDisabled, impDisabled} = useAppContext();
 
     const triggerFileInput = () => {
         document.getElementById("file-input").click();

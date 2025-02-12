@@ -4,10 +4,11 @@
 @theme {
     --color-dark: #151515;
     --color-light: #ffffff;
+    --color-light-table: #f8f8f8;
     --color-primary: #465f9f;
     --color-secondary: #c8ceda;
     --color-pink: #be99c3;
-    --color-pink-dark: #9b8bb7;
+    --color-pink-dark: #9793b2;
 
     --font-geologica: "Geologica", serif;
 }
@@ -28,5 +29,11 @@
     .eio-transition {
         transition-duration: 0.3s;
         transition-timing-function: ease-in-out;
+    }
+}
+
+@layer utility {
+    .class-head {
+        @apply px-4 pb-2 pt-2 text-center text-sm uppercase bg-gray-300 text-light border-b-2 border-b-gray-100;
     }
 }

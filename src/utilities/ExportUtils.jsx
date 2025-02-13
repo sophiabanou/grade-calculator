@@ -22,7 +22,7 @@ export function importGrades (event, setClasses, setFixedClasses, setComponentKe
                 if(Array.isArray(importedClasses)) {
                     setClasses(importedClasses.filter((i) => i.id>101));
                     setFixedClasses(importedClasses.filter((i) => i.id<=101));
-                    setComponentKey((prevKey) => prevKey + 1);
+                    setComponentKey((prev) => (prev + 1));
                 } else {
                     alert("Invalid File Format");
                 }

@@ -28,8 +28,8 @@ export default function Home() {
 
   return (
       <>
-        <div className="w-300 flex flex-col gap-7 absolute top-40 pb-40">
-          <div className="w-full flex gap-10">
+        <div className="w-[70vw] max-xl:w-[80vw] flex flex-col gap-7 absolute top-40 pb-40">
+          <div className="w-full flex gap-10 max-md:flex-col">
             <AddNewGrade index={1}/>
             <BoxLayout title="temp" index={2} />
           </div>

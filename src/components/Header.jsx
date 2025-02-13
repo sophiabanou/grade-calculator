@@ -3,6 +3,7 @@ import {exportGrades, importGrades} from "../utilities";
 import {RiMenuLine, RiCloseFill} from "@remixicon/react";
 import {motion, AnimatePresence} from "framer-motion";
 import useAppContext from "../context/useAppContext.jsx";
+import {Button2} from "./index.jsx";
 
 
 const Header = () => {
@@ -37,7 +38,11 @@ const Header = () => {
         },
     };
 
-    // noinspection HtmlUnknownAnchorTarget
+    const handleButtonClick = () => {
+        if(!mobileNavOpen) { setMobileNavOpen(true);}
+        else {setMobileNavOpen(false)}
+    }
+
     return (
         <>
             <motion.header
@@ -69,22 +74,9 @@ const Header = () => {
                 </nav>
             </motion.header>
 
-            <motion.button
-                whileTap={{scale:0.9}}
-                className="z-200 sm:hidden bg-light rounded border-3 border-dark w-auto p-1 text-dark fixed top-0 mt-10 left-10"
-                onClick={(e) => {
-                    e.preventDefault();
-                    if(!mobileNavOpen) { setMobileNavOpen(true);}
-                    else {setMobileNavOpen(false)}
-                }}>
-                {mobileNavOpen ? (
-                    <RiCloseFill/>
-                ) : (
-                    <RiMenuLine/>
-                )
-                }
-
-            </motion.button>
+            <div className="z-200 absolute top-0 mt-10 left-10 sm:hidden">
+                <Button2 Icon={mobileNavOpen ? RiCloseFill : RiMenuLine} handler={handleButtonClick} caption="Μενού Πλοήγησης"/>
+            </div>
 
             <AnimatePresence>
             {mobileNavOpen ?

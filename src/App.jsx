@@ -1,5 +1,5 @@
 import { HashRouter, Routes, Route } from "react-router-dom";
-import {AppProvider} from "./context/AppContext";
+import AppProvider from "./context/AppProvider";
 
 import Home from "./pages/Home";
 import Layout from "./pages/Layout";

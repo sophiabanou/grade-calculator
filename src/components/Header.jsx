@@ -1,13 +1,13 @@
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import {exportGrades, importGrades} from "../utilities";
 import {RiMenuLine, RiCloseFill} from "@remixicon/react";
 import {motion, AnimatePresence} from "framer-motion";
-import {useAppContext} from "../context/AppContext.jsx";
+import useAppContext from "../context/useAppContext.jsx";
 
 
 const Header = () => {
 
-    const {classes, setClasses, expDisabled, impDisabled} = useAppContext();
+    const {classes, allClasses, setClasses, setFixedClasses, setComponentKey,expDisabled, impDisabled} = useAppContext();
 
     const triggerFileInput = () => {
         document.getElementById("file-input").click();
@@ -37,6 +37,7 @@ const Header = () => {
         },
     };
 
+    // noinspection HtmlUnknownAnchorTarget
     return (
         <>
             <motion.header
@@ -44,14 +45,14 @@ const Header = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="max-md:absolute md:fixed top-0 bg-light mt-10 flex justify-center rounded-lg border-3 border-dark w-auto max-sm:hidden">
+                className="absolute top-0 bg-light mt-10 flex justify-center rounded-lg border-3 border-dark w-auto max-sm:hidden">
                 <nav className="flex items-center w-full">
-                        <a href="#/" className="group px-15 py-2 border-r-dark border-r-3 max-md:px-10">
+                    <a href="#/" className="group px-15 py-2 border-r-dark border-r-3 max-md:px-10">
                             <p className="text-sm font-semibold uppercase text-dark group-hover:text-pink-dark lin-transition">HOME</p>
                         </a>
 
                         <button className={`group ${expDisabled ? 'hover:cursor-default' : 'hover:cursor-pointer'} px-15 py-2 border-r-dark border-r-3 max-md:px-10`} disabled={expDisabled} onClick={(e) => {
-                            e.preventDefault(); exportGrades(classes);
+                            e.preventDefault(); exportGrades(allClasses);
                         }}>
                             <p className={`text-sm font-semibold uppercase text-dark hover:cursor-pointer lin-transition ${expDisabled ? 'pointer-events-none opacity-50' : 'group-hover:text-pink-dark'}`}>EXPORT</p>
                         </button>
@@ -152,7 +153,7 @@ const Header = () => {
                 type="file"
                 accept=".json"
                 style={{ display: "none" }}
-                onChange={(event) => {importGrades(event, setClasses)}}
+                onChange={(event) => {importGrades(event, setClasses, setFixedClasses, setComponentKey)}}
             />
         </>
     )

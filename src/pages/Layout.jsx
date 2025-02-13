@@ -1,9 +1,10 @@
 import {Outlet} from "react-router-dom";
-import {Header} from "../components/index.jsx";
+import {Header} from "../components";
 
 const Layout = () => {
     return (
-        <div className="w-full h-full flex flex-col justify-center items-center min-h-screen bg-prim font-geologica">
+        <div className="w-full h-full flex flex-col justify-center items-center min-h-screen font-geologica">
+            <div className="bg-prim"></div>
             <Header/>
             <Outlet/>
         </div>

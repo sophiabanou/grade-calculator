@@ -1,17 +1,19 @@
-import BoxLayout from "./BoxLayout.jsx";
+import {Input, ClassError, BoxLayout } from "./index.jsx"
 import { useState } from "react";
-import { useAppContext } from "../context/AppContext.jsx";
-import {motion, AnimatePresence} from "framer-motion";
-import ClassError from "./ClassError.jsx";
+import useAppContext from "../context/useAppContext.jsx";
+import PropTypes from 'prop-types';
+import {categories} from "../data"
 
 const AddNewGrade = ({index}) => {
-    const { classes, setClasses, categories } = useAppContext();
+    const { classes, setClasses, classCount, setClassCount } = useAppContext();
 
+    // form states
     const [name, setName] = useState("");
     const [ects, setEcts] = useState("");
     const [grade, setGrade] = useState("");
     const [category, setCategory] = useState("");
 
+    // errors
     const [nameHasError, setNameHasError] = useState(false);
     const [nameError, setNameError] = useState("");
 
@@ -24,15 +26,23 @@ const AddNewGrade = ({index}) => {
     const [categoryHasError, setCategoryHasError] = useState(false);
     const [categoryError, setCategoryError] = useState("");
 
+    // add class
     const addClass = () => {
         if (!name || !ects || !grade || !category) return;
-        setClasses([...classes, { name, ects: Number(ects), grade: Number(grade), category }]);
+
+        const newClassId = classCount + 1;
+
+        setClasses([...classes, { name, ects: Number(ects), grade: Number(grade), category, id: newClassId }]);
+        setClassCount(newClassId);
+
         setName("");
         setEcts("");
         setGrade("");
-        setCategory(""); // Reset category input
+        setCategory("");
     };
 
+
+    // change handlers
     const handleEctsChange = (e) => {
         setEctsHasError(false);
         setEctsError("");
@@ -57,6 +67,7 @@ const AddNewGrade = ({index}) => {
         setCategory(e.target.value);
     }
 
+    // form submit handler
     const handleSubmit = (e) => {
         e.preventDefault();
         let canSubmit = true;
@@ -94,10 +105,6 @@ const AddNewGrade = ({index}) => {
             setGradeHasError(true);
             setGradeError("Please enter a valid grade")
             canSubmit = false;
-        } else if (grade < 5) {
-            setGradeHasError(true);
-            setGradeError("You haven't passed this class :(")
-            canSubmit = false;
         } else {
             setGradeHasError(false);
             setGradeError("")
@@ -121,63 +128,23 @@ const AddNewGrade = ({index}) => {
 
     return (
         <BoxLayout title="Add New Grade" index={index}>
-            <div className="mb-4 w-100">
+            <div className="mb-4 w-full">
                 <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
 
                     <ClassError message={nameError} error={nameHasError} />
-
-                    <input
-                        type="text"
-                        placeholder="Class Name"
-                        value={name}
-                        id="name"
-                        onChange={handleNameChange}
-                        className={`w-full p-2 px-4 mb-2 bg-gray-100 rounded eio-transition border-1  outline-1 outline-transparent
-                        hover:border-dark focus:border-dark focus:bg-light focus:outline-dark 
-                        ${nameHasError ? "border-red-700 bg-light" : "border-transparent"}`}
-                    />
+                    <Input type="text" handler={handleNameChange} hasError={nameHasError} title="Class Name" value={name}/>
+                    <div className="w-full h-1 bg-transparent"></div>
 
                     <ClassError message={ectsError} error={ectsHasError} />
-
-                    <input
-                        type="number"
-                        inputMode="numeric"
-                        placeholder="ECTS"
-                        value={ects}
-                        onChange={handleEctsChange}
-                        className={` w-full p-2 px-4 mb-2 bg-gray-100 rounded eio-transition border-1 outline-1 outline-transparent
-                        hover:border-dark focus:border-dark focus:bg-light focus:outline-dark appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none
-                        ${ectsHasError ? "border-red-700 bg-light" : "border-transparent" } `}
-                    />
+                    <Input type="number" handler={handleEctsChange} hasError={ectsHasError} title="ECTs" value={ects}/>
+                    <div className="w-full h-1 bg-transparent"></div>
 
                     <ClassError message={gradeError} error={gradeHasError} />
-
-                    <input
-                        type="number"
-                        placeholder="Grade"
-                        value={grade}
-                        onChange={handleGradeChange}
-                        className={`w-full p-2 px-4 mb-2 bg-gray-100 rounded eio-transition border-1 outline-1 outline-transparent
-                        hover:border-dark focus:border-dark focus:bg-light focus:outline-dark appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none
-                        ${gradeHasError ? "border-red-700 bg-light" : "border-transparent" } `}
-                    />
+                    <Input type="number" handler={handleGradeChange} hasError={gradeHasError} title="Grade" value={grade}/>
+                    <div className="w-full h-1 bg-transparent"></div>
 
                     <ClassError message={categoryError} error={categoryHasError} />
-
-                    <select
-                        value={category}
-                        onChange={handleCategoryChange}
-                        className={`w-full p-2 px-4 mb-2 bg-gray-100 rounded eio-transition border-1 outline-1 outline-transparent
-                         hover:border-dark focus:border-dark focus:bg-light focus:outline-dark hover:cursor-pointer
-                         ${categoryHasError ? "border-red-700 bg-light" : "border-transparent" }`}
-                    >
-                        <option value="">Select Category</option>
-                        {categories.map((cat, index) => (
-                            <option key={index} value={cat}>
-                                {cat}
-                            </option>
-                        ))}
-                    </select>
+                    <Input type="select" handler={handleCategoryChange} hasError={categoryHasError} value={category} data={categories}/>
 
                     <button
                         type="submit"
@@ -190,4 +157,9 @@ const AddNewGrade = ({index}) => {
         </BoxLayout>
     );
 };
+
+AddNewGrade.propTypes = {
+    index: PropTypes.number.isRequired,
+};
+
 export default AddNewGrade;

@@ -11,6 +11,7 @@ import Status from "./Status";
 import Searchbar from "./Searchbar";
 import Filter from "./Filter";
 import Toolbar from "./Toolbar";
+import Stats from "./Stats";
 
 export {
     Header,
@@ -26,4 +27,5 @@ export {
     Searchbar,
     Filter,
     Toolbar,
+    Stats,
 }

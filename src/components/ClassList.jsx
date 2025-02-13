@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import {categories} from "../data";
 
 const ClassList = ({ index }) => {
-    const {allClasses} = useAppContext();
+    const {allClasses, componentKey} = useAppContext();
 
     // group classes by category
     const groupedClasses = categories.reduce((acc, category) => {
@@ -34,7 +34,7 @@ const ClassList = ({ index }) => {
                                 <AnimatePresence>
                                     {groupedClasses[category].map((c) => {
                                         return (
-                                            <ClassItem key={c.id} c={c} />
+                                            <ClassItem key={c.id + componentKey} c={c} />
                                         );
                                     })}
                                 </AnimatePresence>

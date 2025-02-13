@@ -5,6 +5,8 @@ import ClassError from "./ClassError";
 import ClassList from "./ClassList";
 import ClassItem from "./ClassItem";
 import Input from "./Input";
+import Button from "./Button";
+import Status from "./Status";
 
 export {
     Header,
@@ -14,4 +16,6 @@ export {
     ClassList,
     ClassItem,
     Input,
+    Button,
+    Status,
 }

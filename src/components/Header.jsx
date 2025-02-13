@@ -7,7 +7,7 @@ import useAppContext from "../context/useAppContext.jsx";
 
 const Header = () => {
 
-    const {classes, setClasses, expDisabled, impDisabled} = useAppContext();
+    const {classes, allClasses, setClasses, setFixedClasses, setComponentKey,expDisabled, impDisabled} = useAppContext();
 
     const triggerFileInput = () => {
         document.getElementById("file-input").click();
@@ -52,7 +52,7 @@ const Header = () => {
                         </a>
 
                         <button className={`group ${expDisabled ? 'hover:cursor-default' : 'hover:cursor-pointer'} px-15 py-2 border-r-dark border-r-3 max-md:px-10`} disabled={expDisabled} onClick={(e) => {
-                            e.preventDefault(); exportGrades(classes);
+                            e.preventDefault(); exportGrades(allClasses);
                         }}>
                             <p className={`text-sm font-semibold uppercase text-dark hover:cursor-pointer lin-transition ${expDisabled ? 'pointer-events-none opacity-50' : 'group-hover:text-pink-dark'}`}>EXPORT</p>
                         </button>
@@ -153,7 +153,7 @@ const Header = () => {
                 type="file"
                 accept=".json"
                 style={{ display: "none" }}
-                onChange={(event) => {importGrades(event, setClasses)}}
+                onChange={(event) => {importGrades(event, setClasses, setFixedClasses, setComponentKey)}}
             />
         </>
     )

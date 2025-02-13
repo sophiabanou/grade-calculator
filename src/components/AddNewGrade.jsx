@@ -2,10 +2,10 @@ import {Input, ClassError, BoxLayout } from "./index.jsx"
 import { useState } from "react";
 import useAppContext from "../context/useAppContext.jsx";
 import PropTypes from 'prop-types';
-
+import {categories} from "../data"
 
 const AddNewGrade = ({index}) => {
-    const { classes, setClasses, categories, classCount, setClassCount } = useAppContext();
+    const { classes, setClasses, classCount, setClassCount } = useAppContext();
 
     // form states
     const [name, setName] = useState("");
@@ -104,10 +104,6 @@ const AddNewGrade = ({index}) => {
         } else if (grade < 0 || ects > 10) {
             setGradeHasError(true);
             setGradeError("Please enter a valid grade")
-            canSubmit = false;
-        } else if (grade < 5) {
-            setGradeHasError(true);
-            setGradeError("You haven't passed this class :(")
             canSubmit = false;
         } else {
             setGradeHasError(false);

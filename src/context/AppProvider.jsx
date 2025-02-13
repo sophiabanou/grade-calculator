@@ -52,6 +52,8 @@ export const AppProvider = ({ children }) => {
         setImpDisabled(isAbout);
     }, [classes, isAbout]); // Removed setClasses and location
 
+    const [componentKey, setComponentKey] = useState(0);
+
     const value = {
         classes,
         setClasses,
@@ -62,6 +64,8 @@ export const AppProvider = ({ children }) => {
         classCount,
         setClassCount,
         allClasses,
+        componentKey,
+        setComponentKey,
     };
 
     return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

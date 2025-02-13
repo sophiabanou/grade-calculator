@@ -16,13 +16,15 @@ export function importGrades (event, setClasses) {
         const reader = new FileReader();
         reader.onload = () => {
             try {
-                const importedClasses = JSON.parse(reader.result);
+                const result = reader.result;
+                const data = typeof result === "string" ? result : new TextDecoder().decode(result);
+                const importedClasses = JSON.parse(data);
                 if(Array.isArray(importedClasses)) {
                     setClasses(importedClasses);
                 } else {
                     alert("Invalid File Format");
                 }
-            } catch (error) {
+            } catch{
                 alert("Failed to parse file");
             }
         };

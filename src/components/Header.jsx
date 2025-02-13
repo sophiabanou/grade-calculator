@@ -1,8 +1,8 @@
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import {exportGrades, importGrades} from "../utilities";
 import {RiMenuLine, RiCloseFill} from "@remixicon/react";
 import {motion, AnimatePresence} from "framer-motion";
-import {useAppContext} from "../context/AppContext.jsx";
+import useAppContext from "../context/useAppContext.jsx";
 
 
 const Header = () => {
@@ -37,6 +37,7 @@ const Header = () => {
         },
     };
 
+    // noinspection HtmlUnknownAnchorTarget
     return (
         <>
             <motion.header
@@ -44,9 +45,9 @@ const Header = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="max-md:absolute md:fixed top-0 bg-light mt-10 flex justify-center rounded-lg border-3 border-dark w-auto max-sm:hidden">
+                className="absolute top-0 bg-light mt-10 flex justify-center rounded-lg border-3 border-dark w-auto max-sm:hidden">
                 <nav className="flex items-center w-full">
-                        <a href="#/" className="group px-15 py-2 border-r-dark border-r-3 max-md:px-10">
+                    <a href="#/" className="group px-15 py-2 border-r-dark border-r-3 max-md:px-10">
                             <p className="text-sm font-semibold uppercase text-dark group-hover:text-pink-dark lin-transition">HOME</p>
                         </a>
 

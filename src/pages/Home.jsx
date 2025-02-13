@@ -1,35 +1,40 @@
-import { useState, useEffect } from "react";
-import {AddNewGrade, ClassList} from "../components/index.jsx";
-import {useAppContext} from "../context/AppContext.jsx";
+import {AddNewGrade, ClassList, BoxLayout} from "../components/index.jsx";
+import useAppContext from "../context/useAppContext.jsx";
+
 
 
 export default function Home() {
 
-  const {classes, setClasses, categories} = useAppContext();
+  const {classes, fixedClasses} = useAppContext();
 
-  useEffect(() => {
-    localStorage.setItem("classes", JSON.stringify(classes));
-  }, [classes]);
+  const allClasses = [...classes, ...fixedClasses.map(fc => ({ ...fc, isFixed: true }))];
 
+  const totalEcts = allClasses.reduce((sum, c) => {
+    if (parseInt(c.grade) >= 5) { // Only sum if grade is above 5
+      return sum + parseInt(c.ects);
+    }
+    return sum;
+  }, 0);
 
-  const totalEcts = classes.reduce((sum, c) => sum + c.ects, 0);
-  const weightedGrade =
-      totalEcts > 0
-          ? classes.reduce((sum, c) => sum + c.ects * c.grade, 0) / totalEcts
-          : 0;
+  // const weightedGrade =
+  //     totalEcts > 0
+  //         ? classes.reduce((sum, c) => sum + parseInt(c.ects) * parseInt(c.grade), 0) / totalEcts
+  //         : 0;
 
   const degreeEcts = 240;
   const ectsProgress = Math.min((totalEcts / degreeEcts) * 100, 100);
 
 
 
-
-
   return (
       <>
-        <div className="flex gap-10 absolute top-40 max-md:flex-col">
-          <AddNewGrade index={1}/>
-          <ClassList index={2}/>
+        <div className="w-300 flex flex-col gap-7 absolute top-40 pb-40">
+          <div className="w-full flex gap-10">
+            <AddNewGrade index={1}/>
+            <BoxLayout title="temp" index={2} />
+          </div>
+
+          <ClassList index={3}/>
         </div>
 
 

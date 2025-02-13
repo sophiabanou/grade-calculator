@@ -1,4 +1,5 @@
 import {motion, AnimatePresence} from "framer-motion";
+import PropTypes from "prop-types";
 
 const ClassError = ({message, error}) => {
     return (
@@ -18,4 +19,10 @@ const ClassError = ({message, error}) => {
         </AnimatePresence>
     )
 }
+
+ClassError.propTypes = {
+    message: PropTypes.string.isRequired,
+    error: PropTypes.bool.isRequired,
+};
+
 export default ClassError

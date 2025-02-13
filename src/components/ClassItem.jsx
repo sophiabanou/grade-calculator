@@ -135,35 +135,35 @@ const ClassItem = ({c}) => {
                 initial={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.3 }}
-                className="p-3 flex items-center justify-center border-1 rounded border-gray-100 gap-10"
+                className="p-3 h-auto flex items-center max-md:flex-col max-md:gap-5 justify-center border-1 rounded border-gray-100 gap-10"
             >
-                <div className="w-5/12 flex items-center gap-4">
+                <div className="max-md:w-full max-lg:w-3/12  w-5/12 flex items-center gap-4">
                     <Status status={status} />
-                    <p className="w-full text-dark font-medium  leading-normal">{c.name}</p>
+                    <p className="w-full text-dark font-medium  break-words hyphens-auto leading-normal">{c.name}</p>
                 </div>
 
+                <div className="flex max-md:w-[90%] gap-10 w-6/12">
+                    <div className="flex items-center gap-2  max-md:flex-col max-md:items-start">
+                        <span className="text-gray-600 text-sm">ECTs:</span>
 
-                <div className="flex items-center gap-2 w-2/12">
-                    <span className="text-gray-600 text-sm">ECTs:</span>
+                        <div className="flex flex-col">
+                            <ClassError message={ectsError} error={ectsHasError}/>
+                            <Input type="number" onKeyDown={handleKeyDown} title="" value={ects} handler={handleEctsChange} hasError={ectsHasError}/>
+                        </div>
 
-                    <div className="flex flex-col">
-                        <ClassError message={ectsError} error={ectsHasError}/>
-                        <Input type="number" onKeyDown={handleKeyDown} title="ECTs" value={ects} handler={handleEctsChange} hasError={ectsHasError}/>
                     </div>
 
-                </div>
+                    <div className="flex items-center gap-2 max-md:flex-col max-md:items-start">
+                        <span className="text-gray-600 text-sm">Grade:</span>
 
-                {/* Grade Input */}
-                <div className="flex items-center gap-2 w-2/12">
-                    <span className="text-gray-600 text-sm">Grade:</span>
-
-                    <div className="flex flex-col">
-                        <ClassError message={gradeError} error={gradeHasError}/>
-                        <Input type="number" onKeyDown={handleKeyDown} title="Grade" value={grade} handler={handleGradeChange} hasError={gradeHasError}/>
+                        <div className="flex flex-col">
+                            <ClassError message={gradeError} error={gradeHasError}/>
+                            <Input type="number" onKeyDown={handleKeyDown} title="" value={grade} handler={handleGradeChange} hasError={gradeHasError}/>
+                        </div>
                     </div>
                 </div>
 
-                <div className="flex justify-end gap-2 w-1/12">
+                <div className="max-md:justify-start max-md:w-full max-md:max-w-[90%] flex justify-end gap-2 w-1/12">
                     {!isFixedClass && (
                         <Button Icon={RiCloseFill} handler={deleteClass} caption="Διαγραφή μαθήματος"/>
                     )}

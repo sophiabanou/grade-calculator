@@ -127,3 +127,5 @@ export const categories = [
     "Πτυχιακή / Πρακτική (ΠΕ/ΠΑ)",
     "Project",
 ];
+
+export const statusOptions = ["All", "Passed", "Failed", "Pending"];

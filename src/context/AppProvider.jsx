@@ -48,9 +48,9 @@ export const AppProvider = ({ children }) => {
     const [impDisabled, setImpDisabled] = useState(false);
 
     useEffect(() => {
-        setExpDisabled(classes.length === 0 || isAbout);
+        setExpDisabled(isAbout);
         setImpDisabled(isAbout);
-    }, [classes, isAbout]); // Removed setClasses and location
+    }, [isAbout]);
 
     const [componentKey, setComponentKey] = useState(0);
 

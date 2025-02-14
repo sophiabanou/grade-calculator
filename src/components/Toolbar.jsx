@@ -1,12 +1,13 @@
 import PropTypes from "prop-types";
-import {Button2, Filter, Searchbar} from "./index.jsx";
-import {RiFilter3Line} from "@remixicon/react";
+import {Button, Filter, Searchbar, Sort} from "./index.jsx";
+import {RiFilter2Line} from "@remixicon/react";
 import {categories, statusOptions} from "../data/index.jsx";
 import {useState} from "react";
 import { motion } from "framer-motion";
 
-const Toolbar = ({ selectedCategory, setSelectedCategory, selectedStatus, setSelectedStatus, setSearchQuery}) => {
-
+const Toolbar = ({ selectedCategory, setSelectedCategory, selectedStatus, setSelectedStatus, setSearchQuery,
+                     sortBy ="alphabet", setSortBy, sortDirection="asc",setSortDirection }) => {
+    // handle filter animation
     const [filtersAreExpanded, setFiltersAreExpanded] = useState(false);
     const handleFilterButtonClick = () => {
         setFiltersAreExpanded((prev) => !prev);
@@ -16,34 +17,40 @@ const Toolbar = ({ selectedCategory, setSelectedCategory, selectedStatus, setSel
         <>
             <div className="p-2 mb-4 flex flex-wrap gap-2">
 
-                <div className="flex justify-start w-full p-3 items-center border-1 rounded border-gray-100 gap-5">
+                <div className="flex justify-start w-full p-3 items-center border-1 rounded border-gray-100 gap-5 flex-wrap">
 
                     <Searchbar setSearchQuery={setSearchQuery} />
 
+
                     <div className="flex w-auto gap-2 ">
-                        <Button2 Icon={RiFilter3Line} handler={handleFilterButtonClick} caption="Φιλτράρισμα Μαθημάτων" />
+                        <Button variant={2} Icon={RiFilter2Line} handler={handleFilterButtonClick} caption="Φιλτράρισμα Μαθημάτων" />
 
                         <motion.div
                             className="overflow-x-hidden flex gap-3"
                             initial={{ width: 0, opacity: 0 }}
                             animate={{
                                 width: filtersAreExpanded
-                                    ? (window.innerWidth >= 1536 ? "70vw"
-                                        : window.innerWidth >= 1280? "60vw"
-                                            : window.innerWidth >= 1024 ? "50vw"
-                                                : window.innerWidth >= 768 ? "40vw"
-                                                    : window.innerWidth >= 640 ? "30vw"
-                                                        : "20vw")
+                                    ? window.innerWidth >= 1536 ? "28vw"
+                                        :window.innerWidth >= 1280 ? "31vw"
+                                                :window.innerWidth >= 900 ? "32vw"
+                                                    :window.innerWidth >= 768 ? "34vw"
+                                                        : window.innerWidth >= 640 ? "39vw"
+                                                            : window.innerWidth >= 500 ? "40vw"
+                                                               : "45vw"
                                     : 0,
-                                maxWidth: filtersAreExpanded ? "670px" : 0, // Ensures max width stays at 320px
+                                maxWidth: filtersAreExpanded ? "600px" : "0px",
                                 opacity: filtersAreExpanded ? 1 : 0,
                             }} transition={{ duration: 0.3, ease: "easeInOut" }}
                         >
-                            <Filter selectedOption={selectedCategory} setSelectedOption={setSelectedCategory} data={categories} title="Επιλέξτε Κατηγορία" hasMisc={true} />
-                            <Filter selectedOption={selectedStatus} setSelectedOption={setSelectedStatus} data={statusOptions} title="Επιλέξτε Κατάσταση" />
+                            <Filter selectedOption={selectedCategory} setSelectedOption={setSelectedCategory} data={categories} title="Κατηγορία" hasMisc={true} />
+                            <Filter selectedOption={selectedStatus} setSelectedOption={setSelectedStatus} data={statusOptions} title="Κατάσταση" />
                         </motion.div>
 
                     </div>
+
+                    <Sort sortBy={sortBy} setSortBy={setSortBy} sortDirection={sortDirection} setSortDirection={setSortDirection} />
+
+
 
                 </div>
 
@@ -58,6 +65,10 @@ Toolbar.propTypes = {
     selectedStatus: PropTypes.string.isRequired,
     setSelectedStatus: PropTypes.func.isRequired,
     setSearchQuery: PropTypes.func.isRequired,
+    sortBy: PropTypes.oneOf(["alphabet", "grade", "credits"]),
+    setSortBy: PropTypes.func.isRequired,
+    sortDirection: PropTypes.oneOf(["asc", "desc"]),
+    setSortDirection: PropTypes.func.isRequired,
 }
 
 export default Toolbar

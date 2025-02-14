@@ -1,12 +1,12 @@
 import {motion, AnimatePresence} from "framer-motion";
 import PropTypes from "prop-types";
 
-const ClassError = ({message, error}) => {
+const CourseError = ({message, error}) => {
     return (
         <AnimatePresence>
             {error && (
                 <motion.span
-                    className="text-red-700 text-sm font-medium"
+                    className="text-red-700 text-sm font-medium max-md:text-sm"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
@@ -20,9 +20,9 @@ const ClassError = ({message, error}) => {
     )
 }
 
-ClassError.propTypes = {
+CourseError.propTypes = {
     message: PropTypes.string.isRequired,
     error: PropTypes.bool.isRequired,
 };
 
-export default ClassError
+export default CourseError

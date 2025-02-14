@@ -2,12 +2,13 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { RiSearchLine } from "@remixicon/react";
 import { motion } from "framer-motion";
-import { Button2 } from "./index.jsx";
+import { Button } from "./index.jsx";
 
 const Searchbar = ({ setSearchQuery }) => {
     const [search, setSearch] = useState("");
     const [isExpanded, setIsExpanded] = useState(false);
 
+    // search handlers
     const handleSearch = (value) => {
         setSearchQuery(value);
     };
@@ -27,20 +28,17 @@ const Searchbar = ({ setSearchQuery }) => {
 
     return (
         <div className="relative flex gap-2 items-center">
-            <Button2 Icon={RiSearchLine} handler={handleButtonClick} caption="Αναζήτηση Μαθημάτων" />
+            <Button variant={2} Icon={RiSearchLine} handler={handleButtonClick} caption="Αναζήτηση Μαθημάτων" />
 
             <motion.div
                 initial={{ width: 0, opacity: 0 }}
                 animate={{
                     width: isExpanded
-                        ? (window.innerWidth >= 1536 ? "61vw"
-                            : window.innerWidth >= 1280? "51vw"
-                                : window.innerWidth >= 1024 ? "45vw"
-                                    : window.innerWidth >= 768 ? "31vw"
-                                        : window.innerWidth >= 640 ? "21vw"
-                                            : "15vw")
+                        ? window.innerWidth <= 768 ? 260
+                                : window.innerWidth <= 640 ? 160
+                                    : 325
                         : 0,
-                    maxWidth: isExpanded ? "320px" : 0, // Ensures max width stays at 320px
+                    maxWidth: isExpanded ? "325px" : "0px",
                     opacity: isExpanded ? 1 : 0,
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -54,7 +52,7 @@ const Searchbar = ({ setSearchQuery }) => {
                     onChange={(e) => setSearch(e.target.value)}
                     onKeyDown={handleKeyDown}
                     className="max-h-10 ml-2 p-2 pl-4 pr-10 bg-light rounded border-1 border-dark outline-none lin-transition
-                        w-[60vw] max-2xl:w-[50vw] max-xl:w-[40vw] max-lg:w-[30vw] max-md:w-[20vw] max-sm:w-[15vw] max-w-[320px]"
+                        w-[300px] max-md:w-[250px] max-sm:w-[150px] max-w-[320px] max-md:text-sm"
                 />
             </motion.div>
         </div>

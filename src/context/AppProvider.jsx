@@ -1,49 +1,55 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { fixedClassesData } from "../data";
+import { fixedCoursesData } from "../data";
 import PropTypes from "prop-types";
-import AppContext from "./AppContext"; // Import the separate context file
+import AppContext from "./AppContext"
 
 export const AppProvider = ({ children }) => {
     const [isAbout, setIsAbout] = useState(false);
 
-    // Retrieve classes from local storage
-    const [fixedClasses, setFixedClasses] = useState(() => {
-        const saved = JSON.parse(localStorage.getItem("fixedClasses"));
-        return saved || fixedClassesData;
+    // retrieve courses from local storage
+    const [fixedCourses, setFixedCourses] = useState(() => {
+        const saved = JSON.parse(localStorage.getItem("fixedCourses"));
+        return saved || fixedCoursesData;
     });
 
-    const [classes, setClasses] = useState(() => {
-        const saved = JSON.parse(localStorage.getItem("classes"));
+    const [userCourses, setUserCourses] = useState(() => {
+        const saved = JSON.parse(localStorage.getItem("userCourses"));
         return saved || [];
     });
 
-    // Classes count, used to generate class ID
-    const [classCount, setClassCount] = useState(101 + classes.length);
+    // courses count, used to generate course ID
+    const [courseCount, setCourseCount] = useState(101 + userCourses.length);
 
-    // All classes appended with an indication for fixed classes
-    const [allClasses, setAllClasses] = useState([
-        ...classes,
-        ...fixedClasses.map((fc) => ({ ...fc, isFixed: true })),
+    // all courses appended with an indication for fixed courses
+    const [allCourses, setAllCourses] = useState([
+        ...userCourses,
+        ...fixedCourses.map((fc) => ({ ...fc, isFixed: true })),
     ]);
 
-    // Save classes to local storage and update allClasses
-    useEffect(() => {
-        localStorage.setItem("classes", JSON.stringify(classes));
-        localStorage.setItem("fixedClasses", JSON.stringify(fixedClasses)); // Persist fixedClasses changes
-        setAllClasses([
-            ...classes,
-            ...fixedClasses.map((fc) => ({ ...fc, isFixed: true })),
-        ]);
-    }, [classes, fixedClasses]);
 
-    // Check if the current URL is "about"
+    // clears local storage. uncomment and comment the useEffect below
+    // useEffect(() => {
+    //     localStorage.clear();
+    // }, [])
+
+    // save classes to local storage and update allCourses
+    useEffect(() => {
+        localStorage.setItem("userCourses", JSON.stringify(userCourses));
+        localStorage.setItem("fixedCourses", JSON.stringify(fixedCourses))
+        setAllCourses([
+            ...userCourses,
+            ...fixedCourses.map((fc) => ({ ...fc, isFixed: true })),
+        ]);
+    }, [userCourses, fixedCourses]);
+
+    // check if the current URL is "about"
     const location = useLocation();
     useEffect(() => {
         setIsAbout(location.pathname.includes("about"));
-    }, [location.pathname]); // Use location.pathname instead of location
+    }, [location.pathname]);
 
-    // Export - import handling
+    // export - import handling
     const [expDisabled, setExpDisabled] = useState(false);
     const [impDisabled, setImpDisabled] = useState(false);
 
@@ -52,20 +58,16 @@ export const AppProvider = ({ children }) => {
         setImpDisabled(isAbout);
     }, [isAbout]);
 
-    const [componentKey, setComponentKey] = useState(0);
-
     const value = {
-        classes,
-        setClasses,
+        userCourses,
+        setUserCourses,
         expDisabled,
         impDisabled,
-        fixedClasses,
-        setFixedClasses,
-        classCount,
-        setClassCount,
-        allClasses,
-        componentKey,
-        setComponentKey,
+        fixedCourses,
+        setFixedCourses,
+        courseCount,
+        setCourseCount,
+        allCourses
     };
 
     return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

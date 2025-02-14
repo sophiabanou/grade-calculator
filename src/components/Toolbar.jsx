@@ -28,12 +28,13 @@ const Toolbar = ({ selectedCategory, setSelectedCategory, selectedStatus, setSel
                             initial={{ width: 0, opacity: 0 }}
                             animate={{
                                 width: filtersAreExpanded
-                                    ? (window.innerWidth >= 1536 ? "70vw"
-                                        : window.innerWidth >= 1280? "60vw"
-                                            : window.innerWidth >= 1024 ? "50vw"
-                                                : window.innerWidth >= 768 ? "40vw"
-                                                    : window.innerWidth >= 640 ? "30vw"
-                                                        : "20vw")
+                                    ? window.innerWidth >= 1536 ? "28vw"
+                                        :window.innerWidth >= 1280 ? "31vw"
+                                                :window.innerWidth >= 900 ? "33vw"
+                                                    :window.innerWidth >= 768 ? "35vw"
+                                                        : window.innerWidth >= 640 ? "40vw"
+                                                            : window.innerWidth >= 500 ? "40vw"
+                                                               : "45vw"
                                     : 0,
                                 maxWidth: filtersAreExpanded ? "670px" : 0, // Ensures max width stays at 320px
                                 opacity: filtersAreExpanded ? 1 : 0,

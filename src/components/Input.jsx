@@ -10,7 +10,7 @@ const Input = ({type, handler, hasError, onKeyDown=null,   title="", value, data
                         value={value || ""}
                         id={title}
                         onChange={handler}
-                        className={`w-full p-2 px-4 bg-gray-100 rounded eio-transition border-1  outline-1 outline-transparent
+                        className={`max-md:text-sm w-full p-2 px-4 bg-gray-100 rounded eio-transition border-1  outline-1 outline-transparent
                                 hover:border-dark focus:border-dark focus:bg-light focus:outline-dark 
                                 ${hasError ? "border-red-700 bg-light" : "border-transparent"}`}
                     />
@@ -22,7 +22,7 @@ const Input = ({type, handler, hasError, onKeyDown=null,   title="", value, data
                         id={title}
                         onChange={handler}
                         onKeyDown={onKeyDown}
-                        className={` w-full p-2 px-4 bg-gray-100 rounded eio-transition border-1 outline-1 outline-transparent
+                        className={`max-md:text-sm w-full p-2 px-4 bg-gray-100 rounded eio-transition border-1 outline-1 outline-transparent
                             hover:border-dark focus:border-dark focus:bg-light focus:outline-dark appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none
                             ${hasError ? "border-red-700 bg-light" : "border-transparent" } `}
                     />
@@ -30,11 +30,11 @@ const Input = ({type, handler, hasError, onKeyDown=null,   title="", value, data
                     <select
                         value={value || ""}
                         onChange={handler}
-                        className={`w-full p-2 px-4 bg-gray-100 rounded eio-transition border-1 outline-1 outline-transparent
+                        className={`max-md:text-sm w-full p-2 px-4 bg-gray-100 rounded eio-transition border-1 outline-1 outline-transparent
                              hover:border-dark focus:border-dark focus:bg-light focus:outline-dark hover:cursor-pointer
                              ${hasError ? "border-red-700 bg-light" : "border-transparent" }`}
                     >
-                        <option value="">Select Category</option>
+                        <option value="">{title}</option>
                         {data.map((cat, index) => (
                             <option key={index} value={cat}>
                                 {cat}

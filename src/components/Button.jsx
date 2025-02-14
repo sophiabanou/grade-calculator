@@ -2,12 +2,17 @@ import {AnimatePresence, motion} from "framer-motion";
 import PropTypes from "prop-types";
 import {useRef, useState} from "react";
 
-const Button = ({ Icon, disabled = false, handler, caption }) => {
+const Button = ({ Icon, disabled = false, handler, caption, variant= 1 }) => {
     const timeoutRef = useRef(null);
     const [showCaption, setShowCaption] = useState(false);
 
+    // mouse handlers
     const handleMouseEnter = () => {
-        timeoutRef.current = setTimeout(() => setShowCaption(true), 2000);
+        let delay = 2000;
+        if(variant === 2) {
+            delay = 3000;
+        }
+        timeoutRef.current = setTimeout(() => setShowCaption(true), delay);
     };
 
     const handleMouseLeave = () => {
@@ -29,7 +34,7 @@ const Button = ({ Icon, disabled = false, handler, caption }) => {
                 onClick={handleClick}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className={`relative ${disabled ? "bg-gray-200" : "bg-dark hover:bg-primary hover:cursor-pointer"} text-white rounded-full w-7 h-7 flex justify-center items-center transition duration-200`}
+                className={`${variant === 1 ? (disabled ? "btn1-disabled" : "btn1") : "btn2"}`}
             >
                 <Icon size={18} />
 
@@ -57,6 +62,7 @@ Button.propTypes = {
     disabled: PropTypes.bool,
     handler: PropTypes.func.isRequired,
     caption: PropTypes.string.isRequired,
+    variant: PropTypes.oneOf([1, 2]),
 };
 
 export default Button;

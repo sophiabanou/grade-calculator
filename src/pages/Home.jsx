@@ -1,65 +1,43 @@
-import {AddNewGrade, ClassList, BoxLayout, Stats} from "../components";
+import { AddNewCourse, BoxLayout, CourseList } from "../components/index.jsx";
 import useAppContext from "../context/useAppContext.jsx";
 
-
-
 export default function Home() {
+  const { allCourses } = useAppContext();
 
-  const {classes, fixedClasses} = useAppContext();
+  // calculate total credits
+  const calculateTotalCredits = (courses) => {
+    return courses.reduce((sum, c) => {
+      if (parseInt(c.grade) >= 5) {
+        return sum + parseInt(c.credits);
+      }
+      return sum;
+    }, 0);
+  };
 
-  const allClasses = [...classes, ...fixedClasses.map(fc => ({ ...fc, isFixed: true }))];
-
-  const totalEcts = allClasses.reduce((sum, c) => {
-    if (parseInt(c.grade) >= 5) { // Only sum if grade is above 5
-      return sum + parseInt(c.ects);
-    }
-    return sum;
-  }, 0);
-
-  // const weightedGrade =
-  //     totalEcts > 0
-  //         ? classes.reduce((sum, c) => sum + parseInt(c.ects) * parseInt(c.grade), 0) / totalEcts
-  //         : 0;
-
-  const degreeEcts = 240;
-  const ectsProgress = Math.min((totalEcts / degreeEcts) * 100, 100);
-
-
+  const totalCredits = calculateTotalCredits(allCourses);
+  const degreeCredits = 240;
+  const creditsProgress = Math.min((totalCredits / degreeCredits) * 100, 100);
 
   return (
       <>
-        <div className="w-[70vw] max-xl:w-[80vw] flex flex-col gap-7 absolute top-40 pb-40">
-          <div className="w-full flex gap-10 max-md:flex-col">
-            <AddNewGrade index={1}/>
-            <Stats index={2} />
+        <div className="w-[70vw] max-xl:w-[80vw] max-md:w-[86vw] max-md:gap-5 flex flex-col gap-7 absolute top-40 pb-40">
+          <div className="w-full flex gap-10 max-md:flex-col max-md:gap-5">
+            <AddNewCourse index={1} />
+            <BoxLayout title="temp" index={2} />
           </div>
 
-          <ClassList index={3}/>
+          <CourseList index={3} />
+
         </div>
-
-
-          {/*<div className="mt-4 p-3 bg-gray-100 rounded border-1 border-secondary">*/}
-          {/*  <p>*/}
-          {/*    <strong>Total ECTS:</strong> {totalEcts}*/}
-          {/*  </p>*/}
-          {/*  <p>*/}
-          {/*    <strong>Weighted Grade:</strong> {weightedGrade.toFixed(2)}*/}
-          {/*  </p>*/}
-          {/*</div>*/}
-
-
 
         <div className="mt-20 fixed bottom-0 w-full">
           <p className="font-semibold text-dark text-center text-lg mb-2 px-4">
-            <span className="font-bold">Progress:</span> {totalEcts} / {degreeEcts}
+            <span className="font-bold">Πρόοδος:</span> {totalCredits} / {degreeCredits}
           </p>
           <div className="w-full bg-light h-5 overflow-hidden">
-            <div
-                className="bg-primary h-full"
-                style={{ width: `${ectsProgress}%` }}
-            ></div>
+            <div className="bg-primary h-full" style={{ width: `${creditsProgress}%` }}></div>
           </div>
         </div>
-  </>
+      </>
   );
 }

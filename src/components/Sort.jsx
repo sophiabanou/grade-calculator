@@ -3,9 +3,11 @@ import {AnimatePresence, motion} from "framer-motion";
 import { Button } from "./index.jsx";
 import {useState, useEffect, useRef} from "react";
 import { RiFilter3Line, RiArrowUpLongLine, RiArrowDownLongLine } from "@remixicon/react";
+import useAppContext from "../context/useAppContext.jsx";
 
 const Sort = ({ sortBy = "alphabet", setSortBy, sortDirection = "asc", setSortDirection }) => {
 
+    const {translate} = useAppContext();
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
 
@@ -28,7 +30,7 @@ const Sort = ({ sortBy = "alphabet", setSortBy, sortDirection = "asc", setSortDi
         >
             <Button
                 variant={isOpen? 3 : 2}
-                caption={`Ταξινόμηση κατά: ${sortBy === "alphabet" ? "Αλφαβητικά" : sortBy === "grade" ? "Βαθμό" : "Δ. Μονάδες"} (${sortDirection === "asc" ? "↑" : "↓"})`}
+                caption={`${translate("toolbar.sort-by")}: ${sortBy === "alphabet" ? translate("toolbar.alphabet") : sortBy === "grade" ? translate("toolbar.grade")  : translate("toolbar.credits") } (${sortDirection === "asc" ? "↑" : "↓"})`}
                 handler={() => setIsOpen(prev => !prev)} // Toggle dropdown visibility
                 Icon={RiFilter3Line}
             />
@@ -48,7 +50,7 @@ const Sort = ({ sortBy = "alphabet", setSortBy, sortDirection = "asc", setSortDi
                                 className="max-md:text-sm py-2 px-4  cursor-pointer text-dark hover:bg-gray-100 rounded-t lin-transition flex justify-between items-center border-b-1 border-dark"
                                 onClick={() => handleSortChange("alphabet")}
                             >
-                                Αλφαβητικά (Α-Ζ)
+                                {translate("toolbar.alphabet-caption") }
 
                                 <div className="text-primary">
                                     {sortBy === "alphabet" && (sortDirection === "asc" ? <RiArrowUpLongLine size={16}/> : <RiArrowDownLongLine size={16}/>)}
@@ -59,7 +61,7 @@ const Sort = ({ sortBy = "alphabet", setSortBy, sortDirection = "asc", setSortDi
                                 className="max-md:text-sm py-2 px-4  cursor-pointer text-dark hover:bg-gray-100 lin-transition  flex justify-between items-center border-b-1 border-dark"
                                 onClick={() => handleSortChange("grade")}
                             >
-                                Κατά Βαθμό
+                                {translate("toolbar.grade-caption") }
 
                                 <div className="text-primary">
                                     {sortBy === "grade" && (sortDirection === "asc" ? <RiArrowUpLongLine size={16}/> : <RiArrowDownLongLine size={16}/>)}
@@ -70,7 +72,7 @@ const Sort = ({ sortBy = "alphabet", setSortBy, sortDirection = "asc", setSortDi
                                 className="max-md:text-sm py-2 px-4 cursor-pointer text-dark hover:bg-gray-100 lin-transition rounded-b flex justify-between items-center"
                                 onClick={() => handleSortChange("credits")}
                             >
-                                Κατά Δ. Μονάδες
+                                {translate("toolbar.credits-caption")}
 
                                 <div className="text-primary">
                                     {sortBy === "credits" && (sortDirection === "asc" ? <RiArrowUpLongLine size={16}/> : <RiArrowDownLongLine size={16}/>)}

@@ -1,0 +1,67 @@
+{
+  "header": {
+    "home": "Home",
+    "export": "Export",
+    "import": "Import",
+    "about": "About",
+    "nav-menu": "Navigation Menu",
+    "success-message": "Courses imported successfully!"
+  },
+  "add-course": {
+    "no-name-error": "Enter course name",
+    "no-credits-error": "Enter credits",
+    "wrong-credits-error": "Enter valid credits [2-8]",
+    "no-grade-error": "Enter grade",
+    "wrong-grade-error": "Enter a valid grade [0-10]",
+    "no-category-error": "Select a category",
+    "title": "Add New Course",
+    "class-name": "Class Name",
+    "credits": "Credits",
+    "grade": "Grade",
+    "category": "Category",
+    "button": "Add Course",
+    "success-message": "Course added successfully!"
+  },
+  "stats": {
+    "title": "Statistics",
+    "total-courses": "Total Courses",
+    "passed": "Passed",
+    "failed": "Failed",
+    "degree-grade": "Degree Grade",
+    "pass-rate": "Pass Rate",
+    "credits": "Credits",
+    "progress": "Progress"
+  },
+  "course-item": {
+    "wrong-credits-error": "Enter valid credits",
+    "wrong-grade-error": "Enter a valid grade",
+    "credits": "Credits",
+    "grade": "Grade",
+    "delete-caption": "Delete class",
+    "save-caption": "Save changes"
+  },
+  "filter": {
+    "all": "All",
+    "pending": "Pending",
+    "passed": "Passed",
+    "failed": "Failed"
+  },
+  "course-list": {
+    "title": "Courses",
+    "not-found": "No matching courses found"
+  },
+  "toolbar": {
+    "search": "Search...",
+    "search-caption": "Search courses",
+    "sort-by": "Sort by",
+    "alphabet": "Alphabetically",
+    "grade": "Grade",
+    "credits": "Credits",
+    "alphabet-caption": "Alphabetically",
+    "grade-caption": "By Grade",
+    "credits-caption": "By Credits",
+    "filters-caption": "Filter courses",
+    "category": "Category",
+    "status": "Status"
+  }
+}

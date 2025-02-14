@@ -4,6 +4,7 @@ import {RiFilter2Line} from "@remixicon/react";
 import {categories, statusOptions} from "../data/index.jsx";
 import {useState} from "react";
 import { motion } from "framer-motion";
+import useAppContext from "../context/useAppContext.jsx";
 
 const Toolbar = ({ selectedCategory, setSelectedCategory, selectedStatus, setSelectedStatus, setSearchQuery,
                      sortBy ="alphabet", setSortBy, sortDirection="asc",setSortDirection }) => {
@@ -12,6 +13,7 @@ const Toolbar = ({ selectedCategory, setSelectedCategory, selectedStatus, setSel
     const handleFilterButtonClick = () => {
         setFiltersAreExpanded((prev) => !prev);
     }
+    const {translate} = useAppContext();
 
     return (
         <>
@@ -23,7 +25,7 @@ const Toolbar = ({ selectedCategory, setSelectedCategory, selectedStatus, setSel
 
 
                     <div className="flex w-auto gap-2 ">
-                        <Button variant={filtersAreExpanded ? 3 : 2} Icon={RiFilter2Line} handler={handleFilterButtonClick} caption="Φιλτράρισμα Μαθημάτων" />
+                        <Button variant={filtersAreExpanded ? 3 : 2} Icon={RiFilter2Line} handler={handleFilterButtonClick} caption={translate("toolbar.filters-caption")} />
 
                         <motion.div
                             className="overflow-x-hidden flex gap-3"
@@ -42,15 +44,13 @@ const Toolbar = ({ selectedCategory, setSelectedCategory, selectedStatus, setSel
                                 opacity: filtersAreExpanded ? 1 : 0,
                             }} transition={{ duration: 0.3, ease: "easeInOut" }}
                         >
-                            <Filter selectedOption={selectedCategory} setSelectedOption={setSelectedCategory} data={categories} title="Κατηγορία" hasMisc={true} />
-                            <Filter selectedOption={selectedStatus} setSelectedOption={setSelectedStatus} data={statusOptions} title="Κατάσταση" />
+                            <Filter selectedOption={selectedCategory} setSelectedOption={setSelectedCategory} data={categories} title={translate("toolbar.category")} />
+                            <Filter selectedOption={selectedStatus} setSelectedOption={setSelectedStatus} data={statusOptions} title={translate("toolbar.status")} />
                         </motion.div>
 
                     </div>
 
                     <Sort sortBy={sortBy} setSortBy={setSortBy} sortDirection={sortDirection} setSortDirection={setSortDirection} />
-
-
 
                 </div>
 

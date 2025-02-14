@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import { categories } from "../data";
 
 const CourseList = ({ index }) => {
-    const { allCourses } = useAppContext();
+    const { allCourses, translate } = useAppContext();
 
     // filters + search
     const [searchQuery, setSearchQuery] = useState("");
@@ -19,9 +19,9 @@ const CourseList = ({ index }) => {
         const matchesCategory = selectedCategory === "All" || c.category === selectedCategory;
         const matchesStatus =
             selectedStatus === "All" ||
-            (selectedStatus === "Σε Αναμονή" && (c.grade === null || c.grade === "" || c.grade === undefined)) ||
-            (selectedStatus === "Περασμένο" && c.grade >= 5) ||
-            (selectedStatus === "Αποτυχημένο" && (c.grade !== "" && c.grade !== null) && c.grade < 5);
+            (selectedStatus === "Pending" && (c.grade === null || c.grade === "" || c.grade === undefined)) ||
+            (selectedStatus === "Passed" && c.grade >= 5) ||
+            (selectedStatus === "Failed" && (c.grade !== "" && c.grade !== null) && c.grade < 5);
 
         return matchesSearch && matchesCategory && matchesStatus;
     });
@@ -67,11 +67,8 @@ const CourseList = ({ index }) => {
         return acc;
     }, {});
 
-    // add a misc category
-    groupedCourses["Άλλα"] = sortedCourses.filter((c) => !c.category || !categories.includes(c.category));
-
     return (
-        <BoxLayout title="Μαθήματα" index={index}>
+        <BoxLayout title={translate("course-list.title")} index={index}>
             <Toolbar
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
@@ -104,7 +101,7 @@ const CourseList = ({ index }) => {
                 })}
 
                 {filteredCourses.length === 0 && (
-                    <p className="text-center text-gray-500 py-3">Δεν βρέθηκαν αντίστοιχα μαθήματα.</p>
+                    <p className="text-center text-gray-500 py-3">{translate("filter.not-found")}.</p>
                 )}
             </div>
         </BoxLayout>

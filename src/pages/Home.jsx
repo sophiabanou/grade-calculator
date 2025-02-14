@@ -1,5 +1,6 @@
 import {AddNewCourse, CourseList, ProgressBar, Stats} from "../components";
 import useAppContext from "../context/useAppContext.jsx";
+import LanguageSwitcher from "../components/LanguageSwitch.jsx";
 
 export default function Home() {
   const { allCourses } = useAppContext();
@@ -20,7 +21,8 @@ export default function Home() {
 
   return (
       <>
-        <div className="w-[70vw] max-xl:w-[80vw] max-md:w-[86vw] max-md:gap-5 flex flex-col gap-7 absolute top-40 pb-40">
+        <div className="w-[70vw] max-xl:w-[80vw] max-md:w-[86vw] max-md:gap-5 flex flex-col gap-10 absolute top-40 pb-40">
+          <LanguageSwitcher />
           <div className="w-full flex gap-10 max-md:flex-col max-md:gap-5">
             <AddNewCourse index={1} />
             <Stats index={2} />

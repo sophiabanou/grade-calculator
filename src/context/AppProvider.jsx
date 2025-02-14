@@ -3,6 +3,10 @@ import { useLocation } from "react-router-dom";
 import { fixedCoursesData } from "../data";
 import PropTypes from "prop-types";
 import AppContext from "./AppContext"
+import en from "../locales/en.json";
+import gr from "../locales/gr.json";
+
+const translations = { en, gr };
 
 export const AppProvider = ({ children }) => {
     const [isAbout, setIsAbout] = useState(false);
@@ -58,6 +62,18 @@ export const AppProvider = ({ children }) => {
         setImpDisabled(isAbout);
     }, [isAbout]);
 
+    const [language, setLanguage] = useState(localStorage.getItem("lang") || "gr");
+    const [currentTranslations, setCurrentTranslations] = useState(translations[language]);
+
+    useEffect(() => {
+        localStorage.setItem("lang", language);
+        setCurrentTranslations(translations[language]);
+    }, [language]);
+
+    const translate = (key) => {
+        return key.split('.').reduce((o, i) => (o ? o[i] : key), currentTranslations);
+    };
+
     const value = {
         userCourses,
         setUserCourses,
@@ -67,7 +83,10 @@ export const AppProvider = ({ children }) => {
         setFixedCourses,
         courseCount,
         setCourseCount,
-        allCourses
+        allCourses,
+        language,
+        setLanguage,
+        translate
     };
 
     return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

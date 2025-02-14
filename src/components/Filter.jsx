@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const Filter = ({ selectedOption, setSelectedOption, data, title, hasMisc = false}) => {
+const Filter = ({ selectedOption, setSelectedOption, data, title}) => {
     return (
         <>
             <select
@@ -15,9 +15,6 @@ const Filter = ({ selectedOption, setSelectedOption, data, title, hasMisc = fals
                         {item}
                     </option>
                 ))}
-                {hasMisc && (
-                    <option value="Άλλα">Άλλα</option>
-                )}
             </select>
         </>
     )
@@ -28,7 +25,6 @@ Filter.propTypes = {
     setSelectedOption: PropTypes.func.isRequired,
     data: PropTypes.array.isRequired,
     title: PropTypes.string.isRequired,
-    hasMisc: PropTypes.bool,
 }
 
 export default Filter

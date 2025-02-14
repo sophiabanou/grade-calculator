@@ -1,0 +1,66 @@
+{
+  "header": {
+    "home": "Αρχικη",
+    "export": "Εξαγωγη",
+    "import": "Εισαγωγη",
+    "about": "Σχετικα",
+    "nav-menu": "Μενού πλοήγησης"
+  },
+  "add-course": {
+    "no-name-error": "Εισάγετε όνομα μαθήματος",
+    "no-credits-error": "Εισάγετε διδακτικές μονάδες",
+    "wrong-credits-error": "Εισάγετε έγκυρες διδακτικές μονάδες [2-8]",
+    "no-grade-error": "Εισάγετε βαθμό",
+    "wrong-grade-error": "Εισάγετε έγκυρο βαθμό [0-10]",
+    "no-category-error": "Επιλέξτε κατηγορία",
+    "title": "Προσθήκη Νέου Μαθήματος",
+    "class-name": "Όνομα Μαθήματος",
+    "credits": "Διδακτικές Μονάδες",
+    "grade": "Βαθμός",
+    "category": "Κατηγορία",
+    "button": "Προσθηκη μαθηματος",
+    "success-message": "Επιτυχής προσθήκη μαθήματος!"
+  },
+  "stats": {
+    "title": "Στατιστικά",
+    "total-courses": "Σύνολο Μαθημάτων",
+    "passed": "Περασμένα",
+    "failed": "Αποτυχημένα",
+    "degree-grade": "Βαθμός Πτυχίου",
+    "pass-rate": "Ποσοστό Επιτυχίας",
+    "credits": "Δ. Μονάδες",
+    "progress": "Πρόοδος"
+  },
+  "course-item": {
+    "wrong-credits-error": "Εισάγετε έγκυρες δ.μονάδες",
+    "wrong-grade-error": "Εισάγετε έγκυρο βαθμό",
+    "credits": "Δ.Μονάδες",
+    "grade": "Βαθμός",
+    "delete-caption": "Διαγραφή μαθήματος",
+    "save-caption": "Αποθήκευση αλλαγών"
+  },
+  "filter": {
+    "all": "Όλα",
+    "pending": "Σε Αναμονή",
+    "passed": "Περασμένο",
+    "failed": "Αποτυχημένο"
+  },
+  "course-list": {
+    "title": "Μαθήματα",
+    "not-found": "Δεν βρέθηκαν αντίστοιχα μαθήματα"
+  },
+  "toolbar": {
+    "search": "Αναζήτηση...",
+    "search-caption": "Αναζήτηση μαθημάτων",
+    "sort-by": "Ταξινόμηση κατά",
+    "alphabet": "Αλφαβητικά",
+    "grade": "Βαθμό",
+    "credits": "Δ. Μονάδες",
+    "alphabet-caption": "Αλφαβητικά",
+    "grade-caption": "Κατά Βαθμό",
+    "credits-caption": "Κατά Δ. Μονάδες",
+    "filters-caption": "Φιλτράρισμα Μαθημάτων",
+    "category": "Κατηγορία",
+    "status": "Κατάσταση"
+  }
+}

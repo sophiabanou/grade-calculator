@@ -17,6 +17,7 @@ import ConfirmationMessage from "./ConfirmationMessage";
 import Stats from "./Stats";
 import CreditsProgressChart from "./CreditsProgressChart";
 import ProgressBar from "./ProgressBar";
+import LanguageSwitch from "./LanguageSwitch";
 
 export {
     Header,
@@ -38,4 +39,5 @@ export {
     Stats,
     CreditsProgressChart,
     ProgressBar,
+    LanguageSwitch,
 }

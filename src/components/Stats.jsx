@@ -4,7 +4,7 @@ import useAppContext from "../context/useAppContext.jsx";
 import { useMemo } from "react";
 
 const Stats = ({ index }) => {
-    const { allCourses } = useAppContext();
+    const { allCourses, translate } = useAppContext();
 
     const totalCourses = allCourses.length;
     const passed = allCourses.filter(c => c.grade >= 5).length;
@@ -21,38 +21,37 @@ const Stats = ({ index }) => {
     }, [allCourses]);
 
     return (
-        <BoxLayout title="Στατιστικά" index={index}>
-            {/* Top Row: Total Courses, Passed, Failed */}
+        <BoxLayout title={translate("stats.title")} index={index}>
             <div className="grid grid-cols-3 gap-4 py-2 text-[15px] max-md:text-sm">
                 <div className="max-md:p-3 p-2 border-1 border-gray-100 rounded text-center flex flex-col justify-start">
                     <p className="text-xl max-md:text-lg font-bold h-8 text-gray-500 ">{totalCourses}</p>
-                    <p>Σύνολο Μαθημάτων</p>
+                    <p className="break-words">{translate("stats.total-courses")}</p>
                 </div>
                 <div className="max-md:p-3 p-2 border-1 border-green-100 rounded text-center flex flex-col justify-start">
                     <p className="text-xl max-md:text-lg font-bold h-8 text-green-500">{passed}</p>
-                    <p>Περασμένα</p>
+                    <p className="break-words">{translate("stats.passed")}</p>
                 </div>
                 <div className="max-md:p-3 p-2 border-1 border-red-100 rounded text-center flex flex-col justify-start">
                     <p className="text-xl max-md:text-lg font-bold h-8 text-red-500">{failed}</p>
-                    <p>Αποτυχημένα</p>
+                    <p className="break-words">{translate("stats.failed")}</p>
                 </div>
             </div>
 
-            <div className="flex flex-row gap-6 w-full mt-2 border-1 border-gray-100 rounded py-2 px-1">
+            <div className="flex flex-row gap-6 w-full mt-2 border-1 border-gray-100 rounded py-2 px-3">
                 <div className="w-full flex flex-row items-center justify-between gap-6 ">
                     <div className="w-full">
                         <CreditsProgressChart credits={totalPassedCredits} />
                     </div>
 
-                    <div className="flex flex-col w-full  rounded">
-                        <div className="flex items-start justify-between p-2 gap-3 rounded-t text-center w-full max-w-xs">
-                            <p className="w-17 max-md:w-18 text-xl font-bold text-dark text-start text-shadow">{weightedGrade}</p>
-                            <p className="text-base max-md:text-sm text-gray-600">Βαθμός Πτυχίου</p>
+                    <div className="flex flex-col w-full  rounded pr-2">
+                        <div className="flex flex-col items-start justify-center p-2  rounded-t text-start w-full max-w-xs">
+                            <p className="w-17 max-md:w-18 text-xl font-bold text-dark text-shadow">{weightedGrade}</p>
+                            <p className="text-base max-md:text-sm text-gray-600">{translate("stats.degree-grade")}</p>
                         </div>
 
-                        <div className="flex items-start justify-between gap-3 rounded-b  p-2 text-center w-full max-w-xs ">
-                            <p className="w-17 max-md:w-18 text-xl font-bold text-dark text-start">{passRate}%</p>
-                            <p className="text-base max-md:text-sm text-gray-600">Ποσοστό Επιτυχίας</p>
+                        <div className="flex flex-col items-start justify-center p-2  rounded-t text-start w-full  max-w-xs ">
+                            <p className="w-17 max-md:w-18 text-xl font-bold text-dark ">{passRate}%</p>
+                            <p className="text-base max-md:text-sm text-gray-600">{translate("stats.pass-rate")}</p>
                         </div>
                     </div>
 

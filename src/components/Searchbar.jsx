@@ -28,7 +28,7 @@ const Searchbar = ({ setSearchQuery }) => {
 
     return (
         <div className="relative flex gap-2 items-center">
-            <Button variant={2} Icon={RiSearchLine} handler={handleButtonClick} caption="Αναζήτηση Μαθημάτων" />
+            <Button variant={isExpanded ? 3 : 2} Icon={RiSearchLine} handler={handleButtonClick} caption="Αναζήτηση Μαθημάτων" />
 
             <motion.div
                 initial={{ width: 0, opacity: 0 }}

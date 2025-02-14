@@ -34,7 +34,13 @@ const Button = ({ Icon, disabled = false, handler, caption, variant= 1 }) => {
                 onClick={handleClick}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className={`${variant === 1 ? (disabled ? "btn1-disabled" : "btn1") : "btn2"}`}
+                className={`${
+                    variant === 1
+                        ? (disabled ? "btn1-disabled" : "btn1")
+                        : variant === 2
+                            ? "btn2"
+                            : "btn3"
+                }`}
             >
                 <Icon size={18} />
 
@@ -62,7 +68,7 @@ Button.propTypes = {
     disabled: PropTypes.bool,
     handler: PropTypes.func.isRequired,
     caption: PropTypes.string.isRequired,
-    variant: PropTypes.oneOf([1, 2]),
+    variant: PropTypes.oneOf([1, 2, 3]),
 };
 
 export default Button;

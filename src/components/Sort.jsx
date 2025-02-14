@@ -9,20 +9,6 @@ const Sort = ({ sortBy = "alphabet", setSortBy, sortDirection = "asc", setSortDi
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
 
-    // close dropdown on outside click
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-                setIsOpen(false);
-            }
-        };
-        document.addEventListener("mousedown", handleClickOutside);
-
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, []);
-
     // handle sort
     const handleSortChange = (newSortOption) => {
         if (newSortOption === sortBy) {
@@ -41,8 +27,8 @@ const Sort = ({ sortBy = "alphabet", setSortBy, sortDirection = "asc", setSortDi
             transition={{ duration: 0.2 }}
         >
             <Button
-                variant={2}
-                caption={`Sort by: ${sortBy === "alphabet" ? "Alphabet" : sortBy === "grade" ? "Grade" : "Credits"} (${sortDirection === "asc" ? "↑" : "↓"})`}
+                variant={isOpen? 3 : 2}
+                caption={`Ταξινόμηση κατά: ${sortBy === "alphabet" ? "Αλφαβητικά" : sortBy === "grade" ? "Βαθμό" : "Δ. Μονάδες"} (${sortDirection === "asc" ? "↑" : "↓"})`}
                 handler={() => setIsOpen(prev => !prev)} // Toggle dropdown visibility
                 Icon={RiFilter3Line}
             />
@@ -59,7 +45,7 @@ const Sort = ({ sortBy = "alphabet", setSortBy, sortDirection = "asc", setSortDi
                     >
                         <ul>
                             <li
-                                className="max-md:text-sm p-2 cursor-pointer text-dark hover:bg-gray-100 lin-transition flex justify-between items-center border-b-1 border-dark"
+                                className="max-md:text-sm py-2 px-4  cursor-pointer text-dark hover:bg-gray-100 rounded-t lin-transition flex justify-between items-center border-b-1 border-dark"
                                 onClick={() => handleSortChange("alphabet")}
                             >
                                 Αλφαβητικά (Α-Ζ)
@@ -70,10 +56,10 @@ const Sort = ({ sortBy = "alphabet", setSortBy, sortDirection = "asc", setSortDi
 
                             </li>
                             <li
-                                className="max-md:text-sm p-2 cursor-pointer text-dark hover:bg-gray-100 lin-transition flex justify-between items-center border-b-1 border-dark"
+                                className="max-md:text-sm py-2 px-4  cursor-pointer text-dark hover:bg-gray-100 lin-transition  flex justify-between items-center border-b-1 border-dark"
                                 onClick={() => handleSortChange("grade")}
                             >
-                                By Grade
+                                Κατά Βαθμό
 
                                 <div className="text-primary">
                                     {sortBy === "grade" && (sortDirection === "asc" ? <RiArrowUpLongLine size={16}/> : <RiArrowDownLongLine size={16}/>)}
@@ -81,10 +67,10 @@ const Sort = ({ sortBy = "alphabet", setSortBy, sortDirection = "asc", setSortDi
 
                             </li>
                             <li
-                                className="max-md:text-sm p-2 cursor-pointer text-dark hover:bg-gray-100 lin-transition flex justify-between items-center"
+                                className="max-md:text-sm py-2 px-4 cursor-pointer text-dark hover:bg-gray-100 lin-transition rounded-b flex justify-between items-center"
                                 onClick={() => handleSortChange("credits")}
                             >
-                                By Credits
+                                Κατά Δ. Μονάδες
 
                                 <div className="text-primary">
                                     {sortBy === "credits" && (sortDirection === "asc" ? <RiArrowUpLongLine size={16}/> : <RiArrowDownLongLine size={16}/>)}

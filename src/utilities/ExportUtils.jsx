@@ -9,7 +9,7 @@ export function exportGrades (grades) {
     document.body.removeChild(link);
 }
 
-export function importGrades (event, setClasses, setFixedClasses, setComponentKey) {
+export function importGrades (event, setUserCourses, setFixedCourses) {
     const file = event.target.files[0];
     console.log(file);
     if(file) {
@@ -18,11 +18,10 @@ export function importGrades (event, setClasses, setFixedClasses, setComponentKe
             try {
                 const result = reader.result;
                 const data = typeof result === "string" ? result : new TextDecoder().decode(result);
-                const importedClasses = JSON.parse(data);
-                if(Array.isArray(importedClasses)) {
-                    setClasses(importedClasses.filter((i) => i.id>101));
-                    setFixedClasses(importedClasses.filter((i) => i.id<=101));
-                    setComponentKey((prev) => (prev + 1));
+                const importedCourses = JSON.parse(data);
+                if(Array.isArray(importedCourses)) {
+                    setUserCourses(importedCourses.filter((i) => i.id>101));
+                    setFixedCourses(importedCourses.filter((i) => i.id<=101));
                 } else {
                     alert("Invalid File Format");
                 }

@@ -1,29 +1,35 @@
 import Header from "./Header";
 import BoxLayout from "./BoxLayout";
-import AddNewGrade from "./AddNewGrade";
-import ClassError from "./ClassError";
-import ClassList from "./ClassList";
-import ClassItem from "./ClassItem";
+import AddNewCourse from "./AddNewCourse";
+import CourseError from "./CourseError";
+import CourseList from "./CourseList";
+import CourseItem from "./CourseItem";
+import LazyCourseItem from "./LazyCourseItem";
 import Input from "./Input";
 import Button from "./Button";
-import Button2 from "./Button2";
 import Status from "./Status";
 import Searchbar from "./Searchbar";
 import Filter from "./Filter";
+import Sort from "./Sort";
 import Toolbar from "./Toolbar";
+import Loader from "./Loader";
+import ConfirmationMessage from "./ConfirmationMessage";
 
 export {
     Header,
     BoxLayout,
-    AddNewGrade,
-    ClassError,
-    ClassList,
-    ClassItem,
+    AddNewCourse,
+    CourseError,
+    CourseList,
+    CourseItem,
+    LazyCourseItem,
     Input,
     Button,
-    Button2,
     Status,
     Searchbar,
     Filter,
+    Sort,
     Toolbar,
+    Loader,
+    ConfirmationMessage,
 }

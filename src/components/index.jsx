@@ -14,6 +14,8 @@ import Sort from "./Sort";
 import Toolbar from "./Toolbar";
 import Loader from "./Loader";
 import ConfirmationMessage from "./ConfirmationMessage";
+import Stats from "./Stats";
+import CreditsProgressChart from "./CreditsProgressChart";
 
 export {
     Header,
@@ -32,4 +34,6 @@ export {
     Toolbar,
     Loader,
     ConfirmationMessage,
+    Stats,
+    CreditsProgressChart,
 }

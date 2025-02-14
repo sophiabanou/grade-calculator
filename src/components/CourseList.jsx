@@ -34,12 +34,12 @@ const CourseList = ({ index }) => {
         // handle sort type
         let compareA =
             sortBy === "alphabet" ? a.name.toLowerCase() :
-                sortBy === "grade" ? a.grade :
+                sortBy === "grade" ? parseFloat(a.grade) || 0 :
                     sortBy === "credits" ? a.credits : a.name.toLowerCase();
 
         let compareB =
             sortBy === "alphabet" ? b.name.toLowerCase() :
-                sortBy === "grade" ? b.grade :
+                sortBy === "grade" ? parseFloat(b.grade) || 0 :
                     sortBy === "credits" ? b.credits : b.name.toLowerCase();
 
         if (sortBy === "alphabet") {

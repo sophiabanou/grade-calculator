@@ -1,4 +1,4 @@
-import { AddNewCourse, CourseList, Stats } from "../components";
+import {AddNewCourse, CourseList, ProgressBar, Stats} from "../components";
 import useAppContext from "../context/useAppContext.jsx";
 
 export default function Home() {
@@ -29,16 +29,7 @@ export default function Home() {
           <CourseList index={3} />
 
         </div>
-
-        <div className="mt-20 fixed bottom-0 w-full flex flex-col items-start">
-          <p className="font-semibold text-light text-center text-lg rounded-tr  px-8 py-1 w-auto gap-3 bg-dark flex flex-row">
-              <span className="font-bold ">Πρόοδος:</span>
-              <span className="">{totalCredits} / {degreeCredits}</span>
-          </p>
-          <div className="w-full bg-light h-5 overflow-hidden">
-            <div className="bg-primary h-full" style={{ width: `${creditsProgress}%` }}></div>
-          </div>
-        </div>
+          <ProgressBar totalCredits={totalCredits} degreeCredits={degreeCredits} creditsProgress={creditsProgress} />
       </>
   );
 }

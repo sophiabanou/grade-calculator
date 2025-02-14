@@ -110,10 +110,10 @@ export const fixedCoursesData = [
     {id: 97,name: "Πληροφορική και Εκπαίδευση", credits: 4, category: "Προαιρετικά Μαθήματα (Π)", grade:null},
 
     // ΠΤΥΧΙΑΚΗ / ΠΡΑΚΤΙΚΗ
-    {id: 98,name: "Πτυχιακή Ι", credits: 6, category: "Πτυχιακή / Πρακτική (ΠΕ/ΠΑ)", grade:null},
-    {id: 99,name: "Πτυχιακή ΙΙ", credits: 6, category: "Πτυχιακή / Πρακτική (ΠΕ/ΠΑ)", grade:null},
-    {id: 100,name: "Πρακτική Ι", credits: 6, category: "Πτυχιακή / Πρακτική (ΠΕ/ΠΑ)", grade:null},
-    {id: 101,name: "Πρακτική ΙΙ", credits: 6, category: "Πτυχιακή / Πρακτική (ΠΕ/ΠΑ)", grade:null},
+    {id: 98,name: "Πτυχιακή Ι", credits: 8, category: "Πτυχιακή / Πρακτική (ΠΕ/ΠΑ)", grade:null},
+    {id: 99,name: "Πτυχιακή ΙΙ", credits: 8, category: "Πτυχιακή / Πρακτική (ΠΕ/ΠΑ)", grade:null},
+    {id: 100,name: "Πρακτική Ι", credits: 8, category: "Πτυχιακή / Πρακτική (ΠΕ/ΠΑ)", grade:null},
+    {id: 101,name: "Πρακτική ΙΙ", credits: 8, category: "Πτυχιακή / Πρακτική (ΠΕ/ΠΑ)", grade:null},
 ]
 
 // course categories

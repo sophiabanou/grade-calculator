@@ -23,7 +23,7 @@ const Toolbar = ({ selectedCategory, setSelectedCategory, selectedStatus, setSel
 
 
                     <div className="flex w-auto gap-2 ">
-                        <Button variant={2} Icon={RiFilter2Line} handler={handleFilterButtonClick} caption="Φιλτράρισμα Μαθημάτων" />
+                        <Button variant={filtersAreExpanded ? 3 : 2} Icon={RiFilter2Line} handler={handleFilterButtonClick} caption="Φιλτράρισμα Μαθημάτων" />
 
                         <motion.div
                             className="overflow-x-hidden flex gap-3"

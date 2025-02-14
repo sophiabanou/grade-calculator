@@ -16,6 +16,7 @@ import Loader from "./Loader";
 import ConfirmationMessage from "./ConfirmationMessage";
 import Stats from "./Stats";
 import CreditsProgressChart from "./CreditsProgressChart";
+import ProgressBar from "./ProgressBar";
 
 export {
     Header,
@@ -36,4 +37,5 @@ export {
     ConfirmationMessage,
     Stats,
     CreditsProgressChart,
+    ProgressBar,
 }

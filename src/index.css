@@ -38,7 +38,7 @@
     }
 
     .btn1 {
-        @apply relative bg-dark hover:bg-primary hover:cursor-pointer text-light rounded-full w-7 h-7 flex justify-center items-center duration-300 ease-linear
+        @apply z-200 relative bg-dark hover:bg-primary hover:cursor-pointer text-light rounded-full w-7 h-7 flex justify-center items-center duration-300 ease-linear
     }
 
     .btn1-disabled {
@@ -47,6 +47,10 @@
 
     .btn2 {
         @apply z-200 flex justify-center items-center bg-light rounded border-3 border-dark w-10 h-10 p-1 text-dark hover:cursor-pointer
+    }
+
+    .btn3 {
+        @apply z-200 flex justify-center items-center bg-light rounded border-3 border-primary w-10 h-10 p-1 text-dark hover:cursor-pointer
     }
 
     .loader {

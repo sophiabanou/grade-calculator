@@ -23,9 +23,9 @@ const Stats = ({ index }) => {
     return (
         <BoxLayout title="Στατιστικά" index={index}>
             {/* Top Row: Total Courses, Passed, Failed */}
-            <div className="grid grid-cols-3 gap-4 py-2 text-[15px] max-md:text-sm">
+            <div className="grid grid-cols-3 gap-4 py-2 text-[15px] max-md:text-sm max-lg:grid-cols-1">
                 <div className="max-md:p-3 p-2 border-1 border-gray-100 rounded text-center flex flex-col justify-start">
-                    <p className="text-xl max-md:text-lg font-bold h-8 text-gray-500 ">{totalCourses}</p>
+                    <p className="text-xl max-md:text-lg font-bold h-8 text-gray-500">{totalCourses}</p>
                     <p>Σύνολο Μαθημάτων</p>
                 </div>
                 <div className="max-md:p-3 p-2 border-1 border-green-100 rounded text-center flex flex-col justify-start">
@@ -39,20 +39,20 @@ const Stats = ({ index }) => {
             </div>
 
             <div className="flex flex-row gap-6 w-full mt-2 border-1 border-gray-100 rounded py-2 px-1">
-                <div className="w-full flex flex-row items-center justify-between gap-6 ">
-                    <div className="w-full">
+                <div className="w-full flex flex-row items-center justify-between gap-6 max-[500px]:flex-col ">
+                    <div className="w-full flex justify-start items-center max-[500px]:justify-center">
                         <CreditsProgressChart credits={totalPassedCredits} />
                     </div>
 
-                    <div className="flex flex-col w-full  rounded">
-                        <div className="flex items-start justify-between p-2 gap-3 rounded-t text-center w-full max-w-xs">
-                            <p className="w-17 max-md:w-18 text-xl font-bold text-dark text-start text-shadow">{weightedGrade}</p>
-                            <p className="text-base max-md:text-sm text-gray-600">Βαθμός Πτυχίου</p>
+                    <div className="flex flex-col w-full  rounded ">
+                        <div className="flex flex-col items-start justify-between p-2 rounded-t text-center w-full max-w-xs max-[500px]:max-w-none max-[500px]:items-center">
+                            <p className="w-17 max-md:w-18 text-xl font-bold text-dark text-start text-shadow max-[500px]:w-full max-[500px]:text-center">{weightedGrade}</p>
+                            <p className="text-base max-md:text-sm text-gray-600 text-start max-[500px]:text-center">Βαθμός Πτυχίου</p>
                         </div>
 
-                        <div className="flex items-start justify-between gap-3 rounded-b  p-2 text-center w-full max-w-xs ">
-                            <p className="w-17 max-md:w-18 text-xl font-bold text-dark text-start">{passRate}%</p>
-                            <p className="text-base max-md:text-sm text-gray-600">Ποσοστό Επιτυχίας</p>
+                        <div className="flex flex-col items-start justify-between rounded-b  p-2 text-center w-full max-w-xs  max-[500px]:max-w-none max-[500px]:items-center ">
+                            <p className="w-17 max-md:w-18 text-xl font-bold text-dark text-start max-[500px]:text-center">{passRate}%</p>
+                            <p className="text-base max-md:text-sm text-gray-600 text-start max-[500px]:text-center">Ποσοστό Επιτυχίας</p>
                         </div>
                     </div>
 

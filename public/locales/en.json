@@ -1,0 +1,84 @@
+{
+  "new_course": {
+    "title": "Αdd New Course",
+    "button": "Add Course",
+    "message": "The course was created successfully!",
+    "fields" : {
+      "course": "Class Name",
+      "credits": "Credits",
+      "grade": "Grade",
+      "category": "Category"
+    },
+    "errors": {
+      "no_name": "Enter a name",
+      "no_credits": "Enter credits",
+      "wrong_credits": "Enter valid credits [2-8]",
+      "no_grade": "Enter a grade",
+      "wrong_grade": "Enter a valid grade [0-10]",
+      "no_category": "Select a category"
+    }
+  },
+  "course_item": {
+    "captions": {
+      "save": "Save changes",
+      "delete": "Delete course"
+    },
+    "fields": {
+      "credits": "Credits",
+      "grade": "Grade"
+    },
+    "errors": {
+      "credits": "Enter valid credits",
+      "grade": "Enter a valid grade"
+    }
+  },
+  "course_list": {
+    "title": "Courses",
+    "not_found": "No matching courses found"
+  },
+  "chart": {
+    "credits": "Credits"
+  },
+  "header": {
+    "message": "Courses imported successfully!",
+    "links": {
+      "home": "Home",
+      "import": "Import",
+      "export": "Export",
+      "about": "About"
+    },
+    "captions": {
+      "mobile": "Navigation menu"
+    }
+  },
+  "progress": "Progress",
+  "search": {
+    "placeholder": "Search...",
+    "caption": "Search courses"
+  },
+  "sort": {
+    "caption": {
+      "sort": "Sort by",
+      "alphabet": "Alphabetically",
+      "grade": "Grade",
+      "credits": "Credits"
+    },
+    "dropdown": {
+      "alphabet": "Alphabetically",
+      "grade": "By Grade",
+      "credits": "By Credits"
+    }
+  },
+  "stats": {
+    "total": "Total Courses",
+    "passed": "Passed",
+    "failed": "Failed",
+    "grade": "Degree Grade",
+    "pass_rate": "Pass Rate"
+  },
+  "toolbar": {
+    "category": "Category",
+    "status": "Status",
+    "caption": "Filter courses"
+  }
+}

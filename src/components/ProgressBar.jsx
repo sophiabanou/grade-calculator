@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import useLanguageContext from "../context/useLanguageContext";
 
 const ProgressBar = ({ totalCredits, degreeCredits, creditsProgress }) => {
     const [prevProgress, setPrevProgress] = useState(0);
+    const {languageData} = useLanguageContext();
 
     useEffect(() => {
         if (creditsProgress !== prevProgress) {
@@ -24,7 +26,7 @@ const ProgressBar = ({ totalCredits, degreeCredits, creditsProgress }) => {
         >
 
             <p className="font-semibold text-light text-center text-lg rounded-tr px-8 py-1 w-auto gap-3 bg-dark flex flex-row shadow-md">
-                <span className="font-bold">Πρόοδος:</span>
+                <span className="font-bold">{languageData?.progress}:</span>
                 <span>{totalCredits} / {degreeCredits}</span>
             </p>
 

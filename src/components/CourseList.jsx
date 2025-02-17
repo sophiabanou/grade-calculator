@@ -1,6 +1,7 @@
 import { Suspense, useState} from "react";
 import BoxLayout from "./BoxLayout.jsx";
-import useAppContext from "../context/useAppContext.jsx";
+import useAppContext from "../context/useAppContext";
+import useLanguageContext from "../context/useLanguageContext";
 import { AnimatePresence } from "framer-motion";
 import { LazyCourseItem, Toolbar, Loader } from "../components";
 import PropTypes from "prop-types";
@@ -8,6 +9,7 @@ import { categories } from "../data";
 
 const CourseList = ({ index }) => {
     const { allCourses } = useAppContext();
+    const { languageData } = useLanguageContext();
 
     // filters + search
     const [searchQuery, setSearchQuery] = useState("");
@@ -67,11 +69,9 @@ const CourseList = ({ index }) => {
         return acc;
     }, {});
 
-    // add a misc category
-    groupedCourses["Άλλα"] = sortedCourses.filter((c) => !c.category || !categories.includes(c.category));
 
     return (
-        <BoxLayout title="Μαθήματα" index={index}>
+        <BoxLayout title={languageData?.course_list?.title} index={index}>
             <Toolbar
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
@@ -104,7 +104,7 @@ const CourseList = ({ index }) => {
                 })}
 
                 {filteredCourses.length === 0 && (
-                    <p className="text-center text-gray-500 py-3">Δεν βρέθηκαν αντίστοιχα μαθήματα.</p>
+                    <p className="text-center text-gray-500 py-3">{languageData?.course_list?.not_found}.</p>
                 )}
             </div>
         </BoxLayout>

@@ -80,5 +80,17 @@
     "category": "Κατηγορία",
     "status": "Κατάσταση",
     "caption": "Φιλτράρισμα μαθημάτων"
+  },
+  "categories": {
+    "ym": "Compulsory Courses",
+    "gp": "General Education",
+    "ey": "Elective Compulsory Courses",
+    "per": "Independent Optional Labs",
+    "opt": "Optional Courses",
+    "el": "Free Electives)",
+    "pe_pa": "Thesis / Internship",
+    "project": "Project"
   }
+
 }
+

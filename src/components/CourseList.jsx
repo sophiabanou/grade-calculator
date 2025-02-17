@@ -89,7 +89,9 @@ const CourseList = ({ index }) => {
                     if (groupedCourses[category].length === 0) return null;
                     return (
                         <div key={category} className="mb-4 pt-4 rounded-md">
-                            <h3 className="max-md:text-base w-full text-lg text-primary font-bold py-2 px-2">{category}</h3>
+                            <h3 className="max-md:text-base w-full text-lg text-primary font-bold py-2 px-2">
+                                {languageData?.categories?.[category] || category}
+                            </h3>
                             <div className="space-y-3 rounded">
                                 <AnimatePresence>
                                     <Suspense fallback={<Loader />}>

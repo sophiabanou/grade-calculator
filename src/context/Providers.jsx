@@ -35,20 +35,20 @@ export const AppProvider = ({ children }) => {
     }, [])
 
     // save classes to local storage and update allCourses
-    // useEffect(() => {
-    //     localStorage.setItem("userCourses", JSON.stringify(userCourses));
-    //     localStorage.setItem("fixedCourses", JSON.stringify(fixedCourses))
-    //     setAllCourses([
-    //         ...userCourses,
-    //         ...fixedCourses.map((fc) => ({ ...fc, isFixed: true })),
-    //     ]);
-    // }, [userCourses, fixedCourses]);
+    useEffect(() => {
+        localStorage.setItem("userCourses", JSON.stringify(userCourses));
+        localStorage.setItem("fixedCourses", JSON.stringify(fixedCourses))
+        setAllCourses([
+            ...userCourses,
+            ...fixedCourses.map((fc) => ({ ...fc, isFixed: true })),
+        ]);
+    }, [userCourses, fixedCourses]);
 
     // check if the current URL is "about"
-    const location = useLocation();
-    useEffect(() => {
-        setIsAbout(location.pathname.includes("about"));
-    }, [location.pathname]);
+    // const location = useLocation();
+    // useEffect(() => {
+    //     setIsAbout(location.pathname.includes("about"));
+    // }, [location.pathname]);
 
     // export - import handling
     const [expDisabled, setExpDisabled] = useState(false);

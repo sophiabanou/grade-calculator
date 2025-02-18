@@ -1,10 +1,12 @@
 import {AnimatePresence, motion} from "framer-motion";
 import PropTypes from "prop-types";
 import {useRef, useState} from "react";
+import useThemeContext from "../context/useThemeContext.jsx";
 
 const Button = ({ Icon, disabled = false, handler, caption, variant= 1 }) => {
     const timeoutRef = useRef(null);
     const [showCaption, setShowCaption] = useState(false);
+    const {theme} = useThemeContext();
 
     // mouse handlers
     const handleMouseEnter = () => {
@@ -42,7 +44,10 @@ const Button = ({ Icon, disabled = false, handler, caption, variant= 1 }) => {
                             : "btn3"
                 }`}
             >
-                <Icon size={18} />
+                <Icon
+                    size={18}
+                    // color={variant === 2 && theme === 'dark'? "#ffffff" : "#151515"}
+                />
 
                 <AnimatePresence >
                     {showCaption && !disabled && (

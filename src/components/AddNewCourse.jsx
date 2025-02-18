@@ -162,7 +162,7 @@ const AddNewCourse = ({index}) => {
 
                     <button
                         type="submit"
-                        className="mt-5 w-full bg-dark text-white border-3 border-dark p-2 rounded hover:cursor-pointer hover:bg-primary lin-transition"
+                        className="dark:bg-dark-primary dark:border-dark-primary dark:hover:border-primary mt-5 w-full bg-dark text-white border-3 border-dark p-2 rounded hover:cursor-pointer hover:bg-primary lin-transition"
                     >
                         <p className="text-sm uppercase font-semibold tracking-wider">{languageData?.new_course?.button}</p>
                     </button>

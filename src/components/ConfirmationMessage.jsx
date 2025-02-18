@@ -25,7 +25,7 @@ const ConfirmationMessage = ({ message, color = "green", isOpen }) => {
             {isOpen && (
                 <motion.div
                     className={`z-1000 fixed top-0 left-0 w-full py-4 px-10 flex justify-start items-center max-md:justify-center max-md:py-3 ${
-                        color === "green" ? "bg-green-300" : "bg-red-200"
+                        color === "green" ? "bg-green-200" : "bg-red-200"
                     } text-dark opacity-95`}
                     variants={variants}
                     initial="hidden"

@@ -2,11 +2,12 @@ import PropTypes from "prop-types";
 import {RiCheckboxCircleLine, RiCloseCircleLine, RiHourglassLine} from "@remixicon/react";
 
 const Status = ({status}) => {
+
     return (
         <>
             {
                 (status==="Pending") ? (
-                    <div className="text-gray-200">
+                    <div className="text-gray-200 dark:text-gray-600">
                         <RiHourglassLine size={16}/>
                     </div>
                 ) : (status==="Passed") ? (

@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
+import useLanguageContext from "../context/useLanguageContext.jsx";
 
 const Input = ({type, handler, hasError, onKeyDown=null,   title="", value, data=[]}) => {
+    const {languageData} = useLanguageContext();
+
     return (
         <>
             {(type === "text") ? (
@@ -10,8 +13,9 @@ const Input = ({type, handler, hasError, onKeyDown=null,   title="", value, data
                         value={value || ""}
                         id={title}
                         onChange={handler}
-                        className={`max-md:text-sm w-full p-2 px-4 bg-gray-100 rounded eio-transition border-1  outline-1 outline-transparent
-                                hover:border-dark focus:border-dark focus:bg-light focus:outline-dark 
+                        className={`dark:bg-dmode-input dark:font-light dark:focus:bg-dmode-input dark:text-light dark:placeholder-dark-grey  dark:hover:border-dmode-border dark:focus:border-dmode-border dark:focus:outline-dmode-border max-md:text-sm w-full p-2 px-4 bg-gray-100 
+                        rounded eio-transition border-1  outline-1 outline-transparent 
+                                hover:border-dark focus:border-dark focus:bg-light focus:outline-dark  
                                 ${hasError ? "border-red-700 bg-light" : "border-transparent"}`}
                     />
                 ) : (type === "number") ? (
@@ -22,7 +26,7 @@ const Input = ({type, handler, hasError, onKeyDown=null,   title="", value, data
                         id={title}
                         onChange={handler}
                         onKeyDown={onKeyDown}
-                        className={`max-md:text-sm w-full p-2 px-4 bg-gray-100 rounded eio-transition border-1 outline-1 outline-transparent
+                        className={`dark:bg-dmode-input dark:font-light dark:focus:bg-dmode-input dark:text-light dark:placeholder-dark-grey dark:hover:border-dmode-border dark:focus:border-dmode-border dark:focus:outline-dmode-border max-md:text-sm w-full p-2 px-4 bg-gray-100 rounded eio-transition border-1 outline-1 outline-transparent
                             hover:border-dark focus:border-dark focus:bg-light focus:outline-dark appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none
                             ${hasError ? "border-red-700 bg-light" : "border-transparent" } `}
                     />
@@ -30,14 +34,14 @@ const Input = ({type, handler, hasError, onKeyDown=null,   title="", value, data
                     <select
                         value={value || ""}
                         onChange={handler}
-                        className={`max-md:text-sm w-full p-2 px-4 bg-gray-100 rounded eio-transition border-1 outline-1 outline-transparent
+                        className={`dark:bg-dmode-input dark:font-light dark:focus:bg-dmode-input dark:text-dark-grey dark:hover:border-dmode-border dark:focus:border-dmode-border dark:focus:outline-dmode-border max-md:text-sm w-full p-2 px-4 bg-gray-100 rounded eio-transition border-1 outline-1 outline-transparent
                              hover:border-dark focus:border-dark focus:bg-light focus:outline-dark hover:cursor-pointer
                              ${hasError ? "border-red-700 bg-light" : "border-transparent" }`}
                     >
                         <option value="">{title}</option>
                         {data.map((cat, index) => (
                             <option key={index} value={cat}>
-                                {cat}
+                                {languageData?.filters?.[cat] || cat}
                             </option>
                         ))}
                     </select>

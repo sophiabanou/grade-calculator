@@ -19,7 +19,7 @@ const Toolbar = ({ selectedCategory, setSelectedCategory, selectedStatus, setSel
         <>
             <div className="p-2 mb-4 flex flex-wrap gap-2">
 
-                <div className="flex justify-start w-full p-3 items-center border-1 rounded border-gray-100 gap-5 flex-wrap">
+                <div className="dark:border-dmode-border flex justify-start w-full p-3 items-center border-1 rounded border-gray-100 gap-5 flex-wrap">
 
                     <Searchbar setSearchQuery={setSearchQuery} />
 

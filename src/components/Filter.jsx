@@ -9,7 +9,7 @@ const Filter = ({ selectedOption, setSelectedOption, data, title}) => {
             <select
                 value={selectedOption}
                 onChange={(e) => setSelectedOption(e.target.value)}
-                className="max-h-10 max-w-[250px] ml-2 p-2 pl-4 pr-2 bg-light rounded border-1 border-dark outline-none
+                className="dark:bg-dmode-input dark:border-dmode-input  dark:text-dark-grey max-h-10 max-w-[250px] ml-2 p-2 pl-4 pr-2 bg-light rounded border-1 border-dark outline-none
                     lin-transition  w-[15vw]  hover:cursor-pointer max-md:px-1 max-md:text-sm max-md:w-[17vw] "
             >
                 <option value="All">{title}</option>

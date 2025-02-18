@@ -1,16 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Geologica:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
+@variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 @theme {
     --color-dark: #151515;
     --color-light: #ffffff;
     --color-light-table: #f8f8f8;
     --color-primary: #465f9f;
-    --color-secondary: #c8ceda;
-    --color-pink: #be99c3;
-    --color-pink-dark: #9793b2;
+    --color-dark-primary: #314b8c;
+    --color-dmode: #181b2a;
+    --color-dmode-input: #1e2131;
+    --color-dmode-input-l: #1f2233;
+    --color-dmode-border: #282b3b;
+    --color-dark-grey: #84889b;
 
     --font-geologica: "Geologica", serif;
+
+    --bglight: url("assets/background.webp");
+    --bgdark: url("assets/background-dark.jpg");
 }
 
 @layer components {
@@ -20,7 +27,20 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-image: url("assets/background.webp");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        z-index: -1;
+    }
+
+    .bg-prim-dark {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        /*background-image: url("assets/background-dark.jpg");*/
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -38,19 +58,19 @@
     }
 
     .btn1 {
-        @apply z-200 relative bg-dark hover:bg-primary hover:cursor-pointer text-light rounded-full w-7 h-7 flex justify-center items-center duration-300 ease-linear
+        @apply dark:text-dark dark:bg-light dark:hover:bg-dark-primary dark:hover:text-light z-200 relative bg-dark hover:bg-primary hover:cursor-pointer text-light rounded-full w-7 h-7 flex justify-center items-center duration-300 ease-linear
     }
 
     .btn1-disabled {
-        @apply relative bg-gray-200 text-light rounded-full w-7 h-7 flex justify-center items-center duration-300 ease-linear cursor-not-allowed;
+        @apply dark:bg-dmode-border dark:text-dmode relative bg-gray-200 text-light rounded-full w-7 h-7 flex justify-center items-center duration-300 ease-linear cursor-not-allowed;
     }
 
     .btn2 {
-        @apply z-200 flex justify-center items-center bg-light rounded border-3 border-dark w-10 h-10 p-1 text-dark hover:cursor-pointer
+        @apply dark:text-light dark:bg-dmode dark:border-dmode-border z-200 flex justify-center items-center bg-light rounded border-3 border-dark w-10 h-10 p-1 text-dark hover:cursor-pointer
     }
 
     .btn3 {
-        @apply z-200 flex justify-center items-center bg-light rounded border-3 border-primary w-10 h-10 p-1 text-dark hover:cursor-pointer
+        @apply dark:text-light dark:bg-dmode dark:border-dark-primary z-200 flex justify-center items-center bg-light rounded border-3 border-primary w-10 h-10 p-1 text-dark hover:cursor-pointer
     }
 
     .light-shadow {

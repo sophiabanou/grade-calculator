@@ -68,26 +68,26 @@ const Header = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="absolute top-0 bg-light mt-15 flex justify-center rounded-lg border-3 border-dark w-auto max-sm:hidden">
+                className="absolute top-0 bg-light dark:bg-dmode dark:text-light mt-15 flex justify-center rounded-lg border-3 border-dark w-auto max-sm:hidden">
                 <nav className="flex items-center w-full">
                     <a href="#/" className="group px-15 py-2 border-r-dark border-r-3 max-md:px-10">
-                            <p className="text-sm font-semibold uppercase text-dark group-hover:text-primary lin-transition">{languageData?.header?.links?.home}</p>
+                            <p className="text-sm font-semibold uppercase group-hover:text-primary lin-transition">{languageData?.header?.links?.home}</p>
                         </a>
 
                         <button className={`group ${impDisabled ? 'hover:cursor-default' : 'hover:cursor-pointer'} px-15 py-2 border-r-dark border-r-3 max-md:px-10`} disabled={impDisabled} onClick={(e) => {
                             e.preventDefault(); triggerFileInput();}}>
-                            <p className={`text-sm font-semibold uppercase text-dark lin-transition ${impDisabled ? 'pointer-events-none opacity-50' : 'group-hover:text-primary'}
+                            <p className={`text-sm font-semibold uppercase lin-transition ${impDisabled ? 'pointer-events-none opacity-50' : 'group-hover:text-primary'}
                                     `}>{languageData?.header?.links?.import}</p>
                         </button>
 
                         <button className={`group ${expDisabled ? 'hover:cursor-default' : 'hover:cursor-pointer'} px-15 py-2 border-r-dark border-r-3 max-md:px-10`} disabled={expDisabled} onClick={(e) => {
                             e.preventDefault(); exportGrades(allCourses);
                         }}>
-                            <p className={`text-sm font-semibold uppercase text-dark hover:cursor-pointer lin-transition ${expDisabled ? 'pointer-events-none opacity-50' : 'group-hover:text-primary'}`}>{languageData?.header?.links?.export}</p>
+                            <p className={`text-sm font-semibold uppercase hover:cursor-pointer lin-transition ${expDisabled ? 'pointer-events-none opacity-50' : 'group-hover:text-primary'}`}>{languageData?.header?.links?.export}</p>
                         </button>
 
                         <a href="#/about" className="group px-15 py-2 max-md:px-10">
-                            <p className="text-sm font-semibold uppercase text-dark group-hover:text-primary lin-transition">{languageData?.header?.links?.about}</p>
+                            <p className="text-sm font-semibold uppercase group-hover:text-primary lin-transition">{languageData?.header?.links?.about}</p>
                         </a>
                 </nav>
             </motion.header>
@@ -115,36 +115,36 @@ const Header = () => {
                                 animate="visible"
                                 exit="exit"
 
-                                className="z-100 bg-light absolute top-0 mt-15 left-10 right-10 h-auto rounded border-3 border-dark ">
+                                className="z-100 dark:bg-dmode bg-light absolute top-0 mt-15 left-10 right-10 h-auto rounded border-3 border-dark dark:border-dmode-border">
 
-                                <div className="absolute top 0 w-full bg-dark h-9"></div>
+                                <div className="absolute top 0 w-full bg-dark h-[37px] dark:bg-dmode-border"></div>
                                 <div className="mt-10">
                                     <nav>
-                                        <div className="px-4 py-2 border-b-dark border-b-3">
+                                        <div className="dark:border-dmode-border px-4 py-2 border-b-dark border-b-3">
                                             <a href="#/" className="group">
-                                                <p className="text-sm font-semibold uppercase text-dark group-hover:text-primary lin-transition">{languageData?.header?.links?.home}</p>
+                                                <p className="dark:text-dark-grey text-sm font-semibold uppercase text-dark group-hover:text-primary lin-transition">{languageData?.header?.links?.home}</p>
                                             </a>
                                         </div>
 
-                                        <div className="px-4 py-2 border-b-dark border-b-3">
+                                        <div className="dark:border-dmode-border px-4 py-2 border-b-dark border-b-3">
                                             <button className={`group ${impDisabled ? 'hover:cursor-default' : 'hover:cursor-pointer'} `} disabled={impDisabled} onClick={(e) => {
                                                 e.preventDefault(); triggerFileInput();}}>
-                                                <p className={`text-sm font-semibold uppercase text-dark lin-transition ${impDisabled ? 'pointer-events-none opacity-50' : 'group-hover:text-primary'}
+                                                <p className={`dark:text-dark-grey text-sm font-semibold uppercase text-dark lin-transition ${impDisabled ? 'pointer-events-none opacity-50' : 'group-hover:text-primary'}
                                                 `}>{languageData?.header?.links?.import}</p>
                                             </button>
                                         </div>
 
-                                        <div className="px-4 py-2 border-b-dark border-b-3">
+                                        <div className="dark:border-dmode-border px-4 py-2 border-b-dark border-b-3">
                                             <button className={`group ${expDisabled ? 'hover:cursor-default' : 'hover:cursor-pointer'} `} disabled={expDisabled} onClick={(e) => {
                                                 e.preventDefault(); exportGrades(allCourses);
                                             }}>
-                                                <p className={`text-sm font-semibold uppercase text-dark hover:cursor-pointer lin-transition ${expDisabled ? 'pointer-events-none opacity-50' : 'group-hover:text-primary'}`}>{languageData?.header?.links?.export}</p>
+                                                <p className={`dark:text-dark-grey text-sm font-semibold uppercase text-dark hover:cursor-pointer lin-transition ${expDisabled ? 'pointer-events-none opacity-50' : 'group-hover:text-primary'}`}>{languageData?.header?.links?.export}</p>
                                             </button>
                                         </div>
 
                                         <div className="px-4 py-2">
                                             <a href="#/about" className="group">
-                                                <p className="text-sm font-semibold uppercase text-dark group-hover:text-primary lin-transition">{languageData?.header?.links?.about}</p>
+                                                <p className="dark:text-dark-grey text-sm font-semibold uppercase text-dark group-hover:text-primary lin-transition">{languageData?.header?.links?.about}</p>
                                             </a>
                                         </div>
 

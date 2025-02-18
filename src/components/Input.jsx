@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import useLanguageContext from "../context/useLanguageContext.jsx";
+import {useLanguageContext} from "../context/Hooks";
 
 const Input = ({type, handler, hasError, onKeyDown=null,   title="", value, data=[]}) => {
     const {languageData} = useLanguageContext();

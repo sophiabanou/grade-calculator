@@ -1,7 +1,6 @@
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import PropTypes from "prop-types";
-import useLanguageContext from "../context/useLanguageContext";
-import useThemeContext from "../context/useThemeContext.jsx";
+import {useThemeContext, useLanguageContext} from "../context/Hooks";
 
 const CreditProgressChart = ({ credits }) => {
     const {languageData} = useLanguageContext();

@@ -1,7 +1,6 @@
 import { Suspense, useState} from "react";
 import BoxLayout from "./BoxLayout.jsx";
-import useAppContext from "../context/useAppContext";
-import useLanguageContext from "../context/useLanguageContext";
+import {useAppContext, useLanguageContext} from "../context/Hooks";
 import { AnimatePresence } from "framer-motion";
 import { LazyCourseItem, Toolbar, Loader } from "../components";
 import PropTypes from "prop-types";

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import useLanguageContext from "../context/useLanguageContext";
+import {useLanguageContext} from "../context/Hooks";
 
 const Filter = ({ selectedOption, setSelectedOption, data, title}) => {
     const {languageData} = useLanguageContext();

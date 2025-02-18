@@ -3,7 +3,7 @@ import {AnimatePresence, motion} from "framer-motion";
 import { Button } from "./index.jsx";
 import {useState, useRef} from "react";
 import { RiFilter3Line, RiArrowUpLongLine, RiArrowDownLongLine } from "@remixicon/react";
-import useLanguageContext from "../context/useLanguageContext.jsx";
+import {useLanguageContext} from "../context/Hooks";
 
 const Sort = ({ sortBy = "alphabet", setSortBy, sortDirection = "asc", setSortDirection }) => {
     const {languageData} = useLanguageContext();

@@ -1,6 +1,5 @@
 import {RiCloseFill, RiSaveLine} from "@remixicon/react";
-import useAppContext from "../context/useAppContext";
-import useLanguageContext from "../context/useLanguageContext";
+import {useAppContext, useLanguageContext} from "../context/Hooks";
 import { motion} from "framer-motion";
 import {Input, CourseError, Button, Status} from "./index.jsx"
 import {useEffect, useState} from "react";

@@ -22,6 +22,7 @@ import ThemeToggle from "./ThemeToggle";
 import ToolbarTop from "./ToolbarTop";
 import Background from "./Background";
 import ScrollToTop from "./ScrollToTop";
+import Footer from "./Footer";
 
 export {
     Header,
@@ -47,5 +48,6 @@ export {
     ThemeToggle,
     ToolbarTop,
     Background,
-    ScrollToTop
+    ScrollToTop,
+    Footer,
 }

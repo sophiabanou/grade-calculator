@@ -30,9 +30,9 @@ export const AppProvider = ({ children }) => {
 
 
     // clears local storage. uncomment and comment the useEffect below
-    useEffect(() => {
-        localStorage.clear();
-    }, [])
+    // useEffect(() => {
+    //     localStorage.clear();
+    // }, [])
 
     // save classes to local storage and update allCourses
     useEffect(() => {
@@ -45,10 +45,10 @@ export const AppProvider = ({ children }) => {
     }, [userCourses, fixedCourses]);
 
     // check if the current URL is "about"
-    // const location = useLocation();
-    // useEffect(() => {
-    //     setIsAbout(location.pathname.includes("about"));
-    // }, [location.pathname]);
+    const location = useLocation();
+    useEffect(() => {
+        setIsAbout(location.pathname.includes("about"));
+    }, [location.pathname]);
 
     // export - import handling
     const [expDisabled, setExpDisabled] = useState(false);

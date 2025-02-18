@@ -30,19 +30,19 @@ export const AppProvider = ({ children }) => {
 
 
     // clears local storage. uncomment and comment the useEffect below
-    // useEffect(() => {
-    //     localStorage.clear();
-    // }, [])
+    useEffect(() => {
+        localStorage.clear();
+    }, [])
 
     // save classes to local storage and update allCourses
-    useEffect(() => {
-        localStorage.setItem("userCourses", JSON.stringify(userCourses));
-        localStorage.setItem("fixedCourses", JSON.stringify(fixedCourses))
-        setAllCourses([
-            ...userCourses,
-            ...fixedCourses.map((fc) => ({ ...fc, isFixed: true })),
-        ]);
-    }, [userCourses, fixedCourses]);
+    // useEffect(() => {
+    //     localStorage.setItem("userCourses", JSON.stringify(userCourses));
+    //     localStorage.setItem("fixedCourses", JSON.stringify(fixedCourses))
+    //     setAllCourses([
+    //         ...userCourses,
+    //         ...fixedCourses.map((fc) => ({ ...fc, isFixed: true })),
+    //     ]);
+    // }, [userCourses, fixedCourses]);
 
     // check if the current URL is "about"
     const location = useLocation();

@@ -138,7 +138,14 @@ const CourseItem = ({c}) => {
             >
                 <div className="max-md:w-full max-lg:w-3/12  w-5/12 flex items-center gap-4">
                     <Status status={status} />
-                    <p className="max-md:text-sm max-md:font-semibold text-dark font-medium  break-words hyphens-auto leading-normal">{c.name}</p>
+                    <p className="max-md:text-sm max-md:font-semibold text-dark font-medium  break-words hyphens-auto leading-normal">
+                        {!isFixedCourse ? (
+                            c.name
+                        ): (
+                            languageData?.courses?.[c.name] || c.name
+                        )}
+
+                    </p>
                 </div>
 
                 <div className="flex max-md:w-[90%] gap-10 w-6/12">

@@ -68,7 +68,7 @@ const Header = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="absolute top-0 bg-light mt-10 flex justify-center rounded-lg border-3 border-dark w-auto max-sm:hidden">
+                className="absolute top-0 bg-light mt-15 flex justify-center rounded-lg border-3 border-dark w-auto max-sm:hidden">
                 <nav className="flex items-center w-full">
                     <a href="#/" className="group px-15 py-2 border-r-dark border-r-3 max-md:px-10">
                             <p className="text-sm font-semibold uppercase text-dark group-hover:text-primary lin-transition">{languageData?.header?.links?.home}</p>
@@ -92,7 +92,7 @@ const Header = () => {
                 </nav>
             </motion.header>
 
-            <div className="z-200 absolute top-0 mt-10 left-10 sm:hidden">
+            <div className="z-200 absolute top-0 mt-15 left-10 sm:hidden">
                 <Button Icon={mobileNavOpen ? RiCloseFill : RiMenuLine} handler={handleButtonClick} caption={languageData?.header?.captions?.mobile} variant={2}/>
             </div>
 
@@ -115,7 +115,7 @@ const Header = () => {
                                 animate="visible"
                                 exit="exit"
 
-                                className="z-100 bg-light absolute top-0 mt-10 left-10 right-10 h-auto rounded border-3 border-dark ">
+                                className="z-100 bg-light absolute top-0 mt-15 left-10 right-10 h-auto rounded border-3 border-dark ">
 
                                 <div className="absolute top 0 w-full bg-dark h-9"></div>
                                 <div className="mt-10">

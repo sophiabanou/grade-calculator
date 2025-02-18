@@ -21,9 +21,9 @@ const CourseList = ({ index }) => {
         const matchesCategory = selectedCategory === "All" || c.category === selectedCategory;
         const matchesStatus =
             selectedStatus === "All" ||
-            (selectedStatus === "Σε Αναμονή" && (c.grade === null || c.grade === "" || c.grade === undefined)) ||
-            (selectedStatus === "Περασμένο" && c.grade >= 5) ||
-            (selectedStatus === "Αποτυχημένο" && (c.grade !== "" && c.grade !== null) && c.grade < 5);
+            (selectedStatus === "pending" && (c.grade === null || c.grade === "" || c.grade === undefined)) ||
+            (selectedStatus === "passed" && c.grade >= 5) ||
+            (selectedStatus === "failed" && (c.grade !== "" && c.grade !== null) && c.grade < 5);
 
         return matchesSearch && matchesCategory && matchesStatus;
     });
@@ -34,15 +34,18 @@ const CourseList = ({ index }) => {
 
     const sortedCourses = filteredCourses.sort((a, b) => {
         // handle sort type
+        const nameA = languageData?.courses?.[a.name] || a.name;
+        const nameB = languageData?.courses?.[b.name] || b.name;
+
         let compareA =
-            sortBy === "alphabet" ? a.name.toLowerCase() :
+            sortBy === "alphabet" ? nameA.toLowerCase() :
                 sortBy === "grade" ? parseFloat(a.grade) || 0 :
-                    sortBy === "credits" ? a.credits : a.name.toLowerCase();
+                    sortBy === "credits" ? a.credits : nameA.toLowerCase();
 
         let compareB =
-            sortBy === "alphabet" ? b.name.toLowerCase() :
+            sortBy === "alphabet" ? nameB.toLowerCase() :
                 sortBy === "grade" ? parseFloat(b.grade) || 0 :
-                    sortBy === "credits" ? b.credits : b.name.toLowerCase();
+                    sortBy === "credits" ? b.credits : nameB.toLowerCase();
 
         if (sortBy === "alphabet") {
             compareA = compareA.toLowerCase();
@@ -69,7 +72,6 @@ const CourseList = ({ index }) => {
         return acc;
     }, {});
 
-
     return (
         <BoxLayout title={languageData?.course_list?.title} index={index}>
             <Toolbar
@@ -90,7 +92,7 @@ const CourseList = ({ index }) => {
                     return (
                         <div key={category} className="mb-4 pt-4 rounded-md">
                             <h3 className="max-md:text-base w-full text-lg text-primary font-bold py-2 px-2">
-                                {languageData?.categories?.[category] || category}
+                                {languageData?.filters?.[category] || category}
                             </h3>
                             <div className="space-y-3 rounded">
                                 <AnimatePresence>

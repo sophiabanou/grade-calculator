@@ -30,9 +30,9 @@ const ProgressBar = ({ totalCredits, degreeCredits, creditsProgress }) => {
                 <span>{totalCredits} / {degreeCredits}</span>
             </p>
 
-            <div className="w-full bg-light h-5 overflow-hidden relative shadow-md">
+            <div className="w-full bg-light h-5 overflow-x-hidden relative light-shadow-top">
                 <div
-                    className="h-full bg-primary relative overflow-hidden transition-all"
+                    className="h-full bg-primary relative overflow-x-hidden transition-all"
                     style={{ width: `${creditsProgress}%` }}
                 >
                     <div

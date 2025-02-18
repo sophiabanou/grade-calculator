@@ -4,17 +4,25 @@ const LanguageToggle = () => {
     const {language, setLanguage} = useLanguageContext();
 
     const handleToggleLanguage = () => {
-        const newLanguage = language === 'gr' ? 'en' : 'gr';
+        const newLanguage = language === 'el' ? 'en' : 'el';
         setLanguage(newLanguage);
     }
 
     return (
         <>
-            <button
-                className="bg-dark text-light w-10 h-10 p-2 rounded-full cursor-pointer "
-                onClick={handleToggleLanguage}>
-                {language}
-            </button>
+            <div className="flex gap-1">
+                <button
+                    className={`max-md:text-sm text-gray-300 w-5 p-1 rounded cursor-pointer uppercase  hover:text-primary hover:underline lin-transition ${language==='el' ? "text-primary font-semibold" : "text-gray-300"}`}
+                    onClick={handleToggleLanguage}>
+                    el
+                </button>
+
+                <button
+                    className={`max-md:text-sm text-gray-300 w-5 p-1 rounded cursor-pointer uppercase  hover:text-primary hover:underline lin-transition ${language==='en' ? "text-primary font-semibold" : "text-gray-300"}`}
+                    onClick={handleToggleLanguage}>
+                    en
+                </button>
+            </div>
         </>
     )
 }

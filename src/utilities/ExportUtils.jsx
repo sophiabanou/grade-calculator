@@ -11,7 +11,6 @@ export function exportGrades (grades) {
 
 export function importGrades (event, setUserCourses, setFixedCourses) {
     const file = event.target.files[0];
-    console.log(file);
     if(file) {
         const reader = new FileReader();
         reader.onload = () => {

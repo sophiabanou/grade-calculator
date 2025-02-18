@@ -18,6 +18,7 @@ import Stats from "./Stats";
 import CreditsProgressChart from "./CreditsProgressChart";
 import ProgressBar from "./ProgressBar";
 import LanguageToggle from "./LanguageToggle";
+import ToolbarTop from "./ToolbarTop";
 
 export {
     Header,
@@ -40,4 +41,5 @@ export {
     CreditsProgressChart,
     ProgressBar,
     LanguageToggle,
+    ToolbarTop,
 }

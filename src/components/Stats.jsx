@@ -23,7 +23,7 @@ const Stats = ({ index }) => {
     }, [allCourses]);
 
     return (
-        <BoxLayout title="Στατιστικά" index={index}>
+        <BoxLayout title={languageData?.stats?.title} index={index}>
             {/* Top Row: Total Courses, Passed, Failed */}
             <div className="grid grid-cols-3 gap-4 py-2 text-[15px] max-md:text-sm max-lg:grid-cols-1">
                 <div className="max-md:p-3 p-2 border-1 border-gray-100 rounded text-center flex flex-col justify-start">

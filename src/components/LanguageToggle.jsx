@@ -1,4 +1,4 @@
-import useLanguageContext from "../context/useLanguageContext";
+import {useLanguageContext} from "../context/Hooks";
 
 const LanguageToggle = () => {
     const {language, setLanguage} = useLanguageContext();

@@ -4,7 +4,7 @@ import {RiFilter2Line} from "@remixicon/react";
 import {categories, statusOptions} from "../data/index.jsx";
 import {useState} from "react";
 import { motion } from "framer-motion";
-import useLanguageContext from "../context/useLanguageContext.jsx";
+import {useLanguageContext} from "../context/Hooks";
 
 const Toolbar = ({ selectedCategory, setSelectedCategory, selectedStatus, setSelectedStatus, setSearchQuery,
                      sortBy ="alphabet", setSortBy, sortDirection="asc",setSortDirection }) => {

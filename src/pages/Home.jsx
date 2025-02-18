@@ -1,5 +1,5 @@
 import {AddNewCourse, CourseList, ProgressBar, ScrollToTop, Stats} from "../components";
-import useAppContext from "../context/useAppContext.jsx";
+import {useAppContext} from "../context/Hooks";
 
 export default function Home() {
   const { allCourses } = useAppContext();

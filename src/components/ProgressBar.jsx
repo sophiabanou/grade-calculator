@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import useLanguageContext from "../context/useLanguageContext";
+import {useLanguageContext} from "../context/Hooks";
 
 const ProgressBar = ({ totalCredits, degreeCredits, creditsProgress }) => {
     const [prevProgress, setPrevProgress] = useState(0);

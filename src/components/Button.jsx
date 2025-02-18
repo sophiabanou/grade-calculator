@@ -1,7 +1,7 @@
 import {AnimatePresence, motion} from "framer-motion";
 import PropTypes from "prop-types";
 import {useRef, useState} from "react";
-import useThemeContext from "../context/useThemeContext.jsx";
+import {useThemeContext} from "../context/Hooks";
 
 const Button = ({ Icon, disabled = false, handler, caption, variant= 1 }) => {
     const timeoutRef = useRef(null);

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { RiSearchLine } from "@remixicon/react";
 import { motion } from "framer-motion";
 import { Button } from "./index.jsx";
-import useLanguageContext from "../context/useLanguageContext";
+import {useLanguageContext} from "../context/Hooks";
 
 const Searchbar = ({ setSearchQuery }) => {
     const {languageData} = useLanguageContext();

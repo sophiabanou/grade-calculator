@@ -1,8 +1,7 @@
 import { BoxLayout , CreditsProgressChart} from "./index.jsx";
 import PropTypes from "prop-types";
-import useAppContext from "../context/useAppContext.jsx";
 import { useMemo } from "react";
-import useLanguageContext from "../context/useLanguageContext.jsx";
+import {useLanguageContext, useAppContext} from "../context/Hooks";
 
 const Stats = ({ index }) => {
     const { allCourses } = useAppContext();

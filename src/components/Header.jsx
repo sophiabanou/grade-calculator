@@ -2,8 +2,7 @@ import {useState} from 'react'
 import {exportGrades, importGrades} from "../utilities";
 import {RiMenuLine, RiCloseFill} from "@remixicon/react";
 import {motion, AnimatePresence} from "framer-motion";
-import useAppContext from "../context/useAppContext";
-import useLanguageContext from "../context/useLanguageContext";
+import {useAppContext, useLanguageContext} from "../context/Hooks";
 import {Button} from "./index.jsx";
 import ConfirmationMessage from "./ConfirmationMessage.jsx";
 
@@ -67,11 +66,11 @@ const Header = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
                 className="absolute top-0 bg-light dark:bg-dmode dark:text-light mt-15 flex justify-center rounded-lg border-3 border-dark w-auto max-sm:hidden">
                 <nav className="flex items-center w-full">
                     <a href="#/" className="group px-15 py-2 border-r-dark border-r-3 max-md:px-10">
-                            <p className="text-sm font-semibold uppercase group-hover:text-primary lin-transition">{languageData?.header?.links?.home}</p>
+                            <p className="group-hover:text-primary text-sm font-semibold uppercase group-hover:text-primary lin-transition">{languageData?.header?.links?.home}</p>
                         </a>
 
                         <button className={`group ${impDisabled ? 'hover:cursor-default' : 'hover:cursor-pointer'} px-15 py-2 border-r-dark border-r-3 max-md:px-10`} disabled={impDisabled} onClick={(e) => {

@@ -1,7 +1,6 @@
 import {Input, CourseError, BoxLayout, ConfirmationMessage } from "./index.jsx"
 import { useState } from "react";
-import useAppContext from "../context/useAppContext";
-import useLanguageContext from "../context/useLanguageContext";
+import {useLanguageContext, useAppContext} from "../context/Hooks";
 import PropTypes from 'prop-types';
 import {categories} from "../data"
 

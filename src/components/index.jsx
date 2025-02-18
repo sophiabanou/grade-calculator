@@ -21,6 +21,7 @@ import LanguageToggle from "./LanguageToggle";
 import ThemeToggle from "./ThemeToggle";
 import ToolbarTop from "./ToolbarTop";
 import Background from "./Background";
+import ScrollToTop from "./ScrollToTop";
 
 export {
     Header,
@@ -45,5 +46,6 @@ export {
     LanguageToggle,
     ThemeToggle,
     ToolbarTop,
-    Background
+    Background,
+    ScrollToTop
 }

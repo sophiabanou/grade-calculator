@@ -1,4 +1,4 @@
-import {AddNewCourse, CourseList, ProgressBar, Stats} from "../components";
+import {AddNewCourse, CourseList, ProgressBar, ScrollToTop, Stats} from "../components";
 import useAppContext from "../context/useAppContext.jsx";
 
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
           </div>
 
           <CourseList index={3} />
-
+          <ScrollToTop/>
         </div>
           <ProgressBar totalCredits={totalCredits} degreeCredits={degreeCredits} creditsProgress={creditsProgress} />
       </>

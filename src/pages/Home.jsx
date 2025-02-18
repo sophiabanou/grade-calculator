@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
       <>
-        <div className="w-[70vw] max-xl:w-[80vw] max-md:w-[86vw] max-md:gap-5 flex flex-col gap-7 absolute top-40 pb-40">
+        <div className="h-min min-h-screen w-[70vw] max-xl:w-[80vw] max-md:w-[86vw] max-md:gap-5 flex flex-col gap-7 mt-40 pb-40">
           <div className="w-full flex gap-10 max-md:flex-col max-md:gap-5">
             <AddNewCourse index={1} />
             <Stats index={2} />

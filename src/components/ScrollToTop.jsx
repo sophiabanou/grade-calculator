@@ -27,7 +27,7 @@ const ScrollToTop = () => {
                 animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-                <RiArrowUpCircleFill size={30} />
+                <RiArrowUpCircleFill size={33} />
             </motion.button>
         </>
     )

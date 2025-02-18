@@ -53,7 +53,7 @@ const Searchbar = ({ setSearchQuery }) => {
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    className="max-h-10 ml-2 p-2 pl-4 pr-10 bg-light rounded border-1 border-dark outline-none lin-transition
+                    className="dark:bg-dmode-input dark:border-dmode-input dark:placeholder-dark-grey dark:text-light max-h-10 ml-2 p-2 pl-4 pr-10 bg-light rounded border-1 border-dark outline-none lin-transition
                         w-[300px] max-md:w-[250px] max-sm:w-[150px] max-w-[320px] max-md:text-sm"
                 />
             </motion.div>

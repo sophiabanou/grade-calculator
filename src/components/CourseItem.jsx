@@ -134,11 +134,11 @@ const CourseItem = ({c}) => {
                 initial={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.3 }}
-                className="p-3 h-auto flex items-center max-md:flex-col max-md:gap-5 justify-center border-1 rounded border-gray-100 gap-10"
+                className="dark:border-dmode-border p-3 h-auto flex items-center max-md:flex-col max-md:gap-5 justify-center border-1 rounded border-gray-100 gap-10"
             >
                 <div className="max-md:w-full max-lg:w-3/12  w-5/12 flex items-center gap-4">
                     <Status status={status} />
-                    <p className="max-md:text-sm max-md:font-semibold text-dark font-medium  break-words hyphens-auto leading-normal">
+                    <p className="dark:text-light max-md:text-sm max-md:font-semibold text-dark font-medium  break-words hyphens-auto leading-normal">
                         {!isFixedCourse ? (
                             c.name
                         ): (
@@ -150,7 +150,7 @@ const CourseItem = ({c}) => {
 
                 <div className="flex max-md:w-[90%] gap-10 w-6/12">
                     <div className="flex items-center gap-2  max-md:flex-col max-md:items-start">
-                        <span className="text-gray-600 text-sm">{languageData?.course_item?.fields?.credits}:</span>
+                        <span className="dark:text-dark-grey text-gray-600 text-sm">{languageData?.course_item?.fields?.credits}:</span>
 
                         <div className="flex flex-col">
                             <CourseError message={creditsError} error={creditsHasError}/>
@@ -160,7 +160,7 @@ const CourseItem = ({c}) => {
                     </div>
 
                     <div className="flex items-center gap-2 max-md:flex-col max-md:items-start">
-                        <span className="text-gray-600 text-sm">{languageData?.course_item?.fields?.grade}:</span>
+                        <span className="dark:text-dark-grey text-gray-600 text-sm">{languageData?.course_item?.fields?.grade}:</span>
 
                         <div className="flex flex-col">
                             <CourseError message={gradeError} error={gradeHasError}/>

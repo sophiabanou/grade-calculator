@@ -6,7 +6,7 @@ const CourseError = ({message, error}) => {
         <AnimatePresence>
             {error && (
                 <motion.span
-                    className="text-red-700 text-sm font-medium max-md:text-sm"
+                    className="text-red-700 dark:text-red-500 text-sm font-medium max-md:text-sm"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}

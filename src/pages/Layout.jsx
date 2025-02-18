@@ -1,10 +1,10 @@
 import {Outlet} from "react-router-dom";
-import {Header, ToolbarTop} from "../components";
+import {Header, ToolbarTop, Background} from "../components";
 
 const Layout = () => {
     return (
         <div className="w-full h-full flex flex-col justify-center items-center min-h-screen font-geologica">
-            <div className="bg-prim"></div>
+            <Background />
             <ToolbarTop/>
             <Header/>
             <Outlet/>

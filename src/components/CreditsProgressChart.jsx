@@ -1,9 +1,11 @@
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import PropTypes from "prop-types";
 import useLanguageContext from "../context/useLanguageContext";
+import useThemeContext from "../context/useThemeContext.jsx";
 
 const CreditProgressChart = ({ credits }) => {
     const {languageData} = useLanguageContext();
+    const {theme} = useThemeContext();
 
     const totalCredits = 240;
     const data = [
@@ -12,6 +14,7 @@ const CreditProgressChart = ({ credits }) => {
     ];
 
     const COLORS = ["#465f9f", "#e5e5e5"]; // Green for completed, gray for remaining
+    const COLORS_DARK = ["#314b8c", "#84889b"];
 
     return (
         <div className="relative w-50 h-50 flex items-center justify-center">
@@ -30,14 +33,16 @@ const CreditProgressChart = ({ credits }) => {
                         endAngle={-270}
                     >
                         {data.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={COLORS[index]} />
+                            <Cell
+                                key={`cell-${index}`}
+                                fill={theme === "dark" ? COLORS_DARK[index] : COLORS[index]} />
                         ))}
                     </Pie>
                 </PieChart>
             </ResponsiveContainer>
             <div className="absolute text-center">
-                <p className="text-2xl font-bold text-dark">{credits}</p>
-                <p className="text-sm text-gray-600">{languageData?.chart?.credits}</p>
+                <p className="dark:text-light text-2xl font-bold text-dark">{credits}</p>
+                <p className="dark:text-dark-grey text-sm text-gray-600">{languageData?.chart?.credits}</p>
             </div>
         </div>
     );

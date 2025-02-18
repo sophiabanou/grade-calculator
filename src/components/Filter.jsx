@@ -1,6 +1,9 @@
 import PropTypes from "prop-types";
+import useLanguageContext from "../context/useLanguageContext";
 
-const Filter = ({ selectedOption, setSelectedOption, data, title, hasMisc = false}) => {
+const Filter = ({ selectedOption, setSelectedOption, data, title}) => {
+    const {languageData} = useLanguageContext();
+
     return (
         <>
             <select
@@ -12,12 +15,9 @@ const Filter = ({ selectedOption, setSelectedOption, data, title, hasMisc = fals
                 <option value="All">{title}</option>
                 {data.map((item) => (
                     <option key={String(item)} value={String(item)} >
-                        {item}
+                        {languageData?.filters?.[item]}
                     </option>
                 ))}
-                {hasMisc && (
-                    <option value="Άλλα">Άλλα</option>
-                )}
             </select>
         </>
     )

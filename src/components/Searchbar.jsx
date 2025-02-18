@@ -3,8 +3,10 @@ import { useState } from "react";
 import { RiSearchLine } from "@remixicon/react";
 import { motion } from "framer-motion";
 import { Button } from "./index.jsx";
+import useLanguageContext from "../context/useLanguageContext";
 
 const Searchbar = ({ setSearchQuery }) => {
+    const {languageData} = useLanguageContext();
     const [search, setSearch] = useState("");
     const [isExpanded, setIsExpanded] = useState(false);
 
@@ -28,7 +30,7 @@ const Searchbar = ({ setSearchQuery }) => {
 
     return (
         <div className="relative flex gap-2 items-center">
-            <Button variant={isExpanded ? 3 : 2} Icon={RiSearchLine} handler={handleButtonClick} caption="Αναζήτηση Μαθημάτων" />
+            <Button variant={isExpanded ? 3 : 2} Icon={RiSearchLine} handler={handleButtonClick} caption={languageData?.search?.caption} />
 
             <motion.div
                 initial={{ width: 0, opacity: 0 }}
@@ -47,7 +49,7 @@ const Searchbar = ({ setSearchQuery }) => {
                 <input
                     type="text"
                     id="searchbar"
-                    placeholder="Αναζήτηση..."
+                    placeholder={languageData?.search?.placeholder}
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     onKeyDown={handleKeyDown}

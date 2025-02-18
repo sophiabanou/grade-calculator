@@ -1,12 +1,14 @@
 import {Input, CourseError, BoxLayout, ConfirmationMessage } from "./index.jsx"
 import { useState } from "react";
-import useAppContext from "../context/useAppContext.jsx";
+import useAppContext from "../context/useAppContext";
+import useLanguageContext from "../context/useLanguageContext";
 import PropTypes from 'prop-types';
 import {categories} from "../data"
 
+
 const AddNewCourse = ({index}) => {
     const { userCourses, setUserCourses, courseCount, setCourseCount } = useAppContext();
-
+    const {languageData} = useLanguageContext();
     // form states
     const [name, setName] = useState("");
     const [credits, setCredits] = useState("");
@@ -78,7 +80,7 @@ const AddNewCourse = ({index}) => {
         // NAME
         if (name === "") {
             setNameHasError(true);
-            setNameError("Εισάγετε όνομα μαθήματος")
+            setNameError(languageData?.new_course?.errors?.no_name)
             canSubmit = false;
         } else {
             setNameHasError(false);
@@ -88,11 +90,11 @@ const AddNewCourse = ({index}) => {
         // CREDITS
         if (credits === "") {
             setCreditsHasError(true);
-            setCreditsError("Εισάγετε διδακτικές μονάδες")
+            setCreditsError(languageData?.new_course?.errors?.no_credits)
             canSubmit = false;
         } else if (credits < 2 || credits > 8) {
             setCreditsHasError(true);
-            setCreditsError("Εισάγετε έγκυρες διδακτικές μονάδες [2-8]")
+            setCreditsError(languageData?.new_course?.errors?.wrong_credits)
             canSubmit = false;
         } else {
             setCreditsHasError(false);
@@ -102,11 +104,11 @@ const AddNewCourse = ({index}) => {
         // GRADE
         if (grade === "") {
             setGradeHasError(true);
-            setGradeError("Εισάγετε βαθμό")
+            setGradeError(languageData?.new_course?.errors?.no_grade)
             canSubmit = false;
         } else if (grade < 0 || grade > 10) {
             setGradeHasError(true);
-            setGradeError("Εισάγετε έγκυρο βαθμό [0-10]")
+            setGradeError(languageData?.new_course?.errors?.wrong_grade)
             canSubmit = false;
         } else {
             setGradeHasError(false);
@@ -116,7 +118,7 @@ const AddNewCourse = ({index}) => {
         // CATEGORY
         if (category === "") {
             setCategoryHasError(true);
-            setCategoryError("Εισάγετε κατηγορία μαθήματος")
+            setCategoryError(languageData?.new_course?.errors?.no_category)
             canSubmit = false;
         } else {
             setCategoryHasError(false);
@@ -139,34 +141,34 @@ const AddNewCourse = ({index}) => {
 
 
     return (
-        <BoxLayout title="Προσθήκη Νέου Μαθήματος" index={index}>
+        <BoxLayout title={languageData?.new_course?.title} index={index}>
             <div className="mb-4 w-full">
                 <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
 
                     <CourseError message={nameError} error={nameHasError} />
-                    <Input type="text" handler={handleNameChange} hasError={nameHasError} title="Όνομα Μαθήματος" value={name}/>
+                    <Input type="text" handler={handleNameChange} hasError={nameHasError} title={languageData?.new_course?.fields?.course} value={name}/>
                     <div className="w-full h-1 bg-transparent"></div>
 
                     <CourseError message={creditsError} error={creditsHasError} />
-                    <Input type="number" handler={handleCreditsChange} hasError={creditsHasError} title="Διδακτικές Μονάδες" value={credits}/>
+                    <Input type="number" handler={handleCreditsChange} hasError={creditsHasError} title={languageData?.new_course?.fields?.credits} value={credits}/>
                     <div className="w-full h-1 bg-transparent"></div>
 
                     <CourseError message={gradeError} error={gradeHasError} />
-                    <Input type="number" handler={handleGradeChange} hasError={gradeHasError} title="Βαθμός" value={grade}/>
+                    <Input type="number" handler={handleGradeChange} hasError={gradeHasError} title={languageData?.new_course?.fields?.grade} value={grade}/>
                     <div className="w-full h-1 bg-transparent"></div>
 
                     <CourseError message={categoryError} error={categoryHasError} />
-                    <Input type="select" handler={handleCategoryChange} hasError={categoryHasError} title="Κατηγορία" value={category} data={categories}/>
+                    <Input type="select" handler={handleCategoryChange} hasError={categoryHasError} title={languageData?.new_course?.fields?.category} value={category} data={categories}/>
 
                     <button
                         type="submit"
                         className="mt-5 w-full bg-dark text-white border-3 border-dark p-2 rounded hover:cursor-pointer hover:bg-primary lin-transition"
                     >
-                        <p className="text-sm uppercase font-semibold tracking-wider">Προσθηκη Μαθηματος</p>
+                        <p className="text-sm uppercase font-semibold tracking-wider">{languageData?.new_course?.button}</p>
                     </button>
                 </form>
 
-                <ConfirmationMessage message="Επιτυχής προσθήκη μαθήματος!" color="green" isOpen={confirmationOpen} />
+                <ConfirmationMessage message={languageData?.new_course?.message} color="green" isOpen={confirmationOpen} />
 
             </div>
         </BoxLayout>

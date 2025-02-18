@@ -2,14 +2,17 @@ import {useState} from 'react'
 import {exportGrades, importGrades} from "../utilities";
 import {RiMenuLine, RiCloseFill} from "@remixicon/react";
 import {motion, AnimatePresence} from "framer-motion";
-import useAppContext from "../context/useAppContext.jsx";
+import useAppContext from "../context/useAppContext";
+import useLanguageContext from "../context/useLanguageContext";
 import {Button} from "./index.jsx";
 import ConfirmationMessage from "./ConfirmationMessage.jsx";
+
 
 
 const Header = () => {
 
     const {allCourses, setUserCourses, setFixedCourses, expDisabled, impDisabled} = useAppContext();
+    const {languageData} = useLanguageContext();
 
 
     const triggerFileInput = () => {
@@ -65,32 +68,32 @@ const Header = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="absolute top-0 bg-light mt-10 flex justify-center rounded-lg border-3 border-dark w-auto max-sm:hidden">
+                className="absolute top-0 bg-light mt-15 flex justify-center rounded-lg border-3 border-dark w-auto max-sm:hidden">
                 <nav className="flex items-center w-full">
                     <a href="#/" className="group px-15 py-2 border-r-dark border-r-3 max-md:px-10">
-                            <p className="text-sm font-semibold uppercase text-dark group-hover:text-primary lin-transition">Αρχικη</p>
+                            <p className="text-sm font-semibold uppercase text-dark group-hover:text-primary lin-transition">{languageData?.header?.links?.home}</p>
                         </a>
 
                         <button className={`group ${impDisabled ? 'hover:cursor-default' : 'hover:cursor-pointer'} px-15 py-2 border-r-dark border-r-3 max-md:px-10`} disabled={impDisabled} onClick={(e) => {
                             e.preventDefault(); triggerFileInput();}}>
                             <p className={`text-sm font-semibold uppercase text-dark lin-transition ${impDisabled ? 'pointer-events-none opacity-50' : 'group-hover:text-primary'}
-                                    `}>Εισαγωγη</p>
+                                    `}>{languageData?.header?.links?.import}</p>
                         </button>
 
                         <button className={`group ${expDisabled ? 'hover:cursor-default' : 'hover:cursor-pointer'} px-15 py-2 border-r-dark border-r-3 max-md:px-10`} disabled={expDisabled} onClick={(e) => {
                             e.preventDefault(); exportGrades(allCourses);
                         }}>
-                            <p className={`text-sm font-semibold uppercase text-dark hover:cursor-pointer lin-transition ${expDisabled ? 'pointer-events-none opacity-50' : 'group-hover:text-primary'}`}>Εξαγωγη</p>
+                            <p className={`text-sm font-semibold uppercase text-dark hover:cursor-pointer lin-transition ${expDisabled ? 'pointer-events-none opacity-50' : 'group-hover:text-primary'}`}>{languageData?.header?.links?.export}</p>
                         </button>
 
                         <a href="#/about" className="group px-15 py-2 max-md:px-10">
-                            <p className="text-sm font-semibold uppercase text-dark group-hover:text-primary lin-transition">σχετικα</p>
+                            <p className="text-sm font-semibold uppercase text-dark group-hover:text-primary lin-transition">{languageData?.header?.links?.about}</p>
                         </a>
                 </nav>
             </motion.header>
 
-            <div className="z-200 absolute top-0 mt-10 left-10 sm:hidden">
-                <Button Icon={mobileNavOpen ? RiCloseFill : RiMenuLine} handler={handleButtonClick} caption="Μενού Πλοήγησης" variant={2}/>
+            <div className="z-200 absolute top-0 mt-15 left-10 sm:hidden">
+                <Button Icon={mobileNavOpen ? RiCloseFill : RiMenuLine} handler={handleButtonClick} caption={languageData?.header?.captions?.mobile} variant={2}/>
             </div>
 
             <AnimatePresence>
@@ -112,14 +115,14 @@ const Header = () => {
                                 animate="visible"
                                 exit="exit"
 
-                                className="z-100 bg-light absolute top-0 mt-10 left-10 right-10 h-auto rounded border-3 border-dark ">
+                                className="z-100 bg-light absolute top-0 mt-15 left-10 right-10 h-auto rounded border-3 border-dark ">
 
                                 <div className="absolute top 0 w-full bg-dark h-9"></div>
                                 <div className="mt-10">
                                     <nav>
                                         <div className="px-4 py-2 border-b-dark border-b-3">
                                             <a href="#/" className="group">
-                                                <p className="text-sm font-semibold uppercase text-dark group-hover:text-primary lin-transition">αρχικη</p>
+                                                <p className="text-sm font-semibold uppercase text-dark group-hover:text-primary lin-transition">{languageData?.header?.links?.home}</p>
                                             </a>
                                         </div>
 
@@ -127,7 +130,7 @@ const Header = () => {
                                             <button className={`group ${impDisabled ? 'hover:cursor-default' : 'hover:cursor-pointer'} `} disabled={impDisabled} onClick={(e) => {
                                                 e.preventDefault(); triggerFileInput();}}>
                                                 <p className={`text-sm font-semibold uppercase text-dark lin-transition ${impDisabled ? 'pointer-events-none opacity-50' : 'group-hover:text-primary'}
-                                                `}>εισαγωγη</p>
+                                                `}>{languageData?.header?.links?.import}</p>
                                             </button>
                                         </div>
 
@@ -135,13 +138,13 @@ const Header = () => {
                                             <button className={`group ${expDisabled ? 'hover:cursor-default' : 'hover:cursor-pointer'} `} disabled={expDisabled} onClick={(e) => {
                                                 e.preventDefault(); exportGrades(allCourses);
                                             }}>
-                                                <p className={`text-sm font-semibold uppercase text-dark hover:cursor-pointer lin-transition ${expDisabled ? 'pointer-events-none opacity-50' : 'group-hover:text-primary'}`}>εξαγωγη</p>
+                                                <p className={`text-sm font-semibold uppercase text-dark hover:cursor-pointer lin-transition ${expDisabled ? 'pointer-events-none opacity-50' : 'group-hover:text-primary'}`}>{languageData?.header?.links?.export}</p>
                                             </button>
                                         </div>
 
                                         <div className="px-4 py-2">
                                             <a href="#/about" className="group">
-                                                <p className="text-sm font-semibold uppercase text-dark group-hover:text-primary lin-transition">σχετικα</p>
+                                                <p className="text-sm font-semibold uppercase text-dark group-hover:text-primary lin-transition">{languageData?.header?.links?.about}</p>
                                             </a>
                                         </div>
 
@@ -166,7 +169,7 @@ const Header = () => {
                 }}
             />
 
-            <ConfirmationMessage message="Επιτυχής εισαγωγή μαθημάτων!" color="green" isOpen={confirmationOpen} />
+            <ConfirmationMessage message={languageData?.header?.message} color="green" isOpen={confirmationOpen} />
         </>
     )
 }

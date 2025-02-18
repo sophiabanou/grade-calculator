@@ -1,12 +1,15 @@
 import {RiCloseFill, RiSaveLine} from "@remixicon/react";
-import useAppContext from "../context/useAppContext.jsx";
+import useAppContext from "../context/useAppContext";
+import useLanguageContext from "../context/useLanguageContext";
 import { motion} from "framer-motion";
 import {Input, CourseError, Button, Status} from "./index.jsx"
 import {useEffect, useState} from "react";
 import PropTypes from 'prop-types';
 
+
 const CourseItem = ({c}) => {
     const {userCourses, setUserCourses, setFixedCourses} = useAppContext();
+    const {languageData} = useLanguageContext();
     const isFixedCourse = c.isFixed;
     const [saveEnabled, setSaveEnabled] = useState(false);
 
@@ -63,7 +66,7 @@ const CourseItem = ({c}) => {
         // CREDITS
         if(credits < 2 || credits > 8) {
             setCreditsHasError(true);
-            setCreditsError("Εισάγετε έγκυρες δ.μονάδες");
+            setCreditsError(languageData?.course_item?.errors?.credits);
             canSave = false;
         } else {
             setCreditsHasError(false);
@@ -73,7 +76,7 @@ const CourseItem = ({c}) => {
         // GRADE
         if(grade < 0 || grade > 10) {
             setGradeHasError(true);
-            setGradeError("Εισάγετε έγκυρο βαθμό");
+            setGradeError(languageData?.course_item?.errors?.grade);
             canSave = false;
         } else {
             setGradeHasError(false);
@@ -135,12 +138,19 @@ const CourseItem = ({c}) => {
             >
                 <div className="max-md:w-full max-lg:w-3/12  w-5/12 flex items-center gap-4">
                     <Status status={status} />
-                    <p className="max-md:text-sm max-md:font-semibold text-dark font-medium  break-words hyphens-auto leading-normal">{c.name}</p>
+                    <p className="max-md:text-sm max-md:font-semibold text-dark font-medium  break-words hyphens-auto leading-normal">
+                        {!isFixedCourse ? (
+                            c.name
+                        ): (
+                            languageData?.courses?.[c.name] || c.name
+                        )}
+
+                    </p>
                 </div>
 
                 <div className="flex max-md:w-[90%] gap-10 w-6/12">
                     <div className="flex items-center gap-2  max-md:flex-col max-md:items-start">
-                        <span className="text-gray-600 text-sm">Δ.Μονάδες:</span>
+                        <span className="text-gray-600 text-sm">{languageData?.course_item?.fields?.credits}:</span>
 
                         <div className="flex flex-col">
                             <CourseError message={creditsError} error={creditsHasError}/>
@@ -150,7 +160,7 @@ const CourseItem = ({c}) => {
                     </div>
 
                     <div className="flex items-center gap-2 max-md:flex-col max-md:items-start">
-                        <span className="text-gray-600 text-sm">Βαθμός:</span>
+                        <span className="text-gray-600 text-sm">{languageData?.course_item?.fields?.grade}:</span>
 
                         <div className="flex flex-col">
                             <CourseError message={gradeError} error={gradeHasError}/>
@@ -161,10 +171,10 @@ const CourseItem = ({c}) => {
 
                 <div className=" max-md:w-full max-md:max-w-[90%] flex justify-end gap-2 w-1/12">
                     {!isFixedCourse && (
-                        <Button Icon={RiCloseFill} handler={deleteCourse} caption="Διαγραφή μαθήματος"/>
+                        <Button Icon={RiCloseFill} handler={deleteCourse} caption={languageData?.course_item?.captions.delete}/>
                     )}
 
-                    <Button Icon={RiSaveLine} handler={handleSave} disabled={!saveEnabled} caption="Αποθήκευση αλλαγών"/>
+                    <Button Icon={RiSaveLine} handler={handleSave} disabled={!saveEnabled} caption={languageData?.course_item?.captions.save}/>
 
                 </div>
 

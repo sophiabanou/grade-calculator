@@ -1,7 +1,10 @@
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import PropTypes from "prop-types";
+import useLanguageContext from "../context/useLanguageContext";
 
 const CreditProgressChart = ({ credits }) => {
+    const {languageData} = useLanguageContext();
+
     const totalCredits = 240;
     const data = [
         { name: "Completed", value: credits },
@@ -34,7 +37,7 @@ const CreditProgressChart = ({ credits }) => {
             </ResponsiveContainer>
             <div className="absolute text-center">
                 <p className="text-2xl font-bold text-dark">{credits}</p>
-                <p className="text-sm text-gray-600">Δ. Μονάδες</p>
+                <p className="text-sm text-gray-600">{languageData?.chart?.credits}</p>
             </div>
         </div>
     );

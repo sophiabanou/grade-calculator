@@ -4,9 +4,11 @@ import {RiFilter2Line} from "@remixicon/react";
 import {categories, statusOptions} from "../data/index.jsx";
 import {useState} from "react";
 import { motion } from "framer-motion";
+import useLanguageContext from "../context/useLanguageContext.jsx";
 
 const Toolbar = ({ selectedCategory, setSelectedCategory, selectedStatus, setSelectedStatus, setSearchQuery,
                      sortBy ="alphabet", setSortBy, sortDirection="asc",setSortDirection }) => {
+    const {languageData} = useLanguageContext();
     // handle filter animation
     const [filtersAreExpanded, setFiltersAreExpanded] = useState(false);
     const handleFilterButtonClick = () => {
@@ -23,7 +25,7 @@ const Toolbar = ({ selectedCategory, setSelectedCategory, selectedStatus, setSel
 
 
                     <div className="flex w-auto gap-2 ">
-                        <Button variant={filtersAreExpanded ? 3 : 2} Icon={RiFilter2Line} handler={handleFilterButtonClick} caption="Φιλτράρισμα Μαθημάτων" />
+                        <Button variant={filtersAreExpanded ? 3 : 2} Icon={RiFilter2Line} handler={handleFilterButtonClick} caption={languageData?.toolbar?.caption} />
 
                         <motion.div
                             className="overflow-x-hidden flex gap-3"
@@ -42,8 +44,8 @@ const Toolbar = ({ selectedCategory, setSelectedCategory, selectedStatus, setSel
                                 opacity: filtersAreExpanded ? 1 : 0,
                             }} transition={{ duration: 0.3, ease: "easeInOut" }}
                         >
-                            <Filter selectedOption={selectedCategory} setSelectedOption={setSelectedCategory} data={categories} title="Κατηγορία" hasMisc={true} />
-                            <Filter selectedOption={selectedStatus} setSelectedOption={setSelectedStatus} data={statusOptions} title="Κατάσταση" />
+                            <Filter selectedOption={selectedCategory} setSelectedOption={setSelectedCategory} data={categories} title={languageData?.toolbar?.category}/>
+                            <Filter selectedOption={selectedStatus} setSelectedOption={setSelectedStatus} data={statusOptions} title={languageData?.toolbar?.status} />
                         </motion.div>
 
                     </div>

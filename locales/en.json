@@ -197,5 +197,29 @@
     "thesis_2": "Thesis II",
     "internship_1": "Internship I",
     "internship_2": "Internship II"
+  },
+  "degree_check": {
+    "title": "Can I Get A Degree?",
+    "button": "Click Me!",
+    "back_caption": "Go back",
+    "pass_message": "You can get a degree!",
+    "fail_message": "You can't get a degree yet",
+    "checks": {
+      "pe_pa": "Thesis / Internship",
+      "ym": "Mandatory Courses",
+      "gp": "General Courses",
+      "ey": "Elective Mandatory Courses",
+      "opt": "Optional Courses",
+      "project": "Project",
+      "credits": "Total Courses"
+    }
+  },
+  "major_spec": {
+    "title": "Choose Major And Specialization",
+    "major": "Major",
+    "spec": "Specializations (Pick up to 2)",
+    "button": "Confirm",
+    "error": "You can only pick up to 2 specializations",
+    "message": "Successfully changed major / specializations!"
   }
 }

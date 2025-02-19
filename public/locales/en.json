@@ -213,5 +213,13 @@
       "project": "Project",
       "credits": "Total Courses"
     }
+  },
+  "major_spec": {
+    "title": "Choose Major And Specialization",
+    "major": "Major",
+    "spec": "Specializations (Pick up to 2)",
+    "button": "Confirm",
+    "error": "You can only pick up to 2 specializations",
+    "message": "Successfully changed major / specializations!"
   }
 }

@@ -6,7 +6,7 @@ import {useEffect, useState} from "react";
 import {RiArrowLeftLine, RiEmotionLaughFill, RiEmotionUnhappyFill} from "@remixicon/react";
 import {DegreeCheckItem} from "./index.jsx"
 
-const DegreeCheck = (index) => {
+const DegreeCheck = ({index}) => {
     const {languageData} = useLanguageContext();
     const {allCourses} = useAppContext();
     const [showStats, setShowStats] = useState(false);

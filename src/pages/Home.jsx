@@ -1,4 +1,4 @@
-import {AddNewCourse, CourseList, ProgressBar, ScrollToTop, Stats, DegreeCheck, Temp} from "../components";
+import {AddNewCourse, CourseList, ProgressBar, ScrollToTop, Stats, DegreeCheck, MajorSpecialization} from "../components";
 import {useAppContext} from "../context/Hooks";
 
 export default function Home() {
@@ -21,13 +21,14 @@ export default function Home() {
   return (
       <>
         <div className="h-min min-h-screen w-[70vw] max-xl:w-[80vw] max-md:w-[86vw] max-md:gap-5 flex flex-col gap-7 mt-40 pb-40">
-          <div className="w-full flex gap-10 max-md:flex-col max-md:gap-5">
-            <AddNewCourse index={1} />
+          <div className="w-full min-h-100  flex gap-10 max-md:flex-col max-md:gap-5">
+            <MajorSpecialization index={1} />
             <Stats index={2} />
+
           </div>
           <div className="w-full flex gap-10 max-md:flex-col max-md:gap-5">
             <DegreeCheck index={3} />
-            <Temp index={4} />
+            <AddNewCourse index={4} />
           </div>
 
           <CourseList index={5} />

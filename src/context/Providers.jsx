@@ -19,6 +19,16 @@ export const AppProvider = ({ children }) => {
         return saved || [];
     });
 
+    const [major, setMajor] = useState(() => {
+        const saved = localStorage.getItem("major");
+        return saved || "";
+    })
+
+    const [specializations, setSpecializations] = useState(() => {
+        const saved = JSON.parse(localStorage.getItem("specializations"));
+        return saved || [];
+    })
+
     // courses count, used to generate course ID
     const [courseCount, setCourseCount] = useState(101 + userCourses.length);
 
@@ -37,12 +47,14 @@ export const AppProvider = ({ children }) => {
     // save classes to local storage and update allCourses
     useEffect(() => {
         localStorage.setItem("userCourses", JSON.stringify(userCourses));
-        localStorage.setItem("fixedCourses", JSON.stringify(fixedCourses))
+        localStorage.setItem("fixedCourses", JSON.stringify(fixedCourses));
+        localStorage.setItem("major", major);
+        localStorage.setItem("specializations", JSON.stringify(specializations));
         setAllCourses([
             ...userCourses,
             ...fixedCourses.map((fc) => ({ ...fc, isFixed: true })),
         ]);
-    }, [userCourses, fixedCourses]);
+    }, [userCourses, fixedCourses, major, specializations]);
 
     // check if the current URL is "about"
     const location = useLocation();
@@ -68,7 +80,11 @@ export const AppProvider = ({ children }) => {
         setFixedCourses,
         courseCount,
         setCourseCount,
-        allCourses
+        allCourses,
+        major,
+        setMajor,
+        specializations,
+        setSpecializations
     };
 
     return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

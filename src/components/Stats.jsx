@@ -24,7 +24,7 @@ const Stats = ({ index }) => {
     return (
         <BoxLayout title={languageData?.stats?.title} index={index}>
             {/* Top Row: Total Courses, Passed, Failed */}
-            <div className="min-h-75">
+            <div className="h-full">
                 <div className="grid grid-cols-3 gap-4 py-2 text-[15px] max-md:text-sm max-lg:grid-cols-1 dark:text-dark-grey">
                     <div className="dark:border-gray-700 max-md:p-3 p-2 border-1 border-gray-100 rounded text-center flex flex-col justify-start">
                         <p className="dark:text-gray-300 text-xl max-md:text-lg font-bold h-8 text-gray-500">{totalCourses}</p>

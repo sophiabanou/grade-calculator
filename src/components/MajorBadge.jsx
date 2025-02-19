@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 const MajorBadge = ({course}) => {
     const major = course?.major;
     const spec = course?.spec;
-    console.log(major);
+
     return (
         <div className="absolute top-2 left-11 flex gap-1">
             <>

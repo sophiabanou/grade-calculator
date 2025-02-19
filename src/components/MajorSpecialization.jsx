@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import {BoxLayout, CourseError, ConfirmationMessage} from "./index.jsx";
 import { useAppContext, useLanguageContext } from "../context/Hooks";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import {motion} from "framer-motion";
 
 const MajorSpecialization = ({ index }) => {
@@ -24,13 +24,8 @@ const MajorSpecialization = ({ index }) => {
     };
 
     const handleMajorChange = (e) => {
-        console.log(e.target.value);
         setSelectedMajor(e.target.value);
     };
-
-    useEffect(() => {
-       console.log(selectedMajor);
-    }, [selectedMajor]);
 
 
     const handleSpecializationChange = (event) => {

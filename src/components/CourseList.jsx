@@ -71,7 +71,6 @@ const CourseList = ({ index }) => {
         return acc;
     }, {});
 
-    console.log(groupedCourses);
     return (
         <BoxLayout title={languageData?.course_list?.title} index={index}>
             <Toolbar

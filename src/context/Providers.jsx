@@ -110,7 +110,6 @@ function getBrowserLocales(options = {}) {
     const browserLocales =
         navigator.languages === undefined ? [navigator.language] : navigator.languages;
 
-    console.log(browserLocales);
 
     if (!browserLocales) {
         return undefined;

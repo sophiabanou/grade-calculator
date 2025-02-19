@@ -23,6 +23,9 @@ import ToolbarTop from "./ToolbarTop";
 import Background from "./Background";
 import ScrollToTop from "./ScrollToTop";
 import Footer from "./Footer";
+import DegreeCheck from "./DegreeCheck";
+import DegreeCheckItem from "./DegreeCheckItem";
+import Temp from "./Temp";
 
 export {
     Header,
@@ -50,4 +53,7 @@ export {
     Background,
     ScrollToTop,
     Footer,
+    DegreeCheck,
+    DegreeCheckItem,
+    Temp,
 }

@@ -13,6 +13,8 @@
     --color-dmode-input-l: #1f2233;
     --color-dmode-border: #282b3b;
     --color-dark-grey: #84889b;
+    --color-red-grad: rgba(231, 76, 60, 0.1);
+    --color-green-grad: rgba(60, 231, 108, 0.1);
 
     --font-geologica: "Geologica", serif;
 

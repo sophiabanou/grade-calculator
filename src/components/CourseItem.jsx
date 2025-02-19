@@ -1,7 +1,7 @@
 import {RiCloseFill, RiSaveLine} from "@remixicon/react";
 import {useAppContext, useLanguageContext} from "../context/Hooks";
 import { motion} from "framer-motion";
-import {Input, CourseError, Button, Status} from "./index.jsx"
+import {Input, CourseError, Button, Status, MajorBadge} from "./index.jsx"
 import {useEffect, useState} from "react";
 import PropTypes from 'prop-types';
 
@@ -133,10 +133,11 @@ const CourseItem = ({c}) => {
                 initial={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.3 }}
-                className="dark:border-dmode-border p-3 h-auto flex items-center max-md:flex-col max-md:gap-5 justify-center border-1 rounded border-gray-100 gap-10"
+                className="relative dark:border-dmode-border p-3 pt-5 max-md:pt-7 h-auto flex items-center max-md:flex-col max-md:gap-5 justify-center border-1 rounded border-gray-100 gap-10"
             >
                 <div className="max-md:w-full max-lg:w-3/12  w-5/12 flex items-center gap-4">
                     <Status status={status} />
+                    <MajorBadge course={c}/>
                     <p className="dark:text-light max-md:text-sm max-md:font-semibold text-dark font-medium  break-words hyphens-auto leading-normal">
                         {!isFixedCourse ? (
                             c.name

@@ -141,7 +141,7 @@ const AddNewCourse = ({index}) => {
 
     return (
         <BoxLayout title={languageData?.new_course?.title} index={index}>
-            <div className="mb-4 w-full min-h-75">
+            <div className="mb-4 w-full h-full">
                 <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
 
                     <CourseError message={nameError} error={nameHasError} />

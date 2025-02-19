@@ -6,6 +6,7 @@
     --color-dark: #151515;
     --color-light: #ffffff;
     --color-light-table: #f8f8f8;
+    --color-primary-l: #6d64c2;
     --color-primary: #465f9f;
     --color-dark-primary: #314b8c;
     --color-dmode: #181b2a;
@@ -67,6 +68,10 @@
 
     .light-shadow-top {
         box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .circular-gradient {
+        background-image: radial-gradient(circle,  var(--color-primary-l) 0%, var(--color-primary) 70%, transparent 100%);
     }
 
     .loader {

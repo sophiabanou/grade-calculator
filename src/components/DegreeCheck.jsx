@@ -118,7 +118,7 @@ const DegreeCheck = ({index}) => {
                             animate={{ opacity: 1}}
                             exit={{ opacity: 0, scale: 0.8 }}
                             transition={{ duration: 0.3 }}
-                            className="dark:bg-dark-primary bg-primary rounded-full w-40 h-40  eio-transition cursor-pointer mt-10">
+                            className="circular-gradient rounded-full w-40 h-40  eio-transition cursor-pointer mt-10">
                             <h3 className="font-semibold text-light text-lg max-md:text-base">{languageData?.degree_check?.button}</h3>
                         </motion.button>
                     ):(

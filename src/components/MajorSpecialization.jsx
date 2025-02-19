@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import {BoxLayout, CourseError, ConfirmationMessage} from "./index.jsx";
 import { useAppContext, useLanguageContext } from "../context/Hooks";
 import { useState, useEffect } from "react";
+import {motion} from "framer-motion";
 
 const MajorSpecialization = ({ index }) => {
     const { major, specializations, setMajor, setSpecializations } = useAppContext();
@@ -82,15 +83,14 @@ const MajorSpecialization = ({ index }) => {
                     </select>
                 </div>
 
-
-
                 {/* Specialization Selection */}
                 <div>
                     <label className="block dark:text-dark-grey text-gray-600 text-sm mb-1">{languageData?.major_spec?.spec}:</label>
                     <CourseError message={languageData?.major_spec?.error} error={error}/>
                     <div className="grid grid-cols-3 gap-3">
                         {["S1", "S2", "S3", "S4", "S5", "S6"].map((spec) => (
-                            <label
+                            <motion.label
+                                whileHover={{scale:1.01}}
                                 key={spec}
                                 className={`flex justify-center items-center space-x-2 p-2 border-2 rounded cursor-pointer lin-transition
                                     ${selectedSpecializations.includes(spec) ? "bg-primary text-light border-primary dark:border-dark-primary dark:bg-dark-primary" : "bg-transparent hover:bg-gray-100 border-dark dark:border-dmode-border dark:hover:bg-dmode-input"}
@@ -105,7 +105,7 @@ const MajorSpecialization = ({ index }) => {
                                     className="hidden"
                                 />
                                 <span className={` ${selectedSpecializations.includes(spec) ? "text-light": "text-dark dark:text-light"}  max-md:text-base text-lg font-semibold uppercase`}>{spec}</span>
-                            </label>
+                            </motion.label>
                         ))}
                     </div>
                 </div>

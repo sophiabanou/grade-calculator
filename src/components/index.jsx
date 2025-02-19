@@ -25,7 +25,8 @@ import ScrollToTop from "./ScrollToTop";
 import Footer from "./Footer";
 import DegreeCheck from "./DegreeCheck";
 import DegreeCheckItem from "./DegreeCheckItem";
-import MajorSpecialization from "./MajorSpecialization.jsx";
+import MajorSpecialization from "./MajorSpecialization";
+import MajorBadge from "./MajorBadge";
 
 export {
     Header,
@@ -56,4 +57,5 @@ export {
     DegreeCheck,
     DegreeCheckItem,
     MajorSpecialization,
+    MajorBadge
 }

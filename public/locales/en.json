@@ -209,6 +209,10 @@
     "back_caption": "Go back",
     "pass_message": "You can get a degree!",
     "fail_message": "You can't get a degree yet",
+    "case_1": {
+      "ey_spec": "Specialization Elective Mandatory",
+      "ey_maj": "Major Elective Mandatory"
+    },
     "checks": {
       "pe_pa": "Thesis / Internship",
       "ym": "Mandatory Courses",

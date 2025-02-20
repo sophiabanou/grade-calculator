@@ -43,7 +43,7 @@ const Toolbar = ({ selection, updateSelection, setSearchQuery,
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -10 }}
                                         transition={{ duration: 0.2, type: "tween", ease: "easeInOut" }}
-                                        className="dark:bg-dmode dark:border-dmode-border overflow-x-hidden flex flex-col items-center gap-3 bg-light absolute left-0 top-12 z-50000 border-1 shadow-xl rounded border-dark p-3"
+                                        className="dark:bg-dmode dark:border-dmode-border overflow-x-hidden flex flex-col items-center gap-3 bg-light absolute left-0 top-12 z-5000 border-1 shadow-xl rounded border-dark p-3"
                                     >
                                         <h3 className="max-md:text-sms font-bold text-primary">{languageData?.toolbar?.filters}</h3>
                                         <Filter selectedOption={selection.category} setSelectedOption={(value) => updateSelection("category", value)}  data={categories} title={languageData?.toolbar?.category}/>

@@ -22,7 +22,7 @@ const ProgressBar = ({ totalCredits, degreeCredits, creditsProgress }) => {
                 ease: "easeInOut",
                 delay: 0.2,
             }}
-            className="mt-20 fixed bottom-0 w-full flex flex-col items-start z-50"
+            className="mt-20 fixed bottom-0 w-full flex flex-col items-start z-500000"
         >
 
             <p className="font-semibold text-light text-center text-lg rounded-tr px-8 py-1 w-auto gap-3 bg-dark flex flex-row shadow-md">

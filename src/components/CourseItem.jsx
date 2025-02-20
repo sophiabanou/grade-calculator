@@ -133,19 +133,24 @@ const CourseItem = ({c}) => {
                 initial={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.3 }}
-                className="relative dark:border-dmode-border p-3 pt-5 max-md:pt-7 h-auto flex items-center max-md:flex-col max-md:gap-5 justify-center border-1 rounded border-gray-100 gap-10"
+                className="dark:border-dmode-border px-3 py-4 max-md:pt-7 h-auto flex items-center max-md:flex-col max-md:gap-5 justify-center border-1 rounded border-gray-100 gap-10"
             >
                 <div className="max-md:w-full max-lg:w-3/12  w-5/12 flex items-center gap-4">
-                    <Status status={status} />
-                    <MajorBadge course={c}/>
-                    <p className="dark:text-light max-md:text-sm max-md:font-semibold text-dark font-medium  break-words hyphens-auto leading-normal">
-                        {!isFixedCourse ? (
-                            c.name
-                        ): (
-                            languageData?.courses?.[c.name] || c.name
-                        )}
 
-                    </p>
+                    <div className="flex flex-col gap-1 ">
+                        <MajorBadge course={c}/>
+                        <div className="flex items-center gap-4">
+                            <Status status={status} />
+                            <p className="dark:text-light max-md:text-sm max-md:font-semibold text-dark font-medium  break-words hyphens-auto leading-normal">
+                                {!isFixedCourse ? (
+                                    c.name
+                                ): (
+                                    languageData?.courses?.[c.name] || c.name
+                                )}
+
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="flex max-md:w-[90%] gap-10 w-6/12">

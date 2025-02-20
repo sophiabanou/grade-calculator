@@ -38,6 +38,9 @@ export const AppProvider = ({ children }) => {
         ...fixedCourses.map((fc) => ({ ...fc, isFixed: true })),
     ]);
 
+    const [filtersOpen, setFiltersOpen] = useState(false);
+    const [sortOpen, setSortOpen] = useState(false);
+
 
     // clears local storage. uncomment and comment the useEffect below
     // useEffect(() => {
@@ -84,7 +87,11 @@ export const AppProvider = ({ children }) => {
         major,
         setMajor,
         specializations,
-        setSpecializations
+        setSpecializations,
+        sortOpen,
+        setSortOpen,
+        filtersOpen,
+        setFiltersOpen,
     };
 
     return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

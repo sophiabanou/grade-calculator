@@ -137,7 +137,7 @@ const CourseItem = ({c}) => {
             >
                 <div className="max-md:w-full max-lg:w-3/12  w-5/12 flex items-center gap-4">
 
-                    <div className="flex flex-col gap-1 ">
+                    <div className="flex flex-col gap-[1px] ">
                         <MajorBadge course={c}/>
                         <div className="flex items-center gap-4">
                             <Status status={status} />

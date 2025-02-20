@@ -1,13 +1,13 @@
 import PropTypes from "prop-types";
 import {AnimatePresence, motion} from "framer-motion";
 import { Button } from "./index.jsx";
-import {useState, useRef} from "react";
+import {useRef} from "react";
 import { RiFilter3Line, RiArrowUpLongLine, RiArrowDownLongLine } from "@remixicon/react";
-import {useLanguageContext} from "../context/Hooks";
+import {useAppContext, useLanguageContext} from "../context/Hooks";
 
 const Sort = ({ sortBy = "alphabet", setSortBy, sortDirection = "asc", setSortDirection }) => {
     const {languageData} = useLanguageContext();
-    const [isOpen, setIsOpen] = useState(false);
+    const {sortOpen, setSortOpen, filtersOpen, setFiltersOpen} = useAppContext();
     const dropdownRef = useRef(null);
 
     // handle sort
@@ -20,6 +20,13 @@ const Sort = ({ sortBy = "alphabet", setSortBy, sortDirection = "asc", setSortDi
         setSortBy(newSortOption);
     };
 
+    const handleSortButtonClick = () => {
+        if(filtersOpen) {
+            setFiltersOpen(false);
+        }
+        setSortOpen((prev) => !prev);
+    }
+
     return (
         <motion.div
             className="relative mr-2"
@@ -28,7 +35,7 @@ const Sort = ({ sortBy = "alphabet", setSortBy, sortDirection = "asc", setSortDi
             transition={{ duration: 0.2 }}
         >
             <Button
-                variant={isOpen? 3 : 2}
+                variant={sortOpen? 3 : 2}
                 caption={`${languageData?.sort?.caption?.sort}: ${
                     sortBy === "alphabet"
                         ? languageData?.sort?.caption?.alphabet
@@ -36,12 +43,12 @@ const Sort = ({ sortBy = "alphabet", setSortBy, sortDirection = "asc", setSortDi
                             ? languageData?.sort?.caption?.grade
                             :  languageData?.sort?.caption?.credits
                 } (${sortDirection === "asc" ? "↑" : "↓"})`}
-                handler={() => setIsOpen(prev => !prev)} // Toggle dropdown visibility
+                handler={handleSortButtonClick} // Toggle dropdown visibility
                 Icon={RiFilter3Line}
             />
 
             <AnimatePresence>
-                {isOpen && (
+                {sortOpen && (
                     <motion.div
                         ref={dropdownRef}
                         initial={{ opacity: 0, y: -20 }}

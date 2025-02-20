@@ -78,8 +78,11 @@
     "pass_rate": "Pass Rate"
   },
   "toolbar": {
+    "filters": "Filters",
     "category": "Category",
     "status": "Status",
+    "major": "Major",
+    "spec": "Specialization",
     "caption": "Filter courses"
   },
   "filters":{
@@ -93,7 +96,8 @@
     "project": "Project",
     "passed": "Passed",
     "failed": "Failed",
-    "pending": "Pending"
+    "pending": "Pending",
+    "shared": "Shared"
   },
   "courses": {
     "lin_algebra": "Linear Algebra",

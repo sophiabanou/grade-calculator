@@ -78,8 +78,11 @@
     "pass_rate": "Ποσοστό Επιτυχίας"
   },
   "toolbar": {
+    "filters": "Φίλτρα",
     "category": "Κατηγορία",
     "status": "Κατάσταση",
+    "major": "Κατεύθυνση",
+    "spec": "Ειδίκευση",
     "caption": "Φιλτράρισμα μαθημάτων"
   },
   "filters": {
@@ -93,7 +96,8 @@
     "project": "Project",
     "passed": "Περασμένα",
     "failed": "Αποτυχημένα",
-    "pending": "Σε Αναμονή"
+    "pending": "Σε Αναμονή",
+    "shared": "Κοινά"
   },
   "courses": {
     "lin_algebra": "Γραμμική Άλγεβρα",

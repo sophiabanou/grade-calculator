@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import {Button, Filter, Searchbar, Sort} from "./index.jsx";
+import {Button, Filter, Searchbar, ShowMyCourses, Sort} from "./index.jsx";
 import {useRef} from "react";
 import {RiFilter2Line} from "@remixicon/react";
 import {categories, statusOptions} from "../data/index.jsx";
@@ -43,9 +43,9 @@ const Toolbar = ({ selection, updateSelection, setSearchQuery,
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -10 }}
                                         transition={{ duration: 0.2, type: "tween", ease: "easeInOut" }}
-                                        className="overflow-x-hidden flex flex-col items-center gap-3 bg-light absolute left-0 top-12 z-50000 border-1 shadow-xl rounded border-dark p-3"
+                                        className="dark:bg-dmode dark:border-dmode-border overflow-x-hidden flex flex-col items-center gap-3 bg-light absolute left-0 top-12 z-50000 border-1 shadow-xl rounded border-dark p-3"
                                     >
-                                        <h3 className="font-bold text-primary">{languageData?.toolbar?.filters}</h3>
+                                        <h3 className="max-md:text-sms font-bold text-primary">{languageData?.toolbar?.filters}</h3>
                                         <Filter selectedOption={selection.category} setSelectedOption={(value) => updateSelection("category", value)}  data={categories} title={languageData?.toolbar?.category}/>
                                         <Filter selectedOption={selection.status} setSelectedOption={(value) => updateSelection("status", value)} data={statusOptions} title={languageData?.toolbar?.status} />
                                         <Filter selectedOption={selection.major} setSelectedOption={(value) => updateSelection("major", value)} data={majors} title={languageData?.toolbar?.major} />
@@ -61,7 +61,7 @@ const Toolbar = ({ selection, updateSelection, setSearchQuery,
 
                     <Sort sortBy={sortBy} setSortBy={setSortBy} sortDirection={sortDirection} setSortDirection={setSortDirection} />
 
-
+                    <ShowMyCourses/>
 
                 </div>
 

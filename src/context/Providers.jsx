@@ -40,6 +40,7 @@ export const AppProvider = ({ children }) => {
 
     const [filtersOpen, setFiltersOpen] = useState(false);
     const [sortOpen, setSortOpen] = useState(false);
+    const [showMyCoursesOpen, setShowMyCoursesOpen] = useState(false);
 
 
     // clears local storage. uncomment and comment the useEffect below
@@ -92,6 +93,8 @@ export const AppProvider = ({ children }) => {
         setSortOpen,
         filtersOpen,
         setFiltersOpen,
+        showMyCoursesOpen,
+        setShowMyCoursesOpen,
     };
 
     return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

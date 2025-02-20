@@ -83,7 +83,8 @@
     "status": "Status",
     "major": "Major",
     "spec": "Specialization",
-    "caption": "Filter courses"
+    "caption": "Filter courses",
+    "my_courses": "My courses"
   },
   "filters":{
     "ym": "Mandatory Courses",

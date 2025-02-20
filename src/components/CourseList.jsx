@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import { categories } from "../data";
 
 const CourseList = ({ index }) => {
-    const { allCourses } = useAppContext();
+    const { allCourses, showMyCoursesOpen, major, specializations } = useAppContext();
     const { languageData } = useLanguageContext();
 
     // filters + search
@@ -24,7 +24,17 @@ const CourseList = ({ index }) => {
         setSelection((prev) => ({ ...prev, [key]: value }));
     };
 
-    const filteredCourses = allCourses.filter((c) => {
+    const myCourses = allCourses.filter((c) => {
+        const matchedMajor = (major === "Undecided" || major === "") ? true :
+            (c.major[0] === major || c.major[0] === 'all');
+        const matchedSpec = (specializations.length === 0) ? true :
+            (c.spec[0] === "all" ||
+            c.spec.some(spec => specializations.includes(spec)));
+
+        return matchedMajor && matchedSpec;
+    })
+
+    const filteredCourses = (showMyCoursesOpen? myCourses : allCourses).filter((c) => {
         const matchesSearch = c.name.toLowerCase().includes(searchQuery.toLowerCase());
         const matchesCategory = selection.category === "All" || c.category === selection.category;
         const matchesMajor =
@@ -41,6 +51,7 @@ const CourseList = ({ index }) => {
 
         return matchesSearch && matchesCategory && matchesStatus && matchesMajor && matchesSpec;
     });
+
 
     // sort
     const [sortBy, setSortBy] = useState("alphabet");

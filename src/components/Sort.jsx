@@ -29,7 +29,7 @@ const Sort = ({ sortBy = "alphabet", setSortBy, sortDirection = "asc", setSortDi
 
     return (
         <motion.div
-            className="relative mr-2"
+            className="relative"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.2 }}

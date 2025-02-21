@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App.jsx";
 
 // handle localStorage clearing on new deployments
-const APP_VERSION = "0.0.1";
+const APP_VERSION = "0.0.2";
 const storedVersion = localStorage.getItem("app_version");
 
 if (storedVersion !== APP_VERSION) {

@@ -30,7 +30,7 @@ export const AppProvider = ({ children }) => {
     })
 
     // courses count, used to generate course ID
-    const [courseCount, setCourseCount] = useState(101 + userCourses.length);
+    const [courseCount, setCourseCount] = useState(103 + userCourses.length);
 
     // all courses appended with an indication for fixed courses
     const [allCourses, setAllCourses] = useState([

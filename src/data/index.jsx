@@ -69,7 +69,7 @@ export const fixedCoursesData = [
     {id: 56, name: "log_prog", credits: 6, category: "opt", grade: null,major:["A"], spec:["S2"]},
     {id: 57, name: "ai_2", credits: 6, category: "opt", grade: null,major:["A"], spec:["S2"]},
     {id: 58, name: "data_mining_tech", credits: 6, category: "opt", grade: null,major:["A"], spec:["S2"]},
-    {id: 59, name: "web_app_tech", credits: 6, category: "opt", grade: null,major:["A"], spec:["S1","S2"]},
+    {id: 59, name: "web_app_tech", credits: 6, category: "opt", grade: null,major:["all"], spec:["S3","S5"]},
     {id: 60, name: "algo_bus_research", credits: 6, category: "opt", grade: null,major:["all"], spec:["S1","S2","S6"]},
     {id: 61, name: "comp_sci_edu", credits: 6, category: "opt", grade: null,major:["all"], spec:["all"]},
     {id: 62, name: "reinforcement_learn_and_stochastic_games", credits: 6, category: "opt", grade: null,major:["all"], spec:["all"]},
@@ -108,12 +108,14 @@ export const fixedCoursesData = [
     {id: 95,name: "speech_and_natural_lang_proc", credits: 6, category: "opt", grade:null,major:["all"], spec:["all"]},
     {id: 96,name: "e_gov", credits: 4, category: "opt", grade:null,major:["all"], spec:["all"]},
     {id: 97,name: "info_and_edu", credits: 4, category: "opt", grade:null,major:["all"], spec:["all"]},
+    {id: 98,name: "comp_architecture_2", credits: 6, category: "opt", grade:null,major:["A"], spec:["S3"]},
+    {id: 99,name: "compilers", credits: 6, category: "opt", grade:null,major:["B"], spec:["S4"]},
 
     // ΠΤΥΧΙΑΚΗ / ΠΡΑΚΤΙΚΗ
-    {id: 98,name: "thesis_1", credits: 8, category: "pe_pa", grade:null,major:["all"], spec:["all"]},
-    {id: 99,name: "thesis_2", credits: 8, category: "pe_pa", grade:null,major:["all"], spec:["all"]},
-    {id: 100,name: "internship_1", credits: 8, category: "pe_pa", grade:null,major:["all"], spec:["all"]},
-    {id: 101,name: "internship_2", credits: 8, category: "pe_pa", grade:null,major:["all"], spec:["all"]},
+    {id: 99,name: "thesis_1", credits: 8, category: "pe_pa", grade:null,major:["all"], spec:["all"]},
+    {id: 100,name: "thesis_2", credits: 8, category: "pe_pa", grade:null,major:["all"], spec:["all"]},
+    {id: 101,name: "internship_1", credits: 8, category: "pe_pa", grade:null,major:["all"], spec:["all"]},
+    {id: 102,name: "internship_2", credits: 8, category: "pe_pa", grade:null,major:["all"], spec:["all"]},
 ]
 
 

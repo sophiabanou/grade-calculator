@@ -7,8 +7,11 @@
       "course": "Class Name",
       "credits": "Credits",
       "grade": "Grade",
-      "category": "Category"
+      "category": "Category",
+      "major": "Major",
+      "spec": "Specialization"
     },
+    "all": "Shared",
     "errors": {
       "no_name": "Enter a name",
       "no_credits": "Enter credits",

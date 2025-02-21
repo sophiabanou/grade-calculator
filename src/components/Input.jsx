@@ -4,6 +4,7 @@ import {useLanguageContext} from "../context/Hooks";
 const Input = ({type, handler, hasError, onKeyDown=null,   title="", value, data=[]}) => {
     const {languageData} = useLanguageContext();
 
+    console.log(data)
     return (
         <>
             {(type === "text") ? (
@@ -41,7 +42,9 @@ const Input = ({type, handler, hasError, onKeyDown=null,   title="", value, data
                         <option value="">{title}</option>
                         {data.map((cat, index) => (
                             <option key={index} value={cat}>
-                                {languageData?.filters?.[cat] || cat}
+                                {   cat === 'all' ? (languageData?.new_course?.all) :
+                                    languageData?.filters?.[cat] || cat
+                                }
                             </option>
                         ))}
                     </select>

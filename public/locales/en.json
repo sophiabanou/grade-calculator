@@ -89,7 +89,7 @@
   "filters":{
     "ym": "Mandatory Courses",
     "gp": "General Education",
-    "ey": "Elective Compulsory Courses",
+    "ey": "Elective Mandatory Courses",
     "per": "Independent Optional Labs",
     "opt": "Optional Courses",
     "el": "Free Electives",
@@ -209,19 +209,27 @@
     "back_caption": "Go back",
     "pass_message": "You can get a degree!",
     "fail_message": "You can't get a degree yet",
-    "case_1": {
-      "ey_spec": "Specialization Elective Mandatory",
-      "ey_maj": "Major Elective Mandatory"
+    "cases": {
+      "case": "Case",
+      "case1": "   IN DEPTH KNOWLEDGE OF 1 SPECIALIZATION",
+      "case2": "   IN DEPTH KNOWLEDGE OF 2 SPECIALIZATIONS OF THE SAME MAJOR",
+      "case3": "   IN DEPTH KNOWLEDGE OF 2 SPECIALIZATIONS OF 2 MAJORS",
+      "case4": "   HORIZONTAL KNOWLEDGE WITHOUT SPECIALIZATION"
     },
     "checks": {
       "pe_pa": "Thesis / Internship",
       "ym": "Mandatory Courses",
       "gp": "General Courses",
-      "ey": "Elective Mandatory Courses",
-      "opt": "Optional Courses",
+      "ey": "Elective Mandatory Courses of Major",
+      "opt": "Optional Courses of Specialization",
+      "optm": "Optional Courses of Major",
       "project": "Project",
-      "credits": "Total Courses"
-    }
+      "credits": "Total Courses",
+      "eyx": "Elective Mandatory Courses of Specialization",
+      "opt2": "Specialization Optional Courses Covered",
+      "extra" : "Extra Elective Mandatory/Optional Courses"
+    },
+    "no_major": "Please enter a major"
   },
   "major_spec": {
     "title": "Choose Major And Specialization",

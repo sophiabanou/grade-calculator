@@ -35,7 +35,7 @@ const CourseList = ({ index }) => {
     })
 
     const filteredCourses = (showMyCoursesOpen? myCourses : allCourses).filter((c) => {
-        const matchesSearch = c.name.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesSearch = languageData?.courses?.[c.name].toLowerCase().includes(searchQuery.toLowerCase());
         const matchesCategory = selection.category === "All" || c.category === selection.category;
         const matchesMajor =
             selection.major === "All" ||

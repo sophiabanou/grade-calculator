@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 const DegreeCheckItem = ({head, flag, startPass, end, startNoPass = startPass}) => {
     return (
-        <li className="flex gap-2 w-full flex justify-between items-end dark:text-dark-grey dark:font-light">
+        <li className="px-4 flex gap-2 w-full flex justify-between items-end dark:text-dark-grey dark:font-light">
             <p className="max-md:text-sm max-lg:w-50 break-words ">{head}:</p>
             {flag ? (
                 <div>

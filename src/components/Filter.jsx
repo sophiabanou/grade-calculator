@@ -1,21 +1,26 @@
 import PropTypes from "prop-types";
 import {useLanguageContext} from "../context/Hooks";
 
-const Filter = ({ selectedOption, setSelectedOption, data, title}) => {
+const Filter = ({ selectedOption, setSelectedOption, data, title }) => {
     const {languageData} = useLanguageContext();
+
+    const handleChange = (e) => {
+        console.log(e.target.value);
+        setSelectedOption(e.target.value);
+    }
 
     return (
         <>
             <select
                 value={selectedOption}
-                onChange={(e) => setSelectedOption(e.target.value)}
-                className="dark:bg-dmode-input dark:border-dmode-input  dark:text-dark-grey max-h-10 max-w-[250px] ml-2 p-2 pl-4 pr-2 bg-light rounded border-1 border-dark outline-none
-                    lin-transition  w-[15vw]  hover:cursor-pointer max-md:px-1 max-md:text-sm max-md:w-[17vw] "
+                onChange={handleChange}
+                className="dark:bg-dmode-input dark:border-dmode-input  dark:text-dark-grey max-h-10  p-2 pl-4 pr-2 bg-light rounded border-1 border-dark outline-none
+                    lin-transition hover:cursor-pointer max-md:px-1 max-md:text-sm w-[300px] max-md:w-[250px] "
             >
                 <option value="All">{title}</option>
                 {data.map((item) => (
                     <option key={String(item)} value={String(item)} >
-                        {languageData?.filters?.[item]}
+                        {languageData?.filters?.[item] || item}
                     </option>
                 ))}
             </select>

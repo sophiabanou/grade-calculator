@@ -13,6 +13,13 @@ const AddNewCourse = ({index}) => {
     const [credits, setCredits] = useState("");
     const [grade, setGrade] = useState("");
     const [category, setCategory] = useState("");
+    const [major, setMajor] = useState("");
+    const [spec, setSpec] = useState([]);
+
+
+    const cats = ["el", "opt"];
+    const majors = ["A", "B", "all"];
+    const specs = ["S1","S2","S3","S4","S5","S6"];
 
     // errors
     const [nameHasError, setNameHasError] = useState(false);
@@ -26,6 +33,12 @@ const AddNewCourse = ({index}) => {
 
     const [categoryHasError, setCategoryHasError] = useState(false);
     const [categoryError, setCategoryError] = useState("");
+
+    const [majorHasError, setMajorHasError] = useState(false);
+    const [majorError, setMajorError] = useState("");
+
+    const [specHasError, setSpecHasError] = useState(false);
+    const [specError, setSpecError] = useState("");
 
     // confirmation message
     const [confirmationOpen, setConfirmationOpen] = useState(false);
@@ -69,6 +82,18 @@ const AddNewCourse = ({index}) => {
         setCategoryHasError(false);
         setCategoryError("");
         setCategory(e.target.value);
+    }
+
+    const handleMajorChange = (e) => {
+        setMajorHasError(false);
+        setMajorError("");
+        console.log(e.target.value);
+        setMajor(e.target.value);
+    }
+    const handleSpecChange = (e) => {
+        setSpecHasError(false);
+        setSpecError("");
+        setSpec(e.target.value);
     }
 
     // form submit handler
@@ -157,7 +182,14 @@ const AddNewCourse = ({index}) => {
                     <div className="w-full h-1 bg-transparent"></div>
 
                     <CourseError message={categoryError} error={categoryHasError} />
-                    <Input type="select" handler={handleCategoryChange} hasError={categoryHasError} title={languageData?.new_course?.fields?.category} value={category} data={categories}/>
+                    <Input type="select" handler={handleCategoryChange} hasError={categoryHasError} title={languageData?.new_course?.fields?.category} value={category} data={cats}/>
+                    <div className="w-full h-1 bg-transparent"></div>
+
+                    <CourseError message={categoryError} error={categoryHasError} />
+                    <div className="flex gap-3">
+                        <Input type="select" handler={handleMajorChange} hasError={majorHasError} title={languageData?.new_course?.fields?.major} value={major} data={majors}/>
+                        <Input type="select" handler={handleCategoryChange} hasError={categoryHasError} title={languageData?.new_course?.fields?.spec} value={category} data={specs}/>
+                    </div>
 
                     <button
                         type="submit"

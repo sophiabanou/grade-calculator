@@ -30,13 +30,17 @@ export const AppProvider = ({ children }) => {
     })
 
     // courses count, used to generate course ID
-    const [courseCount, setCourseCount] = useState(101 + userCourses.length);
+    const [courseCount, setCourseCount] = useState(105 + userCourses.length);
 
     // all courses appended with an indication for fixed courses
     const [allCourses, setAllCourses] = useState([
         ...userCourses,
         ...fixedCourses.map((fc) => ({ ...fc, isFixed: true })),
     ]);
+
+    const [filtersOpen, setFiltersOpen] = useState(false);
+    const [sortOpen, setSortOpen] = useState(false);
+    const [showMyCoursesOpen, setShowMyCoursesOpen] = useState(false);
 
 
     // clears local storage. uncomment and comment the useEffect below
@@ -84,7 +88,13 @@ export const AppProvider = ({ children }) => {
         major,
         setMajor,
         specializations,
-        setSpecializations
+        setSpecializations,
+        sortOpen,
+        setSortOpen,
+        filtersOpen,
+        setFiltersOpen,
+        showMyCoursesOpen,
+        setShowMyCoursesOpen,
     };
 
     return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

@@ -5,10 +5,10 @@ const MajorBadge = ({course}) => {
     const spec = course?.spec;
 
     return (
-        <div className="absolute top-2 left-11 flex gap-1">
+        <div className="ml-8 flex gap-1">
             <>
                 {major[0]!== 'all' ?(
-                    <div className={`${major[0] === 'A'? "bg-red-300 dark:bg-red-800": "bg-purple-300 dark:bg-purple-800" } dark:opacity-70 px-2 rounded-lg`}>
+                    <div className={`${major[0] === 'A'? "bg-red-300 dark:bg-badge-red": "bg-purple-300 dark:bg-badge-purple" }  px-2 rounded-lg`}>
                         <p className="text-xs text-light font-semibold">{major[0]}</p>
                     </div>
                 ) : null}

@@ -7,25 +7,50 @@ import PropTypes from "prop-types";
 import { categories } from "../data";
 
 const CourseList = ({ index }) => {
-    const { allCourses } = useAppContext();
+    const { allCourses, showMyCoursesOpen, major, specializations } = useAppContext();
     const { languageData } = useLanguageContext();
 
     // filters + search
     const [searchQuery, setSearchQuery] = useState("");
-    const [selectedCategory, setSelectedCategory] = useState("All");
-    const [selectedStatus, setSelectedStatus] = useState("All");
 
-    const filteredCourses = allCourses.filter((c) => {
-        const matchesSearch = c.name.toLowerCase().includes(searchQuery.toLowerCase());
-        const matchesCategory = selectedCategory === "All" || c.category === selectedCategory;
-        const matchesStatus =
-            selectedStatus === "All" ||
-            (selectedStatus === "pending" && (c.grade === null || c.grade === "" || c.grade === undefined)) ||
-            (selectedStatus === "passed" && c.grade >= 5) ||
-            (selectedStatus === "failed" && (c.grade !== "" && c.grade !== null) && c.grade < 5);
-
-        return matchesSearch && matchesCategory && matchesStatus;
+    const [selection, setSelection] = useState({
+        category: "All",
+        status: "All",
+        major: "All",
+        spec: "All",
     });
+
+    const updateSelection = (key, value) => {
+        setSelection((prev) => ({ ...prev, [key]: value }));
+    };
+
+    const myCourses = allCourses.filter((c) => {
+        const matchedMajor = (major === "Undecided" || major === "") ? true :
+            (c.major[0] === major || c.major[0] === 'all');
+        const matchedSpec = (specializations.length === 0) ? true :
+            c.spec.some(spec => specializations.includes(spec));
+
+        return matchedMajor || matchedSpec;
+    })
+
+    const filteredCourses = (showMyCoursesOpen? myCourses : allCourses).filter((c) => {
+        const matchesSearch = languageData?.courses?.[c.name].toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesCategory = selection.category === "All" || c.category === selection.category;
+        const matchesMajor =
+            selection.major === "All" ||
+            (selection.major === "shared" && c.major[0] === "all") ||
+            (c.major[0] === selection.major);
+        const matchesSpec = selection.spec === "All" || c.spec.includes(selection.spec);
+
+        const matchesStatus =
+            selection.status === "All" ||
+            (selection.status === "pending" && (c.grade === null || c.grade === "" || c.grade === undefined)) ||
+            (selection.status === "passed" && c.grade >= 5) ||
+            (selection.status === "failed" && (c.grade !== "" && c.grade !== null) && c.grade < 5);
+
+        return matchesSearch && matchesCategory && matchesStatus && matchesMajor && matchesSpec;
+    });
+
 
     // sort
     const [sortBy, setSortBy] = useState("alphabet");
@@ -74,10 +99,8 @@ const CourseList = ({ index }) => {
     return (
         <BoxLayout title={languageData?.course_list?.title} index={index}>
             <Toolbar
-                selectedCategory={selectedCategory}
-                setSelectedCategory={setSelectedCategory}
-                selectedStatus={selectedStatus}
-                setSelectedStatus={setSelectedStatus}
+                selection={selection}
+                updateSelection={updateSelection}
                 setSearchQuery={setSearchQuery}
                 sortBy={sortBy}
                 setSortBy={setSortBy}

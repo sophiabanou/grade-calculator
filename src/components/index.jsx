@@ -27,6 +27,7 @@ import DegreeCheck from "./DegreeCheck";
 import DegreeCheckItem from "./DegreeCheckItem";
 import MajorSpecialization from "./MajorSpecialization";
 import MajorBadge from "./MajorBadge";
+import ShowMyCourses from "./ShowMyCourses";
 
 export {
     Header,
@@ -57,5 +58,6 @@ export {
     DegreeCheck,
     DegreeCheckItem,
     MajorSpecialization,
-    MajorBadge
+    MajorBadge,
+    ShowMyCourses,
 }

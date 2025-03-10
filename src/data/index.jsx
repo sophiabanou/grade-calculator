@@ -116,6 +116,9 @@ export const fixedCoursesData = [
     {id: 100,name: "thesis_2", credits: 8, category: "pe_pa", grade:null,major:["all"], spec:["all"]},
     {id: 101,name: "internship_1", credits: 8, category: "pe_pa", grade:null,major:["all"], spec:["all"]},
     {id: 102,name: "internship_2", credits: 8, category: "pe_pa", grade:null,major:["all"], spec:["all"]},
+
+    {id: 103,name: "free_1", credits: 2, category: "el", grade:null,major:["all"], spec:["all"]},
+    {id: 104,name: "free_2", credits: 2, category: "el", grade:null,major:["all"], spec:["all"]},
 ]
 
 

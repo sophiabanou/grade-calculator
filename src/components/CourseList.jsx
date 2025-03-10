@@ -28,10 +28,9 @@ const CourseList = ({ index }) => {
         const matchedMajor = (major === "Undecided" || major === "") ? true :
             (c.major[0] === major || c.major[0] === 'all');
         const matchedSpec = (specializations.length === 0) ? true :
-            (c.spec[0] === "all" ||
-            c.spec.some(spec => specializations.includes(spec)));
+            c.spec.some(spec => specializations.includes(spec));
 
-        return matchedMajor && matchedSpec;
+        return matchedMajor || matchedSpec;
     })
 
     const filteredCourses = (showMyCoursesOpen? myCourses : allCourses).filter((c) => {

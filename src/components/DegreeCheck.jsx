@@ -202,7 +202,8 @@ const DegreeCheck = ({index}) => {
 
     return (
         <BoxLayout index={index} title={languageData?.degree_check?.title}>
-            <div className="w-full h-full flex flex-col justify-center items-center py-2 pb-10 gap-1">
+            <div className="w-full h-full flex flex-col justify-center items-center py-2 pb-5 gap-1">
+
                 <AnimatePresence mode="wait">
                     {!showStats ? (
                         <motion.button

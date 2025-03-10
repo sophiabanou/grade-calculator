@@ -28,7 +28,7 @@ export default function Home() {
           </div>
           <div className="w-full flex gap-10 max-md:flex-col max-md:gap-5">
             <DegreeCheck index={3} />
-            <AddNewCourse index={4} />
+
           </div>
 
           <CourseList index={5} />

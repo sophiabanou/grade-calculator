@@ -204,7 +204,9 @@
     "thesis_1": "Thesis I",
     "thesis_2": "Thesis II",
     "internship_1": "Internship I",
-    "internship_2": "Internship II"
+    "internship_2": "Internship II",
+    "free_1": "Free Course I",
+    "free_2": "Free Course II"
   },
   "degree_check": {
     "title": "Can I Get A Degree?",
@@ -241,5 +243,9 @@
     "button": "Confirm",
     "error": "You can only pick up to 2 specializations",
     "message": "Successfully changed major / specializations!"
+  },
+  "about": {
+    "title": "About",
+    "text": "Project for calculation of grade / ects for the Department of Informatics and Telecommunications of UoA. For bugs / questions you can contact me at  "
   }
 }

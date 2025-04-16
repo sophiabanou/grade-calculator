@@ -6,7 +6,7 @@ A web app built with **React**, **Vite**, and **Tailwind CSS** to help students 
 
 <p align="center">
   <img src="./preview.jpg" alt="Grade Calculator Preview" width="100%"/>
-</p
+</p>
 
 ## Features
 

@@ -7,8 +7,11 @@
       "course": "Class Name",
       "credits": "Credits",
       "grade": "Grade",
-      "category": "Category"
+      "category": "Category",
+      "major": "Major",
+      "spec": "Specialization"
     },
+    "all": "Shared",
     "errors": {
       "no_name": "Enter a name",
       "no_credits": "Enter credits",
@@ -78,14 +81,18 @@
     "pass_rate": "Pass Rate"
   },
   "toolbar": {
+    "filters": "Filters",
     "category": "Category",
     "status": "Status",
-    "caption": "Filter courses"
+    "major": "Major",
+    "spec": "Specialization",
+    "caption": "Filter courses",
+    "my_courses": "My courses"
   },
   "filters":{
     "ym": "Mandatory Courses",
     "gp": "General Education",
-    "ey": "Elective Compulsory Courses",
+    "ey": "Elective Mandatory Courses",
     "per": "Independent Optional Labs",
     "opt": "Optional Courses",
     "el": "Free Electives",
@@ -93,7 +100,8 @@
     "project": "Project",
     "passed": "Passed",
     "failed": "Failed",
-    "pending": "Pending"
+    "pending": "Pending",
+    "shared": "Shared"
   },
   "courses": {
     "lin_algebra": "Linear Algebra",
@@ -196,7 +204,9 @@
     "thesis_1": "Thesis I",
     "thesis_2": "Thesis II",
     "internship_1": "Internship I",
-    "internship_2": "Internship II"
+    "internship_2": "Internship II",
+    "free_1": "Free Course I",
+    "free_2": "Free Course II"
   },
   "degree_check": {
     "title": "Can I Get A Degree?",
@@ -204,15 +214,27 @@
     "back_caption": "Go back",
     "pass_message": "You can get a degree!",
     "fail_message": "You can't get a degree yet",
+    "cases": {
+      "case": "Case",
+      "case1": "   IN DEPTH KNOWLEDGE OF 1 SPECIALIZATION",
+      "case2": "   IN DEPTH KNOWLEDGE OF 2 SPECIALIZATIONS OF THE SAME MAJOR",
+      "case3": "   IN DEPTH KNOWLEDGE OF 2 SPECIALIZATIONS OF 2 MAJORS",
+      "case4": "   HORIZONTAL KNOWLEDGE WITHOUT SPECIALIZATION"
+    },
     "checks": {
       "pe_pa": "Thesis / Internship",
       "ym": "Mandatory Courses",
       "gp": "General Courses",
-      "ey": "Elective Mandatory Courses",
-      "opt": "Optional Courses",
+      "ey": "Elective Mandatory Courses of Major",
+      "opt": "Optional Courses of Specialization",
+      "optm": "Optional Courses of Major",
       "project": "Project",
-      "credits": "Total Courses"
-    }
+      "credits": "Total Courses",
+      "eyx": "Elective Mandatory Courses of Specialization",
+      "opt2": "Specialization Optional Courses Covered",
+      "extra" : "Extra Elective Mandatory/Optional Courses"
+    },
+    "no_major": "Please enter a major"
   },
   "major_spec": {
     "title": "Choose Major And Specialization",
@@ -221,5 +243,9 @@
     "button": "Confirm",
     "error": "You can only pick up to 2 specializations",
     "message": "Successfully changed major / specializations!"
+  },
+  "about": {
+    "title": "About",
+    "text": "Project for calculation of grade / ects for the Department of Informatics and Telecommunications of UoA. For bugs / questions you can contact me at  "
   }
 }

@@ -4,6 +4,10 @@
 
 A web app built with **React**, **Vite**, and **Tailwind CSS** to help students track their academic progress based on their grades and credits.
 
+<p align="center">
+  <img src="./preview.jpg" alt="Grade Calculator Preview" width="600" />
+</p
+
 ## Features
 
 - **Degree Progress Tracking**: Calculate and visualize your academic journey.
@@ -22,12 +26,6 @@ A web app built with **React**, **Vite**, and **Tailwind CSS** to help students 
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
   <img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
   <img src="https://img.shields.io/badge/-framer-05F?logo=framer&logoColor=white&style=for-the-badge" />&nbsp;
-</p>
-
-## Preview
-
-<p align="center">
-  <img src="./preview.png" alt="Grade Calculator Preview" width="600" />
 </p>
 
 ## Links

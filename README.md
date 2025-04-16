@@ -5,7 +5,7 @@
 A web app built with **React**, **Vite**, and **Tailwind CSS** to help students track their academic progress based on their grades and credits.
 
 <p align="center">
-  <img src="./preview.jpg" alt="Grade Calculator Preview" width="600" />
+  <img src="./preview.jpg" alt="Grade Calculator Preview" width="100%"/>
 </p
 
 ## Features

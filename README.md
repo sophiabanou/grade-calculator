@@ -27,7 +27,7 @@ A web app built with **React**, **Vite**, and **Tailwind CSS** to help students 
 ## Preview
 
 <p align="center">
-  <img src="./preview.png" alt="Grade Calculator Preview" width="700" />
+  <img src="./preview.png" alt="Grade Calculator Preview" width="600" />
 </p>
 
 ## Links

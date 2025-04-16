@@ -22,10 +22,9 @@ A web app built with **React**, **Vite**, and **Tailwind CSS** to help students 
 
 <p align="left">
   <img src="https://img.shields.io/badge/-react-%2320232a?logo=react&logoColor=%2361DAFB&style=for-the-badge" />
-   <img src="https://img.shields.io/badge/-javascript-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge" />&nbsp;
+   <img src="https://img.shields.io/badge/-javascript-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge" />
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
   <img src="https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" />
-  <img src="https://img.shields.io/badge/-framer-05F?logo=framer&logoColor=white&style=for-the-badge" />&nbsp;
 </p>
 
 ## Links
